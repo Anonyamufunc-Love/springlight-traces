@@ -1,0 +1,742 @@
+---
+toc_min_heading_level: 2
+toc_max_heading_level: 5
+---
+
+
+# 属性 —— Property
+
+:::tip
+本章内容仍在逐步完善与更新中，更多精彩敬请期待！
+:::
+
+在上一章关于 `Layer` 对象的讨论中，我们已经初步接触了 After Effects 中管理图层参数的核心机制：通过 `layer.property()` 方法来访问其内部的属性和属性组。这一章，我们将更加深入地剖析 `Property` 和 `PropertyGroup` 这两个至关重要的概念，它们是构成 After Effects 图层可控制性的基石，也是实现复杂动画和效果自动化的关键。
+
+正如我们所了解到的，可以将 **`PropertyGroup` 理解为一个容器或文件夹**，它可以容纳其他 `PropertyGroup` (形成嵌套结构)，或者直接包含具体的 **`Property` (即独立的、可控制的属性值)**。这种分层组织的方式，是 After Effects 用来管理图层乃至项目中海量参数的通用策略。
+
+一个关键点是，**`Layer` 对象本身就继承自 `PropertyGroup`**。这意味着图层自身就是一个顶级的属性容器，其内部通过属性组的形式，有序地组织了图层的所有可控制方面，例如：
+
+*   **变换 (Transform)**：包含位置、旋转、缩放、不透明度等。
+*   **效果 (Effects)**：包含应用到图层上的所有效果，每个效果本身通常也是一个属性组。
+
+我们通过 `layer.property(nameOrIndex)` 方法获取到的对象，其类型可能是 `Property`（一个具体的属性）、`PropertyGroup`（一个属性的集合/文件夹）或专门的 `MaskPropertyGroup`（它们都属于 `_PropertyClasses` 联合类型）。这种设计的灵活性意味着，如果获取到的是一个 `PropertyGroup`，我们便可以继续对其调用 `property()` 方法，实现对属性层层深入的访问，直至找到我们想要控制的具体 `Property`。
+
+例如，在操作图层位置时，我们首先从 `Layer` 对象（一个 `PropertyGroup`）中获取“变换”属性组（`layer.transform`，它本身也是一个 `PropertyGroup`），然后再从“变换”组中获取“位置”属性（`transform.position`，这是一个 `Property`）。我们还了解到，诸如“位置”这样的属性，其数据类型可能是特定的（如 `TwoDOrThreeDProperty`，可以存储二维或三维数据），并且修改其值需要使用 `setValue()` 方法，而非直接对其 `value` 属性进行赋值（因为 `value` 属性通常是只读的）。如果希望创建动画，让属性值随时间变化，则需要使用 `setValueAtTime()` 方法来设置关键帧。
+
+第六章的代码示例为我们展示了这一过程：
+
+```ts
+// 假设 comp 是一个有效的合成对象
+const layer = comp.layer(1); // 获取第一个图层 (Layer 对象，也是一个 PropertyGroup)
+
+// 访问变换属性组 (PropertyGroup)
+const transformGroup = layer.transform; // 或者 layer.property("Transform");
+
+// 从变换属性组中访问位置属性 (Property)
+const positionProperty = transformGroup.position; // 或者 transformGroup.property("Position");
+
+// 修改位置属性的值
+positionProperty.setValue([100, 200, 0]);
+
+// 设置第一秒的关键帧
+positionProperty.setValueAtTime(1, [150, 250, 0]);
+```
+
+这些操作都依赖于对 `Property` 和 `PropertyGroup` 对象及其能力的理解。
+
+本章的目标，就是对 `Property` 和 `PropertyGroup` 对象本身提供的 API 接口进行一次全面而详细的探讨。
+
+> 注意：本章内容仍在逐步完善与更新中，更多精彩敬请期待！
+
+> 并不会太全面的覆盖所有方法和属性，也请自行查阅 [接口文档](../api/AfterEffects/22.0/classes/Property)
+
+掌握了 `Property` 和 `PropertyGroup` 的核心知识后，你将能够精确地读取、修改和动画化 After Effects 项目中的几乎所有参数，为编写强大的自动化脚本和定制工具打下坚实的基础。随后，我们才会继续介绍如 `AVLayer`、`CameraLayer` 等特定类型的图层，因为对属性的深刻理解是掌握这些具体图层类型特性和控制方法的前提。
+
+## PropertyBase
+
+`PropertyBase` 是 `Property`、`PropertyGroup` 和 `MaskPropertyGroup` 对象的基类，它定义了这些对象共有的属性和方法。
+
+### 属性
+
+- active
+- canSetEnabled
+- elided
+- enabled
+- isEffect
+- isMask
+- isModified
+- matchName
+- name
+- parentProperty
+- propertyDepth
+- propertyIndex
+- propertyType
+- selected
+
+我们已经熟悉 `name` 和 `matchName` 属性，它们分别代表属性的名称和匹配名称，因此这里不再详述。
+
+#### propertyType
+
+`propertyType` 属性表示属性的类型，它是一个枚举值，取值为以下几种：
+
+```ts
+declare enum PropertyType {
+  INDEXED_GROUP = 6214,
+  NAMED_GROUP = 6213,
+  PROPERTY = 6212,
+}
+```
+
+我们可以通过 `propertyType` 属性来判断一个属性对象具体属于哪种类型。
+
+#### parentProperty
+
+`parentProperty` 属性表示当前属性所属的父属性组。如果当前属性没有父属性组，则该属性的值为 `null`。
+
+```ts
+const layer = comp.layer(1); // 获取第一个图层
+const transformGroup = layer.transform; // 获取变换属性组
+
+const positionProperty = transformGroup.position; // 获取位置属性
+
+const parentProperty = positionProperty.parentProperty; // 获取父属性组，即 变换
+```
+
+#### propertyDepth
+
+`propertyDepth` 属性表示当前属性的深度。它是一个整数，从 0 开始计数，表示当前属性在属性层级中的深度。
+
+例如，在一个典型的层级结构中：
+- 图层 (深度 0) > 变换 (深度 1) > 位置 (深度 2)
+
+#### propertyIndex
+
+`propertyIndex` 属性表示当前属性在其父属性组中的索引。如果当前属性没有父属性组，则该属性返回 `undefined`。
+
+例如：
+
+```ts
+const layer = comp.layer(1); // 获取第一个图层
+const transformGroup = layer.transform; // 获取变换属性组
+
+let transformGroupIndex = transformGroup.propertyIndex; // 假设其值为 6
+
+const tg = transformGroup.property(transformGroupIndex); // 通过索引获取变换属性组
+```
+
+### 方法
+
+- duplicate()
+- moveTo()
+- property() - 传递参数时，可以是属性名称或索引
+- propertyGroup()
+- remove()
+
+#### duplicate()
+
+`duplicate()` 方法用于复制当前属性，并返回复制后生成的新属性。
+
+#### remove()
+
+`remove()` 方法用于删除当前属性。
+
+#### property()
+
+`property()` 方法用于获取当前属性的子属性、子属性组或子遮罩属性组。如果指定的子属性不存在，则返回 `null`。
+
+它返回一个 `_PropertyClasses` 联合类型，其实际类型可以是 `Property`、`PropertyGroup` 或 `MaskPropertyGroup`。
+
+实际上，通过层或属性组对象上直接提供的 `transform`、`position` 等便捷属性，我们能更直接地访问到这些常用的子属性，而无需总是调用 `property()` 方法。
+
+```ts
+const layer = comp.layer(1); // 获取第一个图层
+const transformGroup = layer.transform; // 获取变换属性组
+
+const positionProperty = transformGroup.position; // 获取位置属性
+```
+
+接下来，让我们演示如何使用 `property()` 方法获取子属性：
+
+:::tip
+小提示：
+
+你可以通过以下代码循环输出一个属性的所有子属性的名称及其匹配名称：
+
+```ts
+// property 是某个属性组对象
+for (let p = 1; p <= property.numProperties; p++) {
+  $.writeln(property.property(p).name + " -> " + property.property(p).matchName);
+}
+```
+
+执行后，可能会输出类似以下的结果：
+
+标记 -> ADBE Marker
+
+时间重映射 -> ADBE Time Remapping
+
+动态跟踪器 -> ADBE MTrackers
+
+蒙版 -> ADBE Mask Parade
+
+效果 -> ADBE Effect Parade
+
+变换 -> ADBE Transform Group
+:::
+
+```ts
+const layer = comp.layer(1);
+
+// 通过 property() 方法获取变换属性组
+const transformGroup = layer.property("ADBE Transform Group");
+
+if (!(transformGroup instanceof PropertyGroup) || !transformGroup) {
+  throw new Error("这不是一个属性组");
+}
+
+// 通过 property() 方法获取位置属性
+const positionProperty = transformGroup.property("ADBE Position");
+
+if (!(positionProperty instanceof Property) || !positionProperty) {
+  throw new Error("这不是一个属性");
+}
+ 
+// 这里，我们已经知道了是什么类型，于是使用强制类型转换来获取具体的类型
+// 但是，如果我们在实战中，并不确定的话，使用强制类型转换是非常危险的！
+// 我们可以使用 propertyValueType 属性来判断属性值的类型，并进行相应的类型转换。
+// 将在后面的章节中详细介绍。
+const position = positionProperty.value as TwoDOrThreeDProperty;
+```
+
+如果你不确定某个 `property()` 调用返回的是属性、属性组还是其他类型，可以充分利用 `ExtendScript Debugger` 的调试控制台来实时查看对象的具体返回类型。
+
+```
+> app.project.activeItem.selectedLayers[0].transform.property("ADBE Position")
+[object Property]
+```
+
+## Property
+
+`Property` 类继承自 `PropertyBase`，并在其基础上增加了许多与属性值相关的特有属性和方法。
+
+### 属性
+
+- propertyValueType
+- value
+- hasMin
+- hasMax
+- minValue
+- maxValue
+- isSpatial
+- canVaryOverTime
+- canSetExpression
+- isTimeVarying
+- numKeys
+- unitsText
+- expressionError
+- selectedKeys
+- propertyIndex
+- isSeparationFollower
+- isSeparationLeader
+- separationDimension
+- separationLeader
+- isDropdownEffect
+- alternateSource
+- canSetAlternateSource
+- essentialPropertySource
+- expression
+- expressionEnabled
+- dimensionsSeparated
+
+#### propertyValueType
+
+`propertyValueType` 属性表示属性值的类型。它是一个枚举值，取值为以下几种：
+
+```ts
+declare enum PropertyValueType {
+  COLOR = 6418,
+  CUSTOM_VALUE = 6419,
+  LAYER_INDEX = 6421,
+  MARKER = 6420,
+  MASK_INDEX = 6422,
+  NO_VALUE = 6412,
+  OneD = 6417,
+  SHAPE = 6423,
+  TEXT_DOCUMENT = 6424,
+  ThreeD = 6414,
+  ThreeD_SPATIAL = 6413,
+  TwoD = 6416,
+  TwoD_SPATIAL = 6415,
+}
+```
+
+在 TypeScript 环境中，许多内置接口利用了 `PropertyValueType` 枚举来提供更精确的类型定义。
+
+```ts
+declare interface UnknownPropertyType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType
+  value: any
+}
+
+declare interface NoValueType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.NO_VALUE
+  value: any
+}
+
+type ColorValue = [number, number, number, number]
+type ThreeDColorValue = [number, number, number]
+
+declare interface ColorType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.COLOR
+  value: ColorValue
+}
+
+declare interface BooleanType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.OneD
+  value: boolean
+}
+declare interface OneDType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.OneD
+  value: number
+}
+
+declare interface TwoDType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.TwoD
+  value: TwoDPoint
+}
+
+type TwoDPoint = [number, number]
+declare interface TwoDSpatialType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.TwoD_SPATIAL
+  value: TwoDPoint
+}
+
+type ThreeDPoint = [number, number, number]
+
+declare interface ThreeDType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.ThreeD
+  value: ThreeDPoint
+}
+
+declare interface TextDocumentType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.TEXT_DOCUMENT
+  value: TextDocument
+}
+
+declare interface MarkerValueType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.MARKER
+  value: MarkerValue
+}
+
+declare interface ShapePropertyType extends PropertyClassMembers {
+  propertyValueType: PropertyValueType.SHAPE
+  value: Shape
+}
+```
+
+这些接口都明确了各自 `propertyValueType` 的具体值和 `value` 属性的返回类型，并应用于许多经过类型包装的 `Property` 对象，例如 `AVLayer.transform.position`，它会返回符合 `TwoDOrThreeDProperty` 接口的对象。
+
+#### value
+
+`value` 属性表示属性的当前值。它是一个 `any` 类型，可以存储多种类型的数据，其具体类型由 `propertyValueType` 属性决定。
+
+需要注意的是，如果不进行显式类型转换或判断，通过 `property()` 方法获取的属性对象（当其具体类型未知时）可能被视为 `UnknownPropertyType` 接口类型，其 `value` 属性因而也是 `any` 类型。
+
+为了提升代码的可读性和可维护性，推荐使用 TypeScript 接口来约束属性值的类型，并适时进行类型检查。
+
+再次建议，可以多利用 `ExtendScript Debugger` 的调试控制台来查看特定属性的 `propertyValueType` 的实际返回值。
+
+```
+> app.project.activeItem.selectedLayers[0].transform.property("ADBE Position").propertyValueType
+6413
+```
+
+返回 6413，表明该属性值的类型是 `ThreeD_SPATIAL`。
+
+接下来，是一个示例，演示如何基于 `propertyValueType` 属性判断属性值的类型，并进行相应的类型转换：
+
+```ts
+const layer = comp.layer(1);
+
+if (!(layer instanceof AVLayer)) {
+  throw new Error("这不是一个音视觉图层");
+}
+
+const position = layer.transform.property("ADBE Position");
+
+if (!(position instanceof Property)) {
+  throw new Error("这不是一个属性");
+}
+
+// 当然，若直接使用 layer.transform.position.value，则通常不需要进行此处的类型判断。
+// 此处代码主要用于演示如何基于 propertyValueType 进行判断，因此未使用更简洁的 layer.transform.position.value 写法。
+if (!(position.propertyValueType !== PropertyValueType.ThreeD_SPATIAL)) { 
+  throw new Error("这不是一个三维空间属性");
+}
+
+// 进行强制类型转换是安全的，因为我们已经通过 propertyValueType 进行了判断。
+// 但是，ExtendScript 的 TypeScript 类型声明文件似乎并未包含与 ThreeD_SPATIAL 完全对应的特定接口，
+// 因此在此示例中沿用了 ThreeDType 或类似的兼容类型。
+const postion3D = position as ThreeDProperty;
+
+// 类型判断后，可以直接使用 value 属性
+let x = postion3D.value[0];
+let y = postion3D.value[1];
+let z = postion3D.value[2];
+```
+
+---
+
+#### hasMin
+
+`hasMin` 属性表示当前属性是否有最小值限制。
+
+#### hasMax
+
+`hasMax` 属性表示当前属性是否有最大值限制。
+
+#### minValue
+
+:::warning
+如果属性没有最小值，貌似 After Effects 会直接抛出错误（通过ExtendScript Debugger得知）：
+
+```
+After Effects错误: 此属性没有最小值。
+```
+
+建议使用 `try {} catch (e) {}` 捕获此错误。
+:::
+
+`minValue` 属性表示当前属性的最小值，为了防止错误，可以配合 `if` 检查 `hasMin`是否为 `true`。
+
+
+#### maxValue
+
+:::warning
+如果属性没有最大值，貌似 After Effects 会直接抛出错误（通过ExtendScript Debugger得知）：
+
+```
+After Effects错误: 此属性没有最小值。
+```
+
+建议使用 `try {} catch (e) {}` 捕获此错误。
+:::
+
+`maxValue` 属性表示当前属性的最大值，为了防止错误，可以配合 `if` 检查 `hasMax`是否为 `true`。
+
+#### isSpatial
+
+`isSpatial` 属性表示当前属性是否是空间属性。
+
+#### canVaryOverTime
+
+`canVaryOverTime` 属性表示当前属性是否可以随时间变化，如果为 true，意味着可以创建关键帧动画，否则只能使用静态值。
+
+#### canSetExpression
+
+`canSetExpression` 属性表示当前属性是否可以设置表达式。
+
+#### isTimeVarying
+
+`isTimeVarying` 属性表示当前属性是否随时间变化。
+
+#### numKeys
+
+`numKeys` 属性表示当前属性的关键帧数量。
+
+#### unitsText
+
+`unitsText` 属性表示当前属性值的单位，似乎收到语言的影响，可能返回中文或其他语言。
+
+例如“变换 > 位置”，属性的单位为“像素”。
+
+#### expressionError
+
+`expressionError` 属性表示当前属性的表达式最近的编译错误信息。
+
+#### expression
+
+`expression` 属性表示当前属性的表达式，你可以修改它来设置表达式。
+
+### 方法
+
+- valueAtTime
+- setValue
+- setValueAtTime
+- setValuesAtTimes
+- setValueAtKey
+- nearestKeyIndex
+- keyTime
+- keyValue
+- addKey
+- removeKey
+- isInterpolationTypeValid
+- setInterpolationTypeAtKey
+- keyInInterpolationType
+- keyOutInterpolationType
+- setSpatialTangentsAtKey
+- keyInSpatialTangent
+- keyOutSpatialTangent
+- setTemporalEaseAtKey
+- keyInTemporalEase
+- setTemporalContinuousAtKey
+- keyTemporalContinuous
+- setTemporalAutoBezierAtKey
+- keyTemporalAutoBezier
+- setSpatialContinuousAtKey
+- keySpatialContinuous
+- setSpatialAutoBezierAtKey
+- keySpatialAutoBezier
+- setRovingAtKey
+- keyRoving
+- setSelectedAtKey
+- keySelected
+- getSeparationFollower
+- addToMotionGraphicsTemplate
+- addToMotionGraphicsTemplateAs
+- canAddToMotionGraphicsTemplate
+- setPropertyParameters
+- setAlternateSource
+
+
+#### valueAtTime()
+
+`valueAtTime()` 方法用于获取指定时间的属性值。
+
+需要提供一个时间值（单位为秒）以及 `preExpression` (boolean) 用处未知。
+
+```ts
+const position = layer.transform.position;
+
+// 获取第一秒的时间值
+let value = position.valueAtTime(1, false);
+```
+
+配合之前 Layer 中讲解的 time 属性，结合可以做到，获取当前时间指示器位置的位置值。
+
+```ts
+let value = position.valueAtTime(layer.time, false);
+```
+
+#### setValue()
+
+`setValue()` 方法用于设置属性值。
+
+```ts
+var position = layer.transform.position;
+
+// 设置位置为 (100, 200, 0)
+position.setValue([100, 200, 0]);
+```
+
+#### setValueAtTime()
+
+`setValueAtTime()` 方法用于设置指定时间的属性值。
+
+需要提供一个时间值（单位为秒）以及属性值。
+
+```ts
+const position = layer.transform.position;
+
+// 设置第一秒的位置为 (100, 200, 0)
+position.setValueAtTime(1, [100, 200, 0]);
+```
+
+#### setValuesAtTimes()
+
+`setValuesAtTimes()` 方法用于设置多个时间的属性值。
+
+需要提供一个时间值数组（单位为秒）以及属性值数组。
+
+```ts
+const position = layer.transform.position;
+
+// 设置第一秒和第二秒的位置为 (100, 200, 0) 和 (200, 300, 0)
+position.setValuesAtTimes([1, 2], [[100, 200, 0], [200, 300, 0]]);
+```
+
+#### setValueAtKey
+
+:::warning
+如果操作的属性没有关键帧，貌似 After Effects 会直接抛出错误（通过ExtendScript Debugger得知）：
+
+```
+After Effects错误: 无法在此属性的键上执行任何操作，因为无关键帧。
+```
+
+同时，参数越界也会导致错误。
+
+```
+After Effects错误: 由于参数 1，无法调用“setValueAtKey”。值 4 在 1 至 2 的范围外。
+```
+
+建议使用 `try {} catch (e) {}` 捕获此错误。
+
+:::
+
+`setValueAtKey()` 方法用于设置指定关键帧的属性值。
+
+需要提供一个关键帧索引以及属性值。
+
+```ts
+const position = layer.transform.position;
+
+// 设置第 1 关键帧的位置为 (100, 200, 0)
+position.setValueAtKey(1, [100, 200, 0]);
+```
+
+#### keyTime()
+
+:::warning
+如果操作的属性没有关键帧，貌似 After Effects 会直接抛出错误（通过ExtendScript Debugger得知）：
+
+```
+After Effects错误: 无法在此属性的键上执行任何操作，因为无关键帧。
+```
+
+同时，参数越界也会导致错误。
+
+```
+After Effects错误: 由于参数 1，无法调用“setValueAtKey”。值 4 在 1 至 2 的范围外。
+```
+
+建议使用 `try {} catch (e) {}` 捕获此错误。
+
+:::
+
+
+`keyTime()` 方法用于获取指定关键帧的时间值。
+
+需要提供一个关键帧索引。
+
+```ts
+const position = layer.transform.position;
+
+// 获取第 1 关键帧的时间值
+let time = position.keyTime(1);
+```
+
+#### keyValue()
+
+:::warning
+如果操作的属性没有关键帧，貌似 After Effects 会直接抛出错误（通过ExtendScript Debugger得知）：
+
+```
+After Effects错误: 无法在此属性的键上执行任何操作，因为无关键帧。
+```
+
+同时，参数越界也会导致错误。
+
+```
+After Effects错误: 由于参数 1，无法调用“setValueAtKey”。值 4 在 1 至 2 的范围外。
+```
+
+建议使用 `try {} catch (e) {}` 捕获此错误。
+:::
+
+`keyValue()` 方法用于获取指定关键帧的属性值。
+
+需要提供一个关键帧索引。
+
+```ts
+const position = layer.transform.position;
+
+// 获取第 1 关键帧的位置值
+let value = position.keyValue(1);
+```
+
+#### addKey()
+
+`addKey()` 方法用于添加一个关键帧。
+
+需要提供一个时间值（单位为秒）。
+
+```ts
+const position = layer.transform.position;
+
+// 添加一个关键帧，时间值为 1
+position.addKey(1);
+```
+
+#### removeKey()
+
+`removeKey()` 方法用于删除一个关键帧。
+
+需要提供一个关键帧索引。
+
+```ts
+const position = layer.transform.position;
+
+// 删除第 1 关键帧
+position.removeKey(1);
+```
+
+#### setInterpolationTypeAtKey()
+
+`setInterpolationTypeAtKey()` 方法用于设置指定关键帧的插值类型，插值类型为 `KeyframeInterpolationType`。
+
+```ts
+declare enum KeyframeInterpolationType {
+  BEZIER = 6613, // 贝塞尔
+  HOLD = 6614, // 保持
+  LINEAR = 6612, // 线性
+}
+```
+
+需要提供一个关键帧索引、进入插值类型、推出插值类型。
+
+```ts
+const position = layer.transform.position;
+
+// 设置第 1 关键帧的进入插值类型为 "LINEAR"，推出插值类型为 "LINEAR"
+position.setInterpolationTypeAtKey(1, KeyframeInterpolationType.LINEAR, KeyframeInterpolationType.LINEAR);
+```
+
+## PropertyGroup
+
+`PropertyGroup` 类继承自 `PropertyBase`，并在其基础上添加了与属性组相关的特有属性和方法。
+
+### 属性
+
+- numProperties
+
+#### numProperties
+
+`numProperties` 属性表示属性组中包含的属性数量。
+
+### 方法
+
+- canAddProperty()
+- addProperty()
+
+#### canAddProperty()
+
+`canAddProperty()` 方法用于检查属性组是否可以添加一个特定属性。
+
+```ts
+const propertyGroup = layer.propertyGroup("ADBE Transform Group");
+
+const canAddMaskAtom = propertyGroup.canAddProperty("ADBE Mask Atom"); 
+                    // false
+                    // 该属性组不能添加 Mask Atom 属性
+```
+
+#### addProperty()
+
+`addProperty()` 方法用于添加一个属性。
+
+```ts
+const propertyGroup = layer.propertyGroup("Effects"); // 获取效果属性组
+
+if (!propertyGroup.canAddProperty("ADBE Color Difference Key")) {
+  throw new Error("无法添加颜色插值键属性");
+}
+
+const colorDifferenceKey = propertyGroup.addProperty("ADBE Color Difference Key"); // 添加颜色插值键属性
+
+if (!(colorDifferenceKey instanceof PropertyGroup)) {
+  throw new Error("添加的属性不是属性组");
+}
+
+let name = colorDifferenceKey.name; // 颜色插值键
+```

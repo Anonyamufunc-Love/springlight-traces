@@ -1,0 +1,190 @@
+# 使用 Jest 进行单元测试
+
+通过集成 `jest` 包，你可以为项目引入单元测试，这有助于提升代码的健壮性与可维护性。
+
+## 安装 Jest
+
+首先，在你的项目开发依赖中安装 `jest`：
+
+```bash
+npm install --save-dev jest
+```
+
+## 配置 Jest
+
+安装完成后，在项目根目录下创建 `jest.config.js` 文件，并添加以下配置：
+
+```javascript
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+};
+```
+
+**配置说明:**
+*   `preset: 'ts-jest'`: 此选项告知 Jest 使用 `ts-jest` 预设，从而能够直接处理 TypeScript 代码。
+*   `testEnvironment: 'node'`: 此设置将测试环境配置为 Node.js。这使得你可以在测试文件（例如 `src/jsx/` 目录下的文件）中使用 ES6+ 的语法和特性。
+
+## 配置 TypeScript 以支持测试
+
+为了让测试代码与源代码和谐共存，我们需要对 `tsconfig.json` 文件进行拆分和优化，以满足不同环境（应用代码与测试代码）的编译需求。
+
+以下是 Host 端的配置，CEP 端无需配置。
+
+### 主 `tsconfig.json`
+
+在 `src/jsx/aeft/` 目录下，修改或创建 `tsconfig.json` 文件。该文件将作为项目引用的入口，不直接包含文件，而是引用特定于应用和测试的配置文件。
+
+```json
+// src/jsx/aeft/tsconfig.json
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.test.json" }
+  ]
+}
+```
+
+### 基础 TypeScript 配置
+
+创建一个共享的 `tsconfig.base.json` 文件，用于存放应用与测试环境通用的编译选项。
+
+```json
+// src/jsx/aeft/tsconfig.base.json
+{
+  "compilerOptions": {
+    "target": "es3",
+    "noLib": true,
+    "strict": true,
+    "types": [
+      "../global",
+      "../../../node_modules/types-for-adobe/AfterEffects/22.0",
+      "../../../node_modules/types-for-adobe/shared/PlugPlugExternalObject",
+      "../../../node_modules/types-for-adobe/shared/XMPScript"
+    ]
+  }
+}
+```
+
+**配置说明:**
+*   `target: "es3"`: 确保编译产物兼容 After Effects 的 ExtendScript 引擎（基于 ES3）。
+*   `noLib: true`: 禁用 TypeScript 内置的默认库（如 DOM），因为 ExtendScript 环境与浏览器环境不同。
+*   `strict: true`: 启用所有严格类型检查选项，有助于编写更可靠的代码。
+*   `types`: 明确引入 Adobe 官方提供的类型定义，以获得对宿主环境 API 的智能提示和类型检查。
+
+### 应用代码配置
+
+创建 `tsconfig.app.json` 文件，专门用于编译你的应用程序源代码。
+
+```json
+// src/jsx/aeft/tsconfig.app.json
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": [
+    "./**/*",
+    "../../shared/**/*"
+  ],
+  "exclude": [
+    "./**/*.test.ts"
+  ]
+}
+```
+
+**配置说明:**
+*   `extends`: 继承自基础配置，复用通用设置。
+*   `composite: true`: 启用项目引用功能，这是高效管理大型项目所必需的。
+*   `include`: 指定需要编译的源文件目录。
+*   `exclude`: 明确排除所有以 `.test.ts` 结尾的测试文件，防止它们被打包到最终的应用代码中。
+
+### 测试代码配置
+
+创建 `tsconfig.test.json` 文件，用于编译测试文件。
+
+```json
+// src/jsx/aeft/tsconfig.test.json
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "target": "es2015",
+    "noLib": false,
+    "types": [
+      "jest",
+      "../global",
+      "../../../node_modules/types-for-adobe/AfterEffects/22.0",
+      "../../../node_modules/types-for-adobe/shared/PlugPlugExternalObject",
+      "../../../node_modules/types-for-adobe/shared/XMPScript"
+    ]
+  },
+  "include": [
+    "./**/*.test.ts"
+  ],
+  "references": [
+    { "path": "./tsconfig.app.json" } // <--- 添加这一行！
+  ]
+}
+```
+
+**配置说明:**
+*   `target: "es2015"`: Jest 运行在 Node.js 环境中，支持较新的 ECMAScript 标准，因此可以设置为 `es2015` 或更高版本。
+*   `noLib: false`: 在测试环境中，我们需要 Node.js 的标准库，因此需要禁用 `noLib`。
+*   `types`: 除了 Adobe 的类型定义外，还需要引入 `jest` 的类型，以便在编写测试时获得完整的类型支持。
+*   `include`: 此配置仅包含 `.test.ts` 文件，专门用于编译测试。
+*   `references`: 引用应用代码的配置文件，以确保测试代码能够访问应用代码中的类型定义。
+
+完成以上配置后，你就可以在源代码旁边创建 `.test.ts` 文件来编写单元测试了。
+
+## 运行测试
+
+执行以下命令来运行所有测试用例：
+
+```bash
+yarn jest
+```
+
+或者使用 npm：
+
+```bash
+npm test
+```
+*(请确保在 `package.json` 的 `scripts` 中将 `test` 命令设置为 `jest`)*
+
+## 集成到构建流程
+
+为了确保代码质量，可以在每次构建项目前自动运行测试。如果测试失败，构建过程将中止。
+
+编辑 `package.json` 文件，将 `jest` 命令添加到你的构建脚本中。
+
+```json
+{
+  "name": "springlight-aeft",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "watch": "tsc && vite build --watch true",
+    "test": "jest",
+    "build": "rimraf dist/* && yarn test && tsc -p \"tsconfig-build.json\" && vite build --watch false",
+    "zxp": "rimraf dist/* && yarn test && tsc -p \"tsconfig-build.json\" && cross-env ZXP_PACKAGE=true vite build --watch false",
+    "zip": "rimraf dist/* && yarn test && tsc -p \"tsconfig-build.json\" && cross-env ZIP_PACKAGE=true vite build --watch false",
+    "serve": "cross-env SERVE_PANEL=true vite preview",
+    "symlink": "cross-env BOLT_ACTION=symlink vite",
+    "delsymlink": "cross-env BOLT_ACTION=delsymlink vite"
+  },
+  "dependencies": {
+    // ...
+  },
+  "devDependencies": {
+    // ...
+  }
+}
+```
+
+通过在 `build`、`zxp` 和 `zip` 脚本的开头加入 `jest`，可以建立一个自动化的测试与构建工作流，你也可以修改成 `jest --verbose`` 来查看测试的详细输出。
+
+关于更多编写测试的知识，请参考 [Jest 中文网](https://jest.nodejs.cn/docs/getting-started/)，或一些别的网站。

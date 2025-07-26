@@ -1,0 +1,93 @@
+---
+sidebar_position: 8
+---
+
+# 自构建 TypeScript API 文档
+
+在学习了 `evalTS` 等相关知识后，你可能会思考：我们使用的 Adobe ExtendScript API 的文档在哪里呢？
+
+Adobe 官方提供了 ExtendScript 的[文档网站](https://extendscript.docsforadobe.dev/extendscript-toolkit/)，供开发者查阅。同时，`bolt-cep` 项目内置了 `types-for-adobe` 这个 npm 包，其中包含了 Adobe 各个应用 ExtendScript API 的 TypeScript 类型定义。这意味着，除了查阅官方文档外，我们还可以利用工具，从这些类型定义文件自行生成一份详尽的 API 文档网站，方便本地查阅和更深入地理解 API 结构。CEP 相关的文档也是存在的，例如：[CEP 8 Docs](https://jakkrobbit.github.io/CEP-8-Docs)。
+
+## 从 `bolt-cep` 项目中复制类型定义文件
+
+1.  **创建工作目录**：
+    首先，在你的工作区创建一个用于存放 API 文档相关文件的文件夹，例如命名为 `api-doc`。
+
+2.  **复制类型定义**：
+    然后，从你的 `bolt-cep` 项目的 `node_modules` 目录下，找到 `types-for-adobe` 文件夹。通常，还有一个 `types-for-adobe-extra` 文件夹，如果存在且其中包含你需要的类型定义，也建议一并复制。将这些文件夹完整复制到我们刚创建的 `api-doc` 文件夹内。
+
+    `types-for-adobe` 目录结构通常如下所示：
+
+    ```
+    |—— AfterEffects
+        |-- 22.0  // 版本号
+        |-- ...   // 其他版本
+        └────────
+    |—— Animate
+    |—— Audition
+    |—— Illustrator
+    |—— InDesign
+    |—— Photoshop
+    |—— Premiere
+    |—— shared    // 各应用共享的 API 定义
+    ```
+
+## 使用 TypeDoc 生成 API 文档
+
+接下来，我们将使用 `TypeDoc` 这个工具来从 TypeScript 定义文件（`.d.ts`）生成 HTML 格式的 API 文档。
+
+1.  **安装 TypeDoc**：
+    首先，请确保你的 `api-doc` 文件夹是一个 Node.js 项目。如果不是，可以在 `api-doc` 文件夹的根目录下运行 `npm init -y` 来快速初始化。
+    然后，在 `api-doc` 文件夹的根目录下，通过以下命令安装 `TypeDoc` 作为项目的开发依赖：
+
+    ```bash
+    npm install typedoc --save-dev
+    ```
+
+2.  **创建 TypeDoc 配置文件**：
+    在 `api-doc` 文件夹的根目录下，创建一个名为 `tsconfig.doc.json` 的文件。这个文件将指导 TypeDoc 如何处理你的类型定义文件并生成文档。文件内容如下：
+
+    ```json
+    {
+        "compilerOptions": {
+            "target": "ESNext",
+            "lib": ["DOM", "DOM.Iterable", "ESNext"],
+            "module": "ESNext",
+            "esModuleInterop": true,
+            "strict": true,
+            "noLib": true 
+        },
+        "include": [
+            "./types-for-adobe/AfterEffects/22.0/**/*.d.ts",
+            "./types-for-adobe/shared/**/*.d.ts"
+            // 你可以根据需要添加更多路径，例如其他应用或版本
+        ],
+        "typedocOptions": {
+            // TypeDoc 的具体配置项
+            "entryPoints": [
+                "./types-for-adobe/AfterEffects/22.0",
+                "./types-for-adobe/shared"
+                // 同样，可以根据需要添加更多入口点
+            ],
+            "entryPointStrategy": "expand", // 将目录作为入口点展开
+            "name": "Ae ExtendScript API Doc", // 文档的标题，可自定义
+            "out": "es-doc" // 生成文档的输出目录名称
+        }
+    }
+    ```
+    **注意**：请根据你实际复制的 `types-for-adobe` 内容和你的需求，调整 `include` 和 `typedocOptions.entryPoints` 中的路径和版本号。
+
+3.  **生成文档**：
+    一切准备就绪后，在 `api-doc` 文件夹的根目录下运行以下命令：
+
+    ```bash
+    npx typedoc --tsconfig tsconfig.doc.json --skipErrorChecking
+    ```
+    这里的 `npx` 命令会执行你项目下安装的 `typedoc`。`--skipErrorChecking` 选项可以在某些情况下避免因类型定义本身的细微问题而中断文档生成过程。
+
+    命令执行完毕后，`TypeDoc` 会根据 `tsconfig.doc.json` 中的配置，在 `api-doc` 目录下生成一个名为 `es-doc` 的文件夹（或你在 `out` 选项中指定的其他名称）。
+
+4.  **查阅文档**：
+    此 `es-doc` 文件夹内即为生成的 HTML 格式的 API 文档。你可以通过浏览器打开其中的 `index.html` 文件，便可开始浏览和查阅你刚刚构建的 Adobe ExtendScript API 文档了。
+
+通过以上步骤，你就可以为自己构建一份本地的、可随时查阅的 API 文档，极大地便利 Adobe 脚本的开发工作。

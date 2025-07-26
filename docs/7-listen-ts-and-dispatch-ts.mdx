@@ -1,0 +1,180 @@
+---
+sidebar_position: 7
+---
+
+# ListenTS 和 DispatchTS
+
+你可能会遇到这样的场景：需要在 Host 端输出日志，然后在 CEP 端进行显示。但由于 Host 端和 CEP 端本身是相互隔离的，它们之间无法直接进行通信。
+
+如果你接触过标准 CEP 开发，你可能知道可以通过 `CSXSEvent` 对象中的 `dispatch` 函数来实现通信。
+
+```javascript
+var plugPlugExternalObjectLoaded = new ExternalObject("lib:PlugPlugExternalObject");
+if (!plugPlugExternalObjectLoaded) {
+  $.writeln("PlugPlugExternalObject could not be loaded. CSXSEvent may not work.");
+} else {
+  $.writeln("PlugPlugExternalObject loaded successfully.");
+}
+
+var csEvent = new CSXSEvent();
+csEvent.type = "springlightTraces.log";
+csEvent.data = "这是一条日志";
+csEvent.dispatch();
+```
+
+然后，再在 CEP 端使用 `CSInterface.addEventListener` 监听这个事件，并在回调函数中处理日志。
+
+```javascript
+var csi = new CSInterface();
+csi.addEventListener("springlightTraces.log", function(event) {
+  $.writeln("收到日志：" + event.data);
+});
+```
+
+在 bolt-cep 中，得益于其框架的高度封装，`dispatchTS` 和 `listenTS` 这两个函数可以帮助我们轻松实现这种通信。
+
+不过，如果你想监听一些 Adobe 原生事件，`listenTS` 可能无法监听，因为它需要你自己定义类型映射，所以这里还是需要使用 `csi.addEventListener` 来监听 Adobe 原生事件的。
+
+:::info
+需要注意的是，Host 端的 `dispatchTS` 函数仅在 Demo 项目中提供（定义于 `/jsx/utils/utils.ts`）。
+如果是 Skeleton 项目，则需要你自行编写 `dispatchTS` 函数。
+{/* 2025/6/22 */}
+从 `2.0.0` 版本开始，Demo 和 Skeleton 模板被移除，改为使用 `Keep Sample Code Snippets?` 选项来选择是否安装示例代码片段，而示例代码片段就带有了 `dispatchTS` 函数的实现。
+:::
+
+CEP 端的 `listenTS` 和 `dispatchTS` 函数则定义在 `bolt.ts` 文件中。
+
+```typescript
+export const listenTS = <Key extends string & keyof EventTS>(
+  event: Key,
+  callback: (data: EventTS[Key]) => void,
+  isLocal = true
+) => {
+  const fullEvent = isLocal ? `${ns}.${event}` : event;
+  const csi = new CSInterface();
+  // console.log(`listening to ${fullEvent}`);
+  const thisCallback = (e: { data: EventTS[Key] }) => {
+    callback(e.data);
+  };
+
+  // remove any existing listeners
+  csi.removeEventListener(fullEvent, thisCallback, null);
+  // add the event listener
+  csi.addEventListener(fullEvent, thisCallback);
+};
+
+export const dispatchTS = <Key extends string & keyof EventTS>(
+  event: Key,
+  data: EventTS[Key],
+  scope = "APPLICATION",
+  appId = csi.getApplicationID() as string,
+  id = csi.getExtensionID() as string,
+  isLocal = true
+) => {
+  const fullEvent = isLocal ? `${ns}.${event}` : event;
+  // console.log(`dispatching ${fullEvent}`);
+  const csEvent = new CSEvent(fullEvent, scope, appId, id);
+  csEvent.data = data;
+  csi.dispatchEvent(csEvent);
+};
+```
+
+可以看到，它们的实现原理与标准 CEP 开发中的方式是一致的。
+
+让我们看看 `listenTS` 方法的签名：
+
+```typescript
+export const listenTS = <Key extends string & keyof EventTS>(
+  event: Key,
+  callback: (data: EventTS[Key]) => void,
+  isLocal = true
+) => {
+  //...
+};
+```
+
+-   `event`：事件名称，必须是 `EventTS` 类型中定义的键值。
+-   `callback`：回调函数，接收事件数据作为参数。
+-   `isLocal`：是否是本地事件，默认为 `true`。
+
+`EventTS` 是一个类型映射表，用于定义所有可能的事件及其对应的数据类型。它通常定义在 `src/shared/universals.d.ts` 文件中：
+
+```typescript
+/**
+ * @description Declare event types for listening with listenTS() and dispatching with dispatchTS()
+ */
+export type EventTS = {
+  myCustomEvent: {
+    oneValue: string;
+    anotherValue: number;
+  };
+};
+```
+
+默认情况下，`EventTS` 包含了一个名为 `myCustomEvent` 的示例事件。你可以根据实际需求，在其中增加更多的事件类型定义。
+
+```ts
+/**
+ * @description Declare event types for listening with listenTS() and dispatching with dispatchTS()
+ */
+export type EventTS = {
+  myCustomEvent: {
+    oneValue: string;
+    anotherValue: number;
+  },
+  kiraKiraDokiDoki: {
+    message: string;
+    kiraCount: number;
+    dokiCount: number;
+  }
+};
+```
+
+在 `EventTS` 中定义好所需的事件类型后，我们来编写 Host 端的 `dispatchTS` 函数：
+
+```typescript
+/**
+ * @function dispatchTS Displatches an event to the CEP panel with Type-Safety
+ * See listenTS() in the CEP panel for more info
+ * @param event The event name to listen for (defined in EventTS in shared/universals.ts)
+ * @param callback The callback function to be executed when the event is triggered
+ */
+export const dispatchTS = <Key extends string & keyof EventTS>(
+  event: Key,
+  data: EventTS[Key] // src/shared/universals
+) => {
+  if (new ExternalObject("lib:PlugPlugExternalObject")) {
+    var eventObj = new CSXSEvent();
+    eventObj.type = `${ns}.${event}`; // src/shared/shared
+    eventObj.data = JSON.stringify(data);
+    eventObj.dispatch();
+  }
+};
+```
+
+其实现方式与标准 CEP 开发中的做法如出一辙。
+
+我们可以像上一章验证 `evalTS` 那样，来验证 `EventTS` 类型是否被 `listenTS` 正确解析。
+
+:::info
+CEP 端同样可以调用 `dispatchTS` 函数。bolt-cep 框架已经内置了该函数的定义，因此无需手动实现。
+:::
+
+然后，我们就可以通过自己编写的 Host 端的 `dispatchTS` 函数来发送事件。
+```typescript
+dispatchTS("kiraKiraDokiDoki", {
+  message: "star↑beat⭐",
+  kiraCount: 947,
+  dokiCount: 749
+});
+```
+
+最后，在 CEP 端，我们就可以通过 `listenTS` 函数来监听该事件，并在回调函数中处理接收到的信息：
+
+```typescript
+listenTS("kiraKiraDokiDoki", (data) => {
+  console.log(data.message);
+  console.log("Kira!：", data.kiraCount);
+  console.log("Doki!：", data.dokiCount);
+})
+```

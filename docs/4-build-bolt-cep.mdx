@@ -1,0 +1,118 @@
+---
+sidebar_position: 4
+---
+
+# 编译 bolt-cep
+
+首先，请使用你的 IDE 或代码编辑器，打开通过 `create bolt-cep` 命令创建的项目文件夹。
+
+你可以先尝试运行 `yarn build` 命令，检查项目是否能够成功编译。
+
+在后续编写过程中，如果你决定把 `cep.config.ts` 中的 `jsxBin` 设置为 `replace` 或 `copy`。那么如果你的代码编译成 ExtendScript 格式后遇到不可知的错误，会导致 `index.jsxbin` 文件创建错误，并输出错误：
+
+更多关于 `cep.config.ts` 的内容，下一章 `熟悉项目结构` 中会有详细介绍。
+
+```
+E:\springlight-traces\node_modules\jsxbin\src\convertScripts.js:27
+        const error = GetESDInterface().esdGetLastError()
+                                        ^   
+
+TypeError: GetESDInterface(...).esdGetLastError is not a function
+    at getESDError (E:\springlight-traces\node_modules\jsxbin\src\convertScripts.js:27:34)
+    at convertFileContents (E:\springlight-traces\node_modules\jsxbin\src\convertScripts.js:62:3)
+    at convertScripts (E:\springlight-traces\node_modules\jsxbin\src\convertScripts.js:90:27)
+    at E:\springlight-traces\node_modules\jsxbin\index.js:62:17 {
+  code: 'PLUGIN_ERROR',
+  plugin: 'extendscript-jsxbin',
+  hook: 'generateBundle'
+}
+
+Node.js v20.19.2
+error Command failed with exit code 1. 
+```
+
+你需要查看编译后的 `index.js` 文件，把 `jsxBin` 设置为 `off`，让编译器生成  `index.js` 文件，并进行排查，确认是否存在错误。
+
+:::info
+**请注意**：`yarn build` 命令会自动为 `dist\cep\` 文件夹在 `%AppData%\Adobe\CEP\extensions` 目录中创建符号链接 (symlink)。这意味着你无需手动将 `dist\cep\` 文件夹复制到 CEP 扩展目录中。
+:::
+
+需要注意的是，该 CEP 扩展并没有签名，Adobe 并不会识别它。如果你需要让 Adobe 识别你的扩展，则需要开启 `PlayerDebugMode` 选项，以下是注册表文件，你可以复制并改名为 `.reg` 文件，然后双击覆盖。
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.6]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.7]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.8]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.5]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.9]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.10]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.11]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.12]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.13]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.14]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.15]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.16]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.17]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.18]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.19]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+
+[HKEY_CURRENT_USER\Software\Adobe\CSXS.20]
+"LogLevel"="1"
+"PlayerDebugMode"="1"
+```
+
+如果在项目创建过程中，`create-bolt-cep` 提示 “Do you want to install dependencies?” 时你没有选择 “Yes”，则需要先运行 `yarn` 命令来安装项目依赖。
+
+接下来，就可以启动 bolt-cep 的开发模式了。请执行以下命令：
+```shell
+yarn dev
+```
+开发模式支持模块热替换 (HMR)。这意味着当你保存文件时，JSX/JS 端会自动重新编译并刷新。同时，你也可以通过浏览器访问 `http://localhost:3000/{面板名}` 来实时预览面板的显示效果。
+
+关于 `{面板名}` 的具体含义和用法，将在下一章：“熟悉项目结构” 中进行详细介绍。

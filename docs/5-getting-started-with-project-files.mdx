@@ -1,0 +1,149 @@
+---
+sidebar_position: 5
+---
+
+# 熟悉 bolt-cep 项目结构
+
+:::info
+本章将以 bolt-cep 的 Demo 项目为例，讲解 bolt-cep 的项目结构
+:::
+
+- **`.github/workflows`**: 持续集成和部署配置。
+- **`dist`**: 最终打包输出的静态资源。
+- **`node_modules`**: 第三方依赖包。
+- **`src`**: **核心源码目录** (详细结构如下)。
+
+### `src` 目录详解
+
+```text
+src
+├── js      JS端，(我更喜欢叫：CEP 端 - 浏览器环境)
+│   ├── assets     # 静态资源
+│   ├── lib        # 核心库与工具函数
+│   │   ├── cep    # CEP 接口
+│   │   └── utils  # 通用工具
+│   ├── main       # 面板 UI 实现，默认为 main，可以根据需要创建多个面板
+│   └── public     # 公共文件
+├── jsx     JSX端，(我更喜欢叫：Host 端，或 ES 端 - Adobe 应用内 ExtendScript 环境)
+│   ├── aeft       # After Effects 专用脚本
+│   ├── ...        # 其他 Adobe 应用脚本 (Illustrator, Photoshop等)，
+│   │              # 如果你的插件想支持多个应用，可以创建多个文件夹，其名称 Demo 项目已经为你准备好，
+│   │              # 是缩写，在项目最后会提供速查表。
+│   ├── lib        # 核心库，项目会自带一个 json2.js
+│   └── utils      # 通用工具，是 Demo 项目自带的
+├── shared  # 共享模块，会定义一些常量，需要关注的是 universals.d.ts，未来我们如果要注册事件需要在此编写定义。
+└── static  # 静态资源
+```
+
+:::warning
+`src/js` 中，你可以使用 ES6 语法来编写代码，但是在 `src/jsx` 中，由于 ExtendScript 到现在还是 ES3 标准，虽然 bolt-cep 已经尽力的自带了一系列转化插件，但还是建议你在使用 ES6 语法之前，进行一些小测试。
+:::
+
+### 咦？我的 manifest.xml 呢？
+
+如果你熟悉默认的 CEP 开发，你可能已经注意到，在 bolt-cep 项目中，并没有 `manifest.xml` 文件来决定插件信息、配置等，而是使用 `cep.config.ts` 文件进行配置。
+
+```ts
+import { CEP_Config } from "vite-cep-plugin";
+import { version } from "./package.json";
+
+const config: CEP_Config = {
+  version,
+  id: "com.demo.cep", // 插件的唯一标识符
+  displayName: "Demo", // 插件的显示名称
+  symlink: "local", // 决定了 yarn build 的 symlink (符号链接) 行为: local | global
+  port: 3000, // 本地开发服务器端口
+  servePort: 5000, // 面板内容服务端口 (用于远程调试)
+  startingDebugPort: 8860, // 调试器启动端口
+  extensionManifestVersion: 6.0, // CEP 扩展的 manifest 版本
+  requiredRuntimeVersion: 9.0, // CEP 扩展的运行时版本
+  hosts: [ // 支持的 Adobe 应用
+    { name: "AEFT", version: "[0.0,99.9]" }, // After Effects
+    { name: "AME", version: "[0.0,99.9]" }, // Adobe Media Encoder
+    { name: "AUDT", version: "[0.0,99.9]" }, // Adobe Audition
+    { name: "FLPR", version: "[0.0,99.9]" }, // Adobe Fresco
+    { name: "IDSN", version: "[0.0,99.9]" }, // InDesign
+    { name: "ILST", version: "[0.0,99.9]" }, // Illustrator
+    { name: "KBRG", version: "[0.0,99.9]" }, // Bridge
+    { name: "PHXS", version: "[0.0,99.9]" }, // Photoshop
+    { name: "PPRO", version: "[0.0,99.9]" }, // Premiere Pro
+  ],
+  type: "Panel", // 插件类型: Panel (面板) | ModalDialog (模态对话框) | Modeless (非模态) | Custom | Embedded
+  iconDarkNormal: "./src/assets/light-icon.png", // 暗色主题普通图标
+  iconNormal: "./src/assets/dark-icon.png",     // 亮色主题普通图标
+  iconDarkNormalRollOver: "./src/assets/light-icon.png", // 暗色主题悬停图标
+  iconNormalRollOver: "./src/assets/dark-icon.png",     // 亮色主题悬停图标
+  parameters: ["--v=0", "--enable-nodejs", "--mixed-context"], // 命令行参数 (对应 manifest.xml 中的 CEFCommandLine)
+  width: 500, // 面板默认宽度
+  height: 550, // 面板默认高度
+
+  panels: [ // 面板配置 (可以有多个面板)
+    {
+      mainPath: "./main/index.html", // 面板的主页面 HTML 文件路径
+      name: "main", // 面板的内部名称 (决定 yarn dev 中的访问路径)
+      panelDisplayName: "Demo Panel", // 面板在宿主应用中显示的名称
+      autoVisible: true, // 面板是否在加载后自动显示
+      width: 600, // 此特定面板的宽度
+      height: 650, // 此特定面板的高度
+    },
+  ],
+  build: {
+    jsxBin: "off", // 是否将 JSX 文件编译为 JSXBin: off (不处理) | copy (复制) | replace (替换)
+    sourceMap: true, // 是否为 JS/TS 生成 sourceMap
+  },
+  zxp: { // ZXP 打包配置
+    country: "US", // 国家代码
+    province: "CA", // 省份/州代码
+    org: "MyCompany", // 组织名称
+    password: "mypassword", // 证书密码
+    tsa: [ // 时间戳服务器 (用于签名)
+      "http://timestamp.digicert.com/", // Windows 常用
+      "http://timestamp.apple.com/ts01", // macOS 常用
+    ],
+    allowSkipTSA: false, // 是否允许在时间戳服务器不可用时跳过 TSA 认证
+    sourceMap: false, // 打包到 ZXP 时是否包含 JS/TS 的 sourceMap
+    jsxBin: "off", // 打包到 ZXP 时 JSXBin 的处理方式: off | copy | replace
+  },
+  installModules: [], // 需要与插件一同打包的 node_modules 中的依赖模块
+  copyAssets: [], // 需要直接复制到 dist 目录的资源
+  copyZipAssets: [], // 需要复制到最终 ZXP 包内的资源
+};
+export default config;
+```
+
+* 关于编译成 JSXBIN，指的是不直接外露 JavaScript 文件，将原先的 JavaScript 格式化成另一种格式，可以起到抗逆向的效果（效果微乎其微）。
+
+### 进阶
+
+:::info
+本章节内容的详细内容，写者还在研究ing，敬请期待。
+:::
+
+
+如果你想要自定义 Vite 行为以支持一些特殊需求，可以在 `vite.config.ts` / `vite.es.config.ts` 中进行配置。
+
+此处不多阐述。
+
+:::danger
+关于大部分的 `tsconfig.json`，请不要修改，除非你知道你在做什么。
+
+例如：Visual Studio Code 会提示你 `选项“target=ES3”已删除。请从配置中删除它。`，于是去修改 `jsx` 中的 `tsconfig.json` 的 `target` 选项。
+
+我建议，这个提示可以不管，不会有什么问题。
+:::
+
+
+### 缩写速查表
+
+1. AEFT: After Effects
+2. AME: Adobe Media Encoder
+3. AUDT: Adobe Audition
+4. FLPR: Adobe Fresco
+5. IDSN: InDesign
+6. ILST: Illustrator
+7. KBRG: Bridge
+8. PHXS: Photoshop
+9. PPRO: Premiere Pro
+
+
+下一章，我们将讲解 evalTS 和 evalES 的使用方法。

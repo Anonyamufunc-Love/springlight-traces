@@ -1,0 +1,189 @@
+# 定制化编译行为
+
+`bolt-cep` 的编译流程构建于 Vite 及其强大的插件生态系统之上。这一机制使我们能够采用现代的 TypeScript（包含部分 ES6+ 特性）进行开发，从而避免了直接编写传统的 ES3 JavaScript 代码。
+
+尽管 `bolt-cep` 本身已经进行了大量优化和预设配置，但在某些特定场景下，我们可能仍需要对编译行为进行更细致的定制。
+
+此时，项目中的 `vite.es.config.ts` 和 `vite.config.ts` 文件就扮演了关键角色——它们正是 Vite 的配置文件，允许我们进行深度的自定义。
+
+关于更多的定制化行为，可以自行翻阅文件自行研究。
+
+<details>
+<summary>vite.es.config.ts</summary>
+```typescript
+import fs from "fs";
+import { rollup, watch, RollupOptions, OutputOptions } from "rollup";
+import nodeResolve from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
+import { jsxInclude, jsxBin, jsxPonyfill } from "vite-cep-plugin";
+import { CEP_Config } from "vite-cep-plugin";
+import json from "@rollup/plugin-json";
+import path from "path";
+
+const GLOBAL_THIS = "thisObj";
+
+export const extendscriptConfig = (
+  extendscriptEntry: string,
+  outPath: string,
+  cepConfig: CEP_Config,
+  extensions: string[],
+  isProduction: boolean,
+  isPackage: boolean
+) => {
+  console.log(outPath);
+  const config: RollupOptions = {
+    input: extendscriptEntry,
+    treeshake: true,
+    output: {
+      file: outPath,
+      sourcemap: isPackage
+        ? cepConfig.zxp.sourceMap
+        : cepConfig.build?.sourceMap,
+    },
+    plugins: [
+      json(),
+      nodeResolve({
+        extensions,
+      }),
+      babel({
+        extensions,
+        exclude: /node_modules/,
+        babelrc: false,
+        babelHelpers: "inline",
+        presets: ["@babel/preset-env", "@babel/preset-typescript"],
+        plugins: [
+          "@babel/plugin-syntax-dynamic-import",
+          "@babel/plugin-proposal-class-properties"
+        ],
+      }),
+      jsxPonyfill(),
+      jsxInclude({
+        iife: true,
+        globalThis: GLOBAL_THIS,
+      }),
+      jsxBin(isPackage ? cepConfig.zxp.jsxBin : cepConfig.build?.jsxBin),
+    ],
+  };
+
+  async function build() {
+    const bundle = await rollup(config);
+    await bundle.write(config.output as OutputOptions);
+    await bundle.close();
+  }
+
+  const triggerHMR = () => {
+    // No built-in way to trigger Vite's HMR reload from outside the root folder
+    // Workaround will read and save index.html file for each panel to triggger reload
+    console.log("ExtendScript Change");
+    cepConfig.panels.map((panel) => {
+      const tmpPath = path.join(process.cwd(), "src", "js", panel.mainPath);
+      if (fs.existsSync(tmpPath)) {
+        const txt = fs.readFileSync(tmpPath, { encoding: "utf-8" });
+        fs.writeFileSync(tmpPath, txt, { encoding: "utf-8" });
+      }
+    });
+  };
+
+  const watchRollup = async () => {
+    const watcher = watch(config);
+    watcher.on("event", ({ result }: any) => {
+      if (result) {
+        triggerHMR();
+        result.close();
+      }
+    });
+    watcher.close();
+  };
+
+  if (isProduction) {
+    build();
+  } else {
+    watchRollup();
+  }
+};
+```
+</details>
+
+## 定制 Babel 配置
+
+观察上述 `vite.es.config.ts` 文件内容，我们可以注意到 `config` 对象中的 `plugins` 数组。这里汇集了多种 Rollup 插件，其中，`babel` 插件的配置尤为关键。`bolt-cep` 默认集成了 `@babel/preset-env` 和 `@babel/preset-typescript`这两个核心预设，以及 `@babel/plugin-syntax-dynamic-import` 和 `@babel/plugin-proposal-class-properties` 两个常用插件。
+
+这些预设和插件共同作用，负责将 TypeScript 代码及一些现代 JavaScript 特性转换为能够在 ExtendScript 环境中平稳运行的兼容代码。
+
+```typescript
+babel({
+    extensions,
+    exclude: /node_modules/,
+    babelrc: false,
+    babelHelpers: "inline",
+    presets: ["@babel/preset-env", "@babel/preset-typescript"],
+    plugins: [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties"
+    ],
+}),
+```
+
+我们可以根据实际需求，灵活地调整 `plugins` 数组中的现有插件配置，或是引入新的 Babel 插件。
+
+例如，若希望在 ExtendScript 中获得更完善的 `class` 语法支持，可以引入 `@babel/plugin-transform-classes` 插件，并将其添加到 `plugins` 数组中：
+
+如果没有安装插件，可以使用 `npm install` 命令安装：
+
+```bash
+npm install --save-dev @babel/plugin-transform-classes
+// 或，使用 yarn
+yarn add @babel/plugin-transform-classes --dev
+```
+
+```typescript {10}
+babel({
+    extensions,
+    exclude: /node_modules/,
+    babelrc: false,
+    babelHelpers: "inline",
+    presets: ["@babel/preset-env", "@babel/preset-typescript"],
+    plugins: [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties",
+        ["@babel/plugin-transform-classes", { loose : true }]
+    ],
+}),
+```
+
+在此示例中，我们为 `@babel/plugin-transform-classes` 插件启用了 `loose: true` 选项。这样做是为了避免使用 `Object.defineProperty` 来定义类属性，因为 `Object.defineProperty` 是 ES5 标准的特性，在 ES3 (ExtendScript 的运行环境) 中并不支持。
+
+除了上述插件，还有许多其他有用的 `babel` 插件。例如，[babel-plugin-loop-optimizer](https://github.com/vihanb/babel-plugin-loop-optimizer) 插件，它可以将 `.forEach`、`.every`、`.find`、`.map`、`.filter` 等数组方法转换为传统的 `for` 循环语法，以增强代码在 ES3 环境（即 ExtendScript 环境）下的兼容性和性能。
+
+需要注意的是，以上仅为插件应用的举例。在实际开发中，由于 `src/jsx` 中的 `tsconfig.json` 中已将 `target` 设置为 `"es3"` 并启用了 `"noLib": true`，TypeScript 编译器本身就会严格限制你在代码中直接使用如 `.forEach` 等 ES3 之后引入的数组方法，编辑器通常也不会提供这些方法的智能提示。
+
+因此，在 `src/jsx` 环境中，推荐直接采用传统的 for 循环进行迭代。如果你的项目中因为其他原因（例如，引入了某些期望更高 ECMAScript 版本的第三方代码片段，或者希望将已有的、使用了这些现代语法的代码转换为 ES3 兼容代码），那么类似 `babel-plugin-loop-optimizer` 这样的插件就能发挥作用，将这些写法转换为 ES3 支持的 for 循环，但可能会因为编译器报错，找不到 `forEach` 方法而导致编译不通过，你可以使用 `@ts-ignore` 指令来忽略这些报错，之后便可测试插件的转换效果，假设没有问题，再将其应用到项目中。
+
+试图通过修改 `tsconfig.json` 来“启用”这些在目标 ES3 环境中原生不存在的特性，通常是不可行的，并且可能导致与 ExtendScript 环境的兼容性问题。关键在于确保最终编译产物符合 ExtendScript 的语法规范。
+
+更多关于 `babel` 的文档，请看 [Babel 官方文档](https://www.babeljs.cn/docs/)。
+
+
+## 自定义 Ponyfill
+
+Ponyfill 是一种为旧的 JavaScript 环境（如 ExtendScript）提供原生不支持的新功能的方法。与 Polyfill 不同，Ponyfill 不会修改全局作用域，而是将功能实现为一个独立的模块，由开发者按需引入和使用。
+
+在 `bolt-cep` 中，你可以通过 `jsxPonyfill` 插件来配置和注入 Ponyfill。以下是一个配置示例：
+
+```typescript
+jsxPonyfill([
+  {
+    find: "Array.isArray",
+    replace: "__isArray",
+    inject: `function __isArray(arr) { try { return arr instanceof Array; } catch (e) { return false; } };`,
+  },
+]);
+```
+
+这个示例源自 `bolt-cep` 的 README 文档。它的作用是：
+
+1.  **查找 (`find`)**: 在代码中找到所有 `Array.isArray` 的调用。
+2.  **替换 (`replace`)**: 将这些调用替换为 `__isArray`。
+3.  **注入 (`inject`)**: 在编译后的 ExtendScript 文件的全局作用域顶部注入一个名为 `__isArray` 的函数。这个函数实现了 `Array.isArray` 的功能，但采用了在 ES3 环境下更稳妥的 `instanceof Array` 判断，并增加了错误捕获。
+
+通过这种方式，即使 ExtendScript 原生不支持 `Array.isArray`，你也可以在 TypeScript 代码中使用它，`jsxPonyfill` 会在编译时将其安全地转换为环境兼容的实现。你可以根据需要，在 `jsxPonyfill` 的配置数组中添加多个类似的 Ponyfill 方案，以支持更多现代 JavaScript 特性。

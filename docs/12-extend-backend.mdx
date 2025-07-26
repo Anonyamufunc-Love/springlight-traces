@@ -1,0 +1,137 @@
+# 扩展后端
+
+在某些情况下，你可能会发现 Adobe 应用的 ExtendScript 环境（`src/jsx`）作为与 Adobe 软件通信的宿主端，其能力在处理某些特定需求时可能显得不足。例如，当遇到复杂计算、性能瓶颈、需要利用特定编程语言生态中的库，或者处理 ExtendScript 本身不擅长的任务时，就有必要考虑扩展后端能力。
+
+`src/jsx` 本质上是与 Adobe 应用程序交互的接口，而非一个功能完备的后端系统。因此，我们可以通过开发一个独立的后端服务来弥补这一不足。该后端服务可采用诸如 `Go`、`Java`、`C#` 等主流后端语言进行开发，具体语言和框架的选择应根据你的项目需求、团队技术栈以及目标功能的特性来决定。前端（即 CEP 扩展或脚本界面）可以通过 HTTP 请求与这个新构建的后端服务进行通信，从而实现更强大的功能扩展。
+
+**常见的后端技术选型示例：**
+*   使用 `C#` 和 `ASP.NET Core` 框架
+*   使用 `Go` 语言和 `Gin` 框架
+*   使用 `Java` 和 `Spring Boot` 框架
+
+**应用实例：**
+设想这样一个场景：你的 After Effects 插件需要调用 `ffmpeg` 来执行复杂的视频转码或媒体处理任务。直接在 ExtendScript 中控制像 `ffmpeg` 这样的外部进程可能会相当繁琐，且功能会受到限制。
+
+一个更为优雅和强大的解决方案是：
+1.  使用 `Go` 语言（或其他合适的后端语言）开发一个专门的后端服务。
+2.  该后端服务封装调用 `ffmpeg` 的所有逻辑，并向上层提供简洁的 HTTP API 接口（例如，一个 `/process-video` 接口）。
+3.  After Effects 中的前端脚本仅需向此 `Go` 后端发送 HTTP 请求，并传递必要的参数（如文件路径、处理指令等）。
+4.  后端服务接收请求后，执行 `ffmpeg` 命令，并将处理结果或状态通过 HTTP 响应返回给前端。
+
+通过这种方式，我们可以将复杂的、对性能敏感的或 ExtendScript 不易实现的任务剥离到专门的后端服务中，从而显著增强 Adobe 应用程序的扩展能力和开发灵活性。
+
+接下来，我们将介绍如何使用 `Go` 语言和 `Gin` 框架开发一个简单的后端服务，并演示前端如何调用它。
+
+## 安装 Go 语言
+
+首先，你需要安装 Go 语言环境。你可以从其[官方网站](https://golang.org/dl/)下载对应操作系统的安装包进行安装。当然，也推荐使用 [g (voidint/g)](https://github.com/voidint/g)，这是一个 Go 语言多版本管理工具，便于你在不同 Go 版本间切换。
+
+## 选择编辑器
+
+推荐使用 `Visual Studio Code` 并安装 `Go` 官方插件。配置好 Go 开发环境后，即可开始编写代码。
+
+## 创建项目
+
+创建一个新的项目文件夹，并在该文件夹的根目录下运行以下命令来初始化 Go模块：
+
+```yarn
+go mod init extend-backend
+```
+
+随后，可以运行 `go mod tidy` 命令来整理和下载项目所需的依赖。
+
+## 安装 Gin 框架
+
+Gin 是 Go 语言中一个广受欢迎的轻量级 Web 框架，它提供了简洁易用的 API，能帮助我们快速开发 Web 服务。
+
+执行以下命令安装 Gin 框架：
+```
+go install github.com/gin-gonic/gin@latest
+```
+
+## 编写后端服务
+
+我们可以对项目结构进行如下规划：
+
+在项目根目录下创建一个 `src` 文件夹。将先前创建的 `extend-backend` 文件夹（包含Go后端代码）移入 `src`。同时，如果你有一个名为 `bolt-cep` 的前端项目文件夹，也可以将其移入 `src` 并重命名为 `cep`（或其他你认为合适的名称）。
+
+在 `extend-backend` 文件夹中创建 `main.go` 文件，内容如下：
+
+```go
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	r := gin.Default()
+	r.GET("/hello-world", helloWorld)
+	// 监听并在 0.0.0.0:9093 上启动服务
+	r.Run(":9093")
+}
+
+func helloWorld(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "Hello, World!",
+	})
+}
+```
+
+这个简单的后端服务仅提供一个 `/hello-world` 接口，访问时会返回一个 JSON 对象：`{"message": "Hello, World!"}`。
+
+## 运行后端服务
+
+1.  打开命令行终端，导航至 `extend-backend` 文件夹（例如 `src/extend-backend`）。
+2.  执行 `go run main.go` 命令启动后端服务。
+3.  打开浏览器，访问 `http://localhost:9093/hello-world` 地址，你应该能看到返回的 JSON 对象。
+
+## 编译后端服务
+
+为了分发给用户，我们通常需要将后端服务编译成可执行文件。建议引导用户自行运行此后端服务，而不是将其直接捆绑在 CEP 插件包内部并通过 ExtendScript 的 `File.execute()` 或 `system.callSystem()` 方法启动，因为后者可能会引发用户的安全顾虑。
+
+1.  打开命令行终端，导航至 `extend-backend` 文件夹。
+2.  执行 `go build -o extend-backend.exe` 命令（Windows 平台示例，其他平台会自动生成对应格式的可执行文件，如 `extend-backend` for Linux/macOS）来编译后端服务。
+3.  运行生成的可执行文件（如 `extend-backend.exe`），启动后端服务。
+4.  再次打开浏览器，访问 `http://localhost:9093/hello-world`，验证服务是否正常运行。
+
+关于跨平台编译的详细信息，你可以查阅相关文档或资料进行深入了解。
+
+## 在 CEP 前端调用
+
+你可以使用像 `axios` 这样的库来便捷地发起 HTTP 请求，或者直接使用浏览器原生的 `XMLHttpRequest` 对象。
+
+首先，在你的 CEP 前端项目中安装 `axios`：
+```bash
+npm install axios
+```
+或
+```bash
+yarn add axios
+```
+
+安装完成后，便可以在 CEP 前端脚本中调用后端服务了。
+更多关于 `axios` 的用法，可以参考 [Axios 中文文档](https://www.axios-http.cn/docs/example)。
+
+```typescript
+import axios from 'axios'; // 确保正确导入 axios
+
+const getHelloWorld = () => {
+	axios.get('http://localhost:9093/hello-world')
+		.then(function (response) {
+			// 成功获取数据
+			alert(response.data.message);
+		})
+		.catch(function (error) {
+			// 处理错误情况
+			console.error('Error fetching data from backend:', error);
+			alert('Failed to connect to the backend service.');
+		})
+		.finally(function () {
+			// 此回调函数总是会被执行
+			console.log('Request to /hello-world finished.');
+		});
+};
+```
+
+最后，在你的 CEP 界面中设置一个按钮，并将其点击事件绑定到 `getHelloWorld` 函数。点击按钮后，如果一切配置正确，便可以看到 "Hello, World!" 的弹窗提示。

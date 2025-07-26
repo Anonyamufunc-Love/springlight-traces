@@ -1,0 +1,93 @@
+# 素材 —— FootageItem
+
+素材（FootageItem）在 After Effects 脚本环境中，指代项目中所使用的单个媒体资源。这些资源通常是导入的外部文件，例如图像文件、视频片段或音频剪辑。一个 `FootageItem` 可以是静态的（如一张图片）或动态的（如一段视频或音频流）。它们是构成图层内容的基础，为动画和视觉效果的构建提供原始数据。
+
+在关于音视觉图层（AVLayer）的章节中，我们初步接触了 `FootageItem` 的概念。本章将深入探讨 `FootageItem` 对象的关键属性和方法，这些对于管理和查询导入到项目中的媒体素材至关重要。
+
+随后的章节将详细介绍 `File` 对象，它常与 `FootageItem` 结合使用以处理文件路径等信息。
+
+### 获取素材时长
+
+`FootageItem` 对象通过其 `duration` 属性，提供了获取该素材总时长（以秒为单位）的能力。
+
+```typescript
+const layer = comp.layer(1); // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+$.writeln(layerFootage.duration); // 输出素材时长
+```
+
+### 素材的源文件信息
+
+通过 `FootageItem` 对象的 `file` 属性，可以访问与该素材项关联的源文件。此属性返回一个 `File` 对象（将在下一章详述），进而可以通过该对象的 `fsName` 属性获取源文件的完整磁盘路径。这对于定位或管理外部媒体文件非常有用。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+$.writeln(layerFootage.file.fsName); // 输出素材文件路径
+```
+
+### 判断素材是否脱机
+
+`FootageItem` 对象的 `footageMissing` 属性是一个布尔值，用于指示该素材项引用的源文件当前是否无法访问（即“脱机”或“丢失”）。如果为 `true`，则表示素材链接丢失；如果为 `false`，则表示素材链接正常。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (layerFootage.footageMissing) {
+    $.writeln("素材丢失");
+} else {
+    $.writeln("素材正常");
+}
+```
+
+### 获取素材的帧率与帧持续时间
+
+`FootageItem` 对象提供了 `frameRate` 属性，用于获取素材的帧率（每秒的帧数）。同时，`frameDuration` 属性则表示每一帧的持续时间（以秒为单位），其值通常是 `1 / frameRate`。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+$.writeln(layerFootage.frameRate); // 输出素材帧率
+$.writeln(layerFootage.frameDuration); // 输出素材帧间隔
+```
+
+### 获取素材的尺寸
+
+`FootageItem` 对象的 `width` 和 `height` 属性分别用于获取素材的原始宽度和高度，这些值通常以像素为单位。这对于了解素材的固有分辨率至关重要。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+$.writeln(layerFootage.width); // 输出素材宽度
+$.writeln(layerFootage.height); // 输出素材高度
+```

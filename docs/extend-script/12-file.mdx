@@ -1,0 +1,147 @@
+# 文件 —— File
+
+`File` 对象代表一个文件系统中的文件，你可以通过 `FootageItem` 对象来获取 `File` 对象，上一章已经讲解过了。
+
+本章将深入探讨 `FootageItem` 对象的用法，以及一些方法，属性等，更多的方法和属性请参考[接口文档](../api/AfterEffects/22.0/classes/FootageItem.md)。
+
+### 获取文件的名称
+
+`FootageItem` 对象提供了 `name` 属性，可以获取文件的名称。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+$.writeln(layerFootage.file.name); // QQ2025610-1454-HD.mp4
+```
+
+### 获取文件的不同路径
+
+你可以通过 `absoluteURI`、`relativeURI`、`path`、`fullName`、`fsName` 属性来获取不同样式的路径
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+$.writeln(layerFootage.file.fsName); // C:\Users\springtrace\Downloads\QQ2025610-1454-HD.mp4
+$.writeln(layerFootage.file.fullName); // ~/Downloads/QQ2025610-1454-HD.mp4
+$.writeln(layerFootage.file.path); // ~/Downloads
+$.writeln(layerFootage.file.relativeURI); // /c/Users/springtrace/Downloads/QQ2025610-1454-HD.mp4
+$.writeln(layerFootage.file.absoluteURI); // /Downloads/QQ2025610-1454-HD.mp4
+```
+
+### 获取文件的创建时间
+
+`FootageItem` 对象提供了 `created` 属性，可以获取文件的创建时间，它返回一个 `Date` 对象。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+const createdDate = layerFootage.file.created;
+$.writeln(createdDate.toLocaleString()); // Tuesday, June 10 2025 14:05:38
+```
+
+### 获取文件的修改时间
+
+`FootageItem` 对象提供了 `modified` 属性，可以获取文件的修改时间，它返回一个 `Date` 对象。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+const modifiedDate = layerFootage.file.modified;
+$.writeln(modifiedDate.toLocaleString()); // Tuesday, June 10 2025 14:05:38
+```
+
+### 获取文件的属性
+
+`FootageItem` 对象提供了 `type` 属性，可以获取文件的属性。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+$.writeln(layerFootage.file.type);
+```
+
+### 打开保存弹窗
+
+`FootageItem` 对象提供了 `saveDlg` 方法，可以打开保存弹窗。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+layerFootage.file.saveDlg();
+```
+
+## 构建文件对象
+
+你可以通过 `new File("path")` 来构建 `File` 对象。
+
+```typescript
+let file = new File("E:\\test.mp4");
+
+const name = file.name // "test.mp4"
+```
+
+### 运行文件对象
+
+`FootageItem` 对象提供了 `execute` 方法，可以运行文件对象。
+
+```typescript
+const layerFootage = layer.source;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+if (!layerFootage.file) {
+    throw new Error("当前素材没有源文件");
+}
+
+layerFootage.file.execute(); // 假设这是一个 .mp4 文件，那将是在系统中打开 .mp4 文件
+```

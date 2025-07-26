@@ -1,0 +1,85 @@
+# 摄像机图层 —— CameraLayer
+
+:::tip
+本章内容仍在持续完善与更新中，更多精彩敬请期待！
+:::
+
+## CameraLayer  
+
+`CameraLayer` 继承自 `Layer`，是一个专门用于处理摄像机内容的特殊图层。
+
+`CameraLayer` 相对于 `AVLayer`，没有添加太多的方法，只添加了一个 `cameraOption` 属性组，用于设置摄像机的一些参数。
+
+```ts
+/** The CameraLayer object represents a camera layer within a composition. Create it using the LayerCollection object’s addCamera method */
+declare class CameraLayer extends Layer {
+  /** Shortcuts */
+  readonly cameraOption: _CameraOptionsGroup
+}
+```
+
+`_CameraOptionsGroup` 中含有以下 `OneDProperty` 属性：
+
+```ts
+declare interface _CameraOptionsGroup extends PropertyGroup {
+  readonly zoom: OneDProperty // 摄像机选项 > 缩放
+  readonly depthOfField: OneDProperty // 摄像机选项 > 景深
+  readonly focusDistance: OneDProperty // 摄像机选项 > 焦距
+  readonly aperture: OneDProperty // 摄像机选项 > 光圈
+  readonly blurLevel: OneDProperty // 摄像机选项 > 模糊层次
+  readonly irisShape: OneDProperty // 摄像机选项 > 光圈形状
+  readonly irisRotation: OneDProperty // 摄像机选项 > 光圈旋转
+  readonly irisRoundness: OneDProperty // 摄像机选项 > 光圈圆度
+  readonly irisAspectRatio: OneDProperty // 摄像机选项 > 光圈长宽比
+  readonly irisDiffractionFringe: OneDProperty // 摄像机选项 > 光圈衍射条纹
+  readonly highlightGain: OneDProperty // 摄像机选项 > 高光增益
+  readonly highlightThreshold: OneDProperty // 摄像机选项 > 高光阈值
+  readonly highlightSaturation: OneDProperty // 摄像机选项 > 高光饱和度
+}
+```
+
+`OneDProperty` 是一个只含有一个值的属性，同时意味着 `value` 是一个 `number`。
+
+其例如 `zoom` 属性等一些简单的属性，就不做过多介绍了。
+
+请记住，一定要使用 `setValue()` 方法来设置属性的值，之前已经提过了。
+
+### 光圈旋转
+
+```ts
+// 假设 comp 是一个有效的合成对象
+const layer = comp.layer(3);
+
+if (!(layer instanceof CameraLayer) || !layer) {
+    throw new Error("不是一个摄像机图层")
+}
+// 获取光圈旋转
+const value = layer.cameraOption.irisRotation.value;
+// 设置光圈旋转
+layer.cameraOption.irisRotation.setValue(1180); // 3x +100.0°
+```
+
+### 光圈形状
+
+在 After Effects 中，“光圈形状 (Iris Shape)” 虽然在界面上呈现为一个选项，但其在脚本中实际上是一个数值属性。
+
+具体数值与形状的对应关系如下：
+
+*   **1**: 快矩形
+*   **3**: 三角形
+*   依此类推，**4**：正方形……
+*   **10**: 十边形
+
+
+```ts
+// 假设 comp 是一个有效的合成对象
+const layer = comp.layer(3);
+
+if (!(layer instanceof CameraLayer) || !layer) {
+    throw new Error("不是一个摄像机图层")
+}
+// 获取光圈形状
+const value = layer.cameraOption.irisShape.value;
+// 设置光圈形状
+layer.cameraOption.irisShape.setValue(3); // 三角形
+```

@@ -1,0 +1,92 @@
+# 数据存储
+
+在 CEP 扩展的开发征途中，数据存储是不可或缺的一环。我们时常需要持久化用户设置、缓存数据，甚至在某些不得不刷新扩展面板的场景下，我们绝不希望宝贵的信息付诸东流，让 CEP 扩展拥有“鱼一样的记忆”。因此，理解并有效运用数据存储机制，对于提升用户体验和扩展功能至关重要。
+
+CEP 扩展开发中常用的数据存储方式主要有以下几种：
+
+1.  **CEF 内置 LocalStorage**: 用于持久化存储数据。数据将一直保留在用户本地，除非用户手动清除浏览器缓存、扩展被卸载，或代码主动移除。
+2.  **CEF 内置 SessionStorage**: 用于存储会话级别的数据。这类数据并非持久化的，当用户关闭扩展面板或宿主应用程序窗口导致会话结束后，数据便会丢失，页面刷新也会导致其清空。
+3.  **CEF 内置 Cookie**: 用于存储少量数据。Cookie 分为会话 Cookie 和持久化 Cookie。会话 Cookie 仅在当前会话（通常指扩展面板的生命周期）内有效；持久化 Cookie 则可以设定一个过期时间，在此之前除非被清除，否则会一直存在。
+4.  **文件系统读写**: 通过 CEP 提供的 Node.js 环境，例如在使用 `bolt-cep` 脚手架时，可以利用其在 `src\js\lib\cep\node.ts` 中封装的 `fs` (文件系统)模块，直接在用户的文件系统上进行数据的读取和写入操作。这种方式适合存储较大数据或复杂结构的数据。
+
+**需要注意的是：** 前三种基于 CEF 浏览器环境的存储方式均有其容量上限。通常情况下，Cookie 的存储上限约为 4KB，而 LocalStorage 和 SessionStorage 各自的存储上限约为 5MB。这些是典型限制，具体可能因 CEF 版本而略有不同。超出限制可能会导致写入失败或数据丢失。
+
+虽然这些存储方式都提供了原生的 API 接口，但在实际操作中，原生 API 在操作上可能略显繁琐或功能有限，尤其是在处理 Cookie 时。因此，引入一些优秀的第三方库可以极大简化开发工作，例如使用 `typescript-cookie` 库来便捷地操作 Cookie，以及 `store2` 库来统一和简化 LocalStorage 与 SessionStorage 的操作。
+
+## LocalStorage、SessionStorage
+
+在扩展的前端 TypeScript 环境中，你可以通过全局对象 `window.localStorage` 和 `window.sessionStorage` 来访问并操作这些存储区域。
+
+```typescript title="localStorage"
+// 设置键与值
+window.localStorage.setItem('key', 'value');
+// 获取值
+const value = window.localStorage.getItem('key');
+// 移除指定键值对
+window.localStorage.removeItem('key');
+// 清空所有存储
+window.localStorage.clear();
+```
+
+```typescript title="sessionStorage"
+// 设置键与值
+window.sessionStorage.setItem('key', 'value');
+// 获取值
+const value = window.sessionStorage.getItem('key');
+// 移除指定键值对
+window.sessionStorage.removeItem('key');
+// 清空所有存储
+window.sessionStorage.clear();
+```
+
+## Cookie
+
+同样，在前端 TypeScript 环境中，可以通过 `document.cookie` 属性来操作 Cookie。
+
+```typescript title="cookie"
+// 设置键与值 (基础操作，不含过期时间等高级设置)
+document.cookie = 'key=value';
+
+// 获取值 (原生获取较为复杂，需要手动解析)
+const cookies = document.cookie.split(';');
+let value = null;
+for (const cookie of cookies) {
+    const parts = cookie.trim().split('=');
+    if (parts[0] === 'key') {
+        value = parts[1];
+        break;
+    }
+}
+```
+
+你会发现，原生 Cookie 的接口设计相对底层，直接使用时需要自行处理格式、过期时间、路径等参数，较为不便。因此，推荐使用第三方库来简化操作。
+
+安装 `typescript-cookie` 库：
+
+```bash
+npm i typescript-cookie
+# 或者
+# yarn add typescript-cookie
+```
+
+使用 `typescript-cookie` 库：
+```typescript
+import { getCookie, setCookie, removeCookie, getCookies } from 'typescript-cookie';
+
+// 设置键与值
+setCookie('name', 'value');
+
+// 设置键与值，并指定过期时间为 7 天
+setCookie('name', 'anotherValue', { expires: 7 });
+
+// 获取指定名称的 cookie 值
+const value = getCookie('name');
+
+// 获取所有 cookies，返回一个对象
+const allCookies = getCookies();
+
+// 删除指定名称的 cookie
+removeCookie('name');
+```
+
+---

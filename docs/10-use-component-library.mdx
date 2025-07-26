@@ -1,0 +1,126 @@
+# 安装并使用组件库
+
+正如“准备工作”章节所述：
+
+> Bolt-CEP 框架拥抱现代 Web 开发技术栈，允许你使用部分 ES6 语法来编写 ExtendScript 代码，并集成了 Vite、TypeScript 和 Sass，同时为 React 和 Vue 等流行前端框架提供了良好的支持。
+
+显然，我们希望摆脱传统 CEP 开发中手动引入 UI JavaScript 库的方式。因此，你可以根据所选的前端框架来决定使用哪种组件库。
+
+本章将重点介绍如何在 React 项目中使用组件库。
+
+## 安装 React 组件库
+
+React 生态中有许多优秀的组件库可供选择，例如：
+
+*   fluent-ui (来自微软)
+:::tip
+如果要使用 react-spectrum 组件库，你需要在 React 入口文件写入 enableSpectrum()，以解决兼容性问题。
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { enableSpectrum, initBolt } from "../lib/utils/bolt";
+import "../index.scss";
+import { App } from "./main";
+
+initBolt();
+
+enableSpectrum()
+
+ReactDOM.createRoot(document.getElementById("app") as HTMLElement).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+```
+:::
+*   react-spectrum (来自 Adobe)
+
+你可以查阅 [2024/2025 年 React 组件库 与 相关库 推荐](https://zhuanlan.zhihu.com/p/546697951) 一文，获取更多组件库的推荐信息。
+
+请根据你的个人偏好和项目需求，选择合适的组件库。本文以 fluent-ui 为例进行说明。安装命令如下：
+
+```bash
+yarn add @fluentui/react-components
+```
+
+## 使用 React 组件库
+
+安装完成后，即可在你的 React 项目中使用 fluent-ui 组件库。
+
+不过，也要多多测试组件库中不同组件的可用性，确保 `bolt-cep` 的兼容性。
+
+首先，找到 `src/js/[面板名称，默认为main]/index.html` 文件，定位到 `<script type="module" src="./index-react.tsx"></script>`，得知 `index-react.tsx` 文件是该面板的 React 入口文件。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolt CEP</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    
+
+    
+    <script type="module" src="./index-react.tsx"></script>
+    
+  </body>
+</html>
+```
+
+{/* :::tip 提示
+在 `熟悉 bolt-cep` 章节中，我们提到过 `cep.config.ts` 文件，它允许你定义多个面板，每个面板都有自己的名称，入口文件等信息，更多关于多面板的信息，请见下一章。
+
+```typescript
+panels: [ // 面板配置 (可以有多个面板)
+    {
+      mainPath: "./main/index.html", // 面板的主页面 HTML 文件路径
+      name: "main", // 面板的内部名称 (决定 yarn dev 中的访问路径)
+      panelDisplayName: "Demo Panel", // 面板在宿主应用中显示的名称
+      autoVisible: true, // 面板是否在加载后自动显示
+      width: 600, // 此特定面板的宽度
+      height: 650, // 此特定面板的高度
+    },
+],
+```
+::: */}
+
+然后，在 `index-react.tsx` 文件中导入 fluent-ui 组件库：
+
+```tsx
+import { FluentProvider, webDarkTheme } from "@fluentui/react-components";
+```
+
+若希望使用浅色主题，可以导入 `webLightTheme`。
+
+接着，使用 `<FluentProvider />` 组件包裹你的根组件 `<App />`，并传入所选主题：
+
+```tsx
+ReactDOM.createRoot(document.getElementById("app") as HTMLElement).render(
+  <React.StrictMode>
+    <FluentProvider theme={webDarkTheme}>
+      <App />
+    </FluentProvider>
+  </React.StrictMode>
+);
+```
+
+最后，便可以在 `<App />` 组件或其他子组件中直接使用 fluent-ui 提供的各种组件了。
+
+```tsx
+import { Button } from "@fluentui/react-components";
+
+const App = () => {
+  return (
+    <div>
+      <Button>Hello, Fluent UI!</Button>
+    </div>
+  );
+}
+
+export default App;
+```

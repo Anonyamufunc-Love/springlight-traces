@@ -1,0 +1,115 @@
+# 灯光图层 —— LightLayer
+
+:::tip
+本章内容仍在持续完善与更新中，更多精彩敬请期待！
+:::
+
+## LightLayer  
+
+`LightLayer` 继承自 `Layer`，是一个专门用于处理灯光内容的特殊图层。
+
+`LightLayer` 相对于 `AVLayer`，没有添加太多的方法，添加了一个 `lightOption` 属性组，以及`lightType` 属性，用于设置灯光的一些参数。
+
+```ts
+/** The LightLayer object represents a light layer within a composition. Create it using the LayerCollection object’s addLight method */
+declare class LightLayer extends Layer {
+  /** Shortcuts */
+  readonly lightOption: _LightOptionsGroup
+
+  /** For light layers, the type of light. */
+  lightType: LightType
+}
+```
+
+`_LightOptionsGroup` 含有以下 `OneDProperty` 属性：
+
+```ts
+declare interface _LightOptionsGroup extends PropertyGroup {
+  readonly intensity: OneDProperty // 灯光选项 > 强度
+  readonly color: ColorProperty // 灯光选项 > 颜色
+  readonly coneAngle: OneDProperty // 灯光选项 > 锥形角度
+  readonly coneFeather: OneDProperty // 灯光选项 > 锥形羽化
+  readonly falloff: OneDProperty // 灯光选项 > 衰减
+  readonly radius: OneDProperty // 灯光选项 > 半径
+  readonly falloffDistance: OneDProperty // 灯光选项 > 衰减距离
+  readonly castsShadows: OneDProperty // 灯光选项 > 阴影
+  readonly shadowDarkness: OneDProperty // 灯光选项 > 阴影暗度
+  readonly shadowDiffusion: OneDProperty // 灯光选项 > 阴影扩散
+}
+```
+
+### LightType
+
+`LightType` 是一个枚举类型，用于设置聚光的类型。
+
+```ts
+declare enum LightType {
+  AMBIENT = 4415, // 环境
+  PARALLEL = 4412, // 平行
+  POINT = 4414, // 点
+  SPOT = 4413, // 聚光
+}
+```
+
+需要注意的是，`LightType` 会导致 `lightOption` 属性组的属性变化，例如 `环境光`，只有 `强度` 和 `颜色` 属性，但你无需担心，`ExtendScript` 依旧可以获取到，只是被隐藏了而已。
+
+#### 修改灯光类型
+
+```ts
+// 假设 comp 是一个有效的合成对象
+var layer = comp.layer(3);
+
+if (!(layer instanceof LightLayer) || !layer) {
+    throw new Error("不是一个灯光图层")
+}
+
+var lightType = layer.lightType; // 获取当前灯光类型
+layer.lightType = LightType.SPOT; // 修改灯光类型为聚光
+```
+
+### 修改灯光颜色
+
+`color` 属性是一个 `ColorProperty`，可以设置颜色值。
+
+需要注意的是，这个 `ColorProperty` 中的颜色和合成颜色的处理方式是大差不差的，都是每个颜色分量都除以 `255`，不过 `ColorProperty` 多了一个值，貌似是透明度，所以我们设置颜色的时候，需要把透明度也设置上。
+
+```ts
+// 假设 comp 是一个有效的合成对象
+const layer = comp.layer(3);
+
+if (!(layer instanceof LightLayer) || !layer) {
+    throw new Error("不是一个灯光图层")
+}
+
+
+const color = layer.lightOption.color; // 获取当前颜色
+
+let r = 102;
+let g = 255;
+let b = 255;
+layer.lightOption.color.setValue([r / 255, g / 255, b / 255, 1]) // 设置颜色
+                                                                 // 透明度为 1
+```
+
+### 修改灯光衰减
+
+`falloff` 属性是一个 `OneDProperty`，可以设置衰减。
+
+具体数值与UI的对应关系如下：
+
+*   **1**: 无
+*   **2**: 平滑
+*   **3**: 反向正方形已固定
+
+
+```ts
+// 假设 comp 是一个有效的合成对象
+const layer = comp.layer(3);
+
+if (!(layer instanceof LightLayer) || !layer) {
+    throw new Error("不是一个灯光图层")
+}
+
+const falloff = layer.lightOption.falloff; // 获取当前衰减
+layer.lightOption.falloff.setValue(1); // 设置衰减为 平滑
+```

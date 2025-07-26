@@ -1,0 +1,303 @@
+# 音视觉图层 —— AVLayer
+
+:::tip
+本章内容仍在持续完善与更新中，更多精彩敬请期待！
+:::
+
+## AVLayer
+
+AVLayer 继承自 Layer，是一个专门处理音视觉内容的特殊图层。
+
+上一章我们介绍了 Property 等核心概念，相信你对属性及属性组的运用已有了初步的掌握。
+
+本章我们将在此基础上，继续深入探索 AVLayer 的特性。
+
+### AVLayer 覆盖的范围到底有多广？
+
+`AVLayer` 意为音视觉图层，这意味着以下类型的图层均在其范畴之内：
+
+- 纯色填充 (Solid Color)
+- 图片 (Image)
+- 视频 (Video)
+- 音频 (Audio)
+- 空对象 (Null Object)
+- 调整图层 (Adjustment Layer)
+
+这些都是 `AVLayer` 的覆盖范围。
+
+### 获取音视觉图层的来源对象
+
+`AVLayer` 提供了一个 `source` 属性，通过该属性可以获取音视觉图层的来源对象。
+
+`source` 属性返回一个 `any` 类型的值，表明其具体类型是不确定的，这取决于图层的实际来源。
+
+例如，若要获取音视觉图层的素材对象（FootageItem），可以参考以下做法：
+
+请注意，由于 `AVLayer` 继承自 `Layer`，`comp.layer(1)` 实际返回的对象可能是 `Layer` 类型，因此进行显式的类型判断是必要的。
+
+```ts
+const comp = app.project.activeItem as CompItem;
+
+if (!(comp instanceof CompItem)) {
+    throw new Error("当前项目没有合成");
+}
+
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+const layerFootage = layer.source as FootageItem;
+
+if (!(layerFootage instanceof FootageItem)) {
+    throw new Error("当前层没有素材");
+}
+
+$.writeln(layerFootage.name); // 打印素材的名称
+let file = layerFootage.file; // 获取素材的文件对象
+```
+
+关于文件（File）对象以及素材（FootageItem）对象的更多细节，将在后续章节中详细阐述。
+
+### 获取音视觉图层的尺寸
+
+`AVLayer` 提供了 `width` 和 `height` 属性，用以获取图层的宽度和高度。
+
+```ts
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+$.writeln(layer.width); // 打印图层的宽度
+$.writeln(layer.height); // 打印图层的高度
+```
+
+### 图层属性开关：调整图层、运动模糊、3D图层、环境图层、参考图层
+
+`AVLayer` 提供了一系列布尔型属性，包括 `adjustmentLayer`、`motionBlur`、`threeDLayer`、`environmentLayer` 和 `guideLayer`。这些属性可用于查询或设置图层是否为调整图层、是否启用运动模糊、是否为3D图层、是否为环境图层以及是否为参考图层。
+
+```ts
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+const adjustmentLayer = layer.adjustmentLayer; // 图层是否是调整图层
+const motionBlur = layer.motionBlur; // 图层是否开启运动模糊
+const threeDLayer = layer.threeDLayer; // 图层是否是 3D 图层
+const environmentLayer = layer.environmentLayer; // 图层是否是环境图层
+const guideLayer = layer.guideLayer; // 图层是否是参考图层
+
+layer.adjustmentLayer = true; // 将图层设置为调整图层
+layer.motionBlur = true; // 为图层开启运动模糊
+layer.threeDLayer = true; // 将图层设置为 3D 图层
+layer.environmentLayer = true; // 将图层设置为环境图层
+layer.guideLayer = true; // 将图层设置为参考图层
+```
+
+### 帧混合模式
+
+`AVLayer` 通过 `frameBlendingType` 属性来获取或设置图层的帧混合模式。
+
+```ts title="FrameBlendingType"
+declare enum FrameBlendingType {
+  FRAME_MIX = 4013, // 帧混合模式 - 对应AE中的 “帧混合模式 -> 帧混合”
+  NO_FRAME_BLEND = 4012, // 不使用帧混合模式 - 对应AE中的 “帧混合模式 -> 关”
+  PIXEL_MOTION = 4014, // 像素运动模式 - 对应AE中的 “帧混合模式 -> 像素运动”
+}
+```
+
+```ts
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+let frameBlending = layer.frameBlendingType; // 获取帧混合模式
+
+layer.frameBlendingType = FrameBlendingType.FRAME_MIX; // 设置帧混合模式为 帧混合
+```
+
+此外，你也可以通过 `frameBlending` 属性来检测当前是否启用了任何一种帧混合模式（非 `NO_FRAME_BLEND`）。
+
+```ts
+layer.frameBlendingType = FrameBlendingType.FRAME_MIX;
+let frameBlending = layer.frameBlending; // 返回 true
+layer.frameBlendingType = FrameBlendingType.NO_FRAME_BLEND;
+let frameBlending = layer.frameBlending; // 返回 false
+```
+
+### 混合模式
+
+通过 `AVLayer` 的 `blendingMode` 属性，可以获取或设定图层的混合模式。
+
+:::warning
+`BlendingMode` 的枚举值与After Effects界面选项的对应关系翻译目前为初步版本，后续会进行校订以提供更准确的对应说明。
+:::
+
+```ts title="BlendingMode"
+declare enum BlendingMode {
+  ADD = 5220, // 叠加模式 - 对应AE中的 “混合模式 -> 叠加”
+  ALPHA_ADD = 5244, // 透明度叠加模式 - 对应AE中的 “混合模式 -> 透明度叠加”
+  CLASSIC_COLOR_BURN = 5219,
+  CLASSIC_COLOR_DODGE = 5225,
+  CLASSIC_DIFFERENCE = 5234,
+  COLOR = 5238, // 颜色模式 - 对应AE中的 “混合模式 -> 颜色”
+  COLOR_BURN = 5218, // 颜色加深模式 - 对应AE中的 “混合模式 -> 颜色加深”
+  COLOR_DODGE = 5224,
+  DANCING_DISSOLVE = 5214, // 丝状溶解模式 - 对应AE中的 “混合模式 -> 丝状溶解”
+  DARKEN = 5215, // 变暗模式 - 对应AE中的 “混合模式 -> 变暗”
+  DARKER_COLOR = 5247, // 变暗颜色模式 - 对应AE中的 “混合模式 -> 变暗颜色”
+  DIFFERENCE = 5233, // 差值模式 - 对应AE中的 “混合模式 -> 差值”
+  DISSOLVE = 5213, // 溶解模式 - 对应AE中的 “混合模式 -> 溶解”
+  DIVIDE = 5249, // 除法模式 - 对应AE中的 “混合模式 -> 除法”
+  EXCLUSION = 5235, // 排除模式 - 对应AE中的 “混合模式 -> 排除”
+  HARD_LIGHT = 5228, // 强光模式 - 对应AE中的 “混合模式 -> 强光”
+  HARD_MIX = 5232, // 强度混合模式 - 对应AE中的 “混合模式 -> 强度混合”
+  HUE = 5236, // 色调模式 - 对应AE中的 “混合模式 -> 色调”
+  LIGHTEN = 5221, // 变亮模式 - 对应AE中的 “混合模式 -> 变亮”
+  LIGHTER_COLOR = 5246, // 变亮颜色模式 - 对应AE中的 “混合模式 -> 变亮颜色”
+  LINEAR_BURN = 5217, // 线性加深模式 - 对应AE中的 “混合模式 -> 线性加深”
+  LINEAR_DODGE = 5223, // 线性减淡模式 - 对应AE中的 “混合模式 -> 线性减淡”
+  LINEAR_LIGHT = 5229, // 线性光模式 - 对应AE中的 “混合模式 -> 线性光”
+  LUMINESCENT_PREMUL = 5245, // 亮度预乘模式 - 对应AE中的 “混合模式 -> 亮度预乘”
+  LUMINOSITY = 5239, // 亮度模式 - 对应AE中的 “混合模式 -> 亮度”
+  MULTIPLY = 5216, // 乘法模式 - 对应AE中的 “混合模式 -> 乘法”
+  NORMAL = 5212, // 正常模式 - 对应AE中的 “混合模式 -> 正常”
+  OVERLAY = 5226, // 叠加模式 - 对应AE中的 “混合模式 -> 叠加”
+  PIN_LIGHT = 5231, // 点光模式 - 对应AE中的 “混合模式 -> 点光”
+  SATURATION = 5237, // 饱和度模式 - 对应AE中的 “混合模式 -> 饱和度”
+  SCREEN = 5222, // 屏幕模式 - 对应AE中的 “混合模式 -> 屏幕”
+  SILHOUETE_ALPHA = 5242, // 轮廓透明度模式 - 对应AE中的 “混合模式 -> 轮廓透明度”
+  SILHOUETTE_LUMA = 5243, // 轮廓亮度模式 - 对应AE中的 “混合模式 -> 轮廓亮度”
+  SOFT_LIGHT = 5227, // 柔光模式 - 对应AE中的 “混合模式 -> 柔光”
+  STENCIL_ALPHA = 5240,
+  STENCIL_LUMA = 5241,
+  SUBTRACT = 5248, // 减法模式 - 对应AE中的 “混合模式 -> 减法”
+  VIVID_LIGHT = 5230,
+}
+```
+
+```ts
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+let blendingMode = layer.blendingMode; // 获取混合模式
+
+layer.blendingMode = BlendingMode.ADD; // 设置混合模式为 叠加
+```
+
+### 图层品质与采样品质
+
+`AVLayer` 提供了 `quality` 和 `samplingQuality` 属性，分别用于获取或设置图层的渲染品质和采样品质。
+
+```ts title="LayerQuality"
+declare enum LayerQuality {
+  BEST = 4614, // 最佳品质 - 对应AE中的 “品质 -> 最佳”
+  DRAFT = 4613, // 草稿品质 - 对应AE中的 “品质 -> 草稿品
+  WIREFRAME = 4612, // 线框模式 - 对应AE中的 “品质 -> 线框”
+}
+```
+
+```ts title="LayerSamplingQuality"
+declare enum LayerSamplingQuality {
+  BICUBIC = 4813, // 双三次插值 - 对应AE中的 “品质 -> 双三次”
+  BILINEAR = 4812, // 双线性插值 - 对应AE中的 “品质 -> 双线性”
+}
+```
+
+```ts
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+let quality = layer.quality; // 获取图层品质
+let samplingQuality = layer.samplingQuality; // 获取图层采样品质
+
+layer.quality = LayerQuality.BEST; // 设置图层品质为 最佳品质
+layer.samplingQuality = LayerSamplingQuality.BICUBIC; // 设置图层采样品质为 双三次插值
+```
+
+### 在查看器中打开图层
+
+`AVLayer` 对象提供了一个 `openInViewer` 方法，调用此方法可以在 After Effects 的图层查看器面板中打开该图层，并返回一个对应的 `Viewer` 对象。如果无法打开，则返回 `null`。
+
+```ts
+const layer = comp.layer(1) as AVLayer; // 选择第 1 层
+
+if (!(layer instanceof AVLayer)) {
+    throw new Error("当前层不是音视觉图层");
+}
+
+const viewer: Viewer | null = layer.openInViewer(); // 打开预览器
+
+if (viewer) {
+    // viewer 对象不为 null，表示成功打开，可以对其进行操作
+    //（也可以代表这个图层能不能被查看器查看）
+}
+```
+
+## TextLayer
+
+`TextLayer` 继承自 `AVLayer`，是专门为处理文字内容而设计的图层类型。
+
+### 获取文本内容
+
+`TextLayer` 提供了一个 `sourceText` 属性，通过此属性可以访问文本图层的文本数据。
+
+`sourceText` 属性返回一个 `TextDocumentProperty` 对象，而实际的文本字符串则存储在该对象的 `value` 属性中。
+
+```ts
+const layer = comp.layer(1) as TextLayer; // 选择第 1 层
+
+const text = layer.sourceText.value; // 获取文字内容
+
+layer.sourceText.setValue("新的文字内容"); // 设置新的文字内容
+```
+
+### 访问路径选项与更多选项
+
+在 `TextLayer` 的 `text` 属性之下，还包含了 `pathOption`（路径选项）和 `moreOptions`（更多选项）两个属性组。它们分别允许我们获取或设置与文本路径及其他高级选项相关的参数。
+
+以下是如何通过这些属性访问更深层次参数的示例：
+
+```ts
+const layer = comp.layer(1) as TextLayer; // 选择第 1 层
+
+const pathOption = layer.text.pathOption; // 获取路径选项属性组
+const moreOption = layer.text.moreOption; // 获取更多选项属性组
+
+const path = layer.text.pathOption.path; // 从路径选项中获取具体的“路径”属性
+
+$.println(path.value); // 如果路径使用了蒙版 1，则返回 1；否则返回 0
+                       // 当然，如果使用蒙版 2，则返回 2，以此类推
+                       // 其实也是根据 After Effects 中的选项，从上到下，以此类推出不同的值
+
+const pathName = path.name; // 返回：“路径”
+
+const fillAndStroke = layer.text.moreOption.fillANdStroke; // 从更多选项中获取“填充和描边”属性
+
+const fillAndStrokeName = fillAndStroke.name; // 返回：“填充和描边”
+
+$.writeln(fillAndStroke.value); // 获取“填充和描边”属性组的具体值
+                                // 根据 After Effects 中的选项，从上到下
+                                // 以此类推：
+                                // 每字符调板 = 1
+                                // 全部填充在全部描边之上 = 2
+                                // 全部描边在全部填充之上 = 3
+fillAndStroke.setValue(2); // 设置“填充和描边”属性组的值为 2，即全部填充在全部描边之上
+```
+
+## ShapeLayer
+
+`ShapeLayer` 继承自 `AVLayer`，但是没有在继承上，新增任何的属性/方法，此处不做过多的阐述。

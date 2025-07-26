@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "module": "ESNext",
+        "esModuleInterop": true,
+        "strict": true,
+        "noLib": true
+    },
+    "include": [
+        "./node_modules/types-for-adobe/AfterEffects/22.0/**/*.d.ts",
+        "./node_modules/types-for-adobe/shared/**/*.d.ts"
+    ],
+    "typedocOptions": {
+        // TypeDoc 的具体配置项
+        "entryPoints": [
+            "./node_modules/types-for-adobe/AfterEffects/22.0",
+            "./node_modules/types-for-adobe/shared"
+        ],
+        "skipErrorChecking": true,
+        "entryPointStrategy": "expand", // 将目录作为入口点展开
+    }
+}

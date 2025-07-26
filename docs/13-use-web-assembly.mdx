@@ -1,0 +1,122 @@
+# 使用 WebAssembly
+
+在开发过程中，我们有时会遇到性能瓶颈，尤其是在处理密集型数学计算等任务时。如果扩展后端服务的方案显得过于复杂，或者你已拥有 C++、Rust 等语言编写的现有代码，并希望针对性地提升特定功能的性能，那么 WebAssembly (Wasm) 会是一个理想的选择。
+
+WebAssembly 允许你使用 C++、Rust 等高性能语言编写代码，然后将其编译成 `.wasm` 文件。这些 `.wasm` 文件能以近乎原生的速度在浏览器环境中运行，从而有效提升 CEP 扩展的性能。
+
+关于 WebAssembly 的更多信息，请参阅 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/WebAssembly)。
+
+本章暂不涉及 WebAssembly 代码的编写细节（未来可能会补充相关内容），而是重点介绍如何在 CEP 扩展中集成和使用基于 WebAssembly 的库。
+
+:::warning
+在引入 WebAssembly 库或自行加载 WebAssembly 文件时，请务必确保库本身或你的加载逻辑采用**异步编译** WebAssembly 模块的方式，而非同步加载。
+
+否则，可能会遇到如下错误：
+`WebAssembly.Compile is disallowed on the main thread, if the buffer size is larger than 4KB. Use WebAssembly.compile, or compile on a worker thread.`
+
+该错误意味着：如果 WebAssembly 模块编译后的文件大小超过 4KB，则不允许在主线程上进行同步编译。此时，应采用异步的 `WebAssembly.compile()` API，或将编译任务置于 Worker 线程中执行。
+:::
+
+## 使用 `hash-wasm` 库
+
+[`hash-wasm`](https://github.com/Daninet/hash-wasm/) 是一个开源的 WebAssembly 库，它提供了多种常见哈希算法的实现。
+
+1.  安装 `hash-wasm` 库：
+
+```bash
+npm install hash-wasm
+```
+
+2.  引用并使用 `hash-wasm` 库：
+
+```tsx
+import { md5 } from "hash-wasm";
+
+const hash = async () => {
+    const md5Hash = await md5("Kira kira doki doki!");
+    alert(md5Hash); // 实际应用中，你可能会将结果显示在界面上或用于其他逻辑
+}
+
+const WebAssemblyTest = () => {
+    return <div>
+        <button onClick={hash}>计算 MD5</button>
+    </div>;
+};
+
+export default WebAssemblyTest;
+```
+
+点击按钮后，程序将计算并显示字符串 `Kira kira doki doki!` 的 MD5 哈希值。
+
+`hash-wasm` 采用 C 语言编写核心计算逻辑，因此相较于许多纯 JavaScript 实现的哈希算法，其性能表现更为出色。
+
+以下是一些性能测试结果，来自于 `hash-wasm` 库的 README：
+
+| MD5                         | 吞吐量 (32字节) | 吞吐量 (1MB) |
+| --------------------------- | --------------------- | ---------------- |
+| **hash-wasm 4.10.0**        | **110.52 MB/s**       | **850.31 MB/s**  |
+| spark-md5 3.0.2 (来自 npm)  | 38.87 MB/s            | 171.73 MB/s      |
+| md5-wasm 2.0.0 (来自 npm)   | 37.36 MB/s            | 131.77 MB/s      |
+| crypto-js 4.1.1 (来自 npm)  | 9.30 MB/s             | 46.71 MB/s       |
+| node-forge 1.3.1 (来自 npm) | 18.23 MB/s            | 28.94 MB/s       |
+| md5 2.3.0 (来自 npm)        | 14.50 MB/s            | 21.65 MB/s       |
+
+#
+
+| SHA1                        | 吞吐量 (32字节) | 吞吐量 (1MB) |
+| --------------------------- | --------------------- | ---------------- |
+| **hash-wasm 4.10.0**        | **83.80 MB/s**        | **798.19 MB/s**  |
+| jsSHA 3.3.1 (来自 npm)      | 34.93 MB/s            | 78.12 MB/s       |
+| crypto-js 4.1.1 (来自 npm)  | 9.50 MB/s             | 69.02 MB/s       |
+| node-forge 1.3.1 (来自 npm) | 17.02 MB/s            | 32.00 MB/s       |
+| sha1 1.1.1 (来自 npm)       | 14.68 MB/s            | 24.24 MB/s       |
+
+#
+
+| SHA256                        | 吞吐量 (32字节) | 吞吐量 (1MB) |
+| ----------------------------- | --------------------- | ---------------- |
+| **hash-wasm 4.10.0**          | **63.99 MB/s**        | **426.16 MB/s**  |
+| sha256-wasm 2.2.2 (来自 npm)  | 20.37 MB/s            | 308.39 MB/s      |
+| noble-hashes 1.3.2 (来自 npm) | 24.73 MB/s            | 110.02 MB/s      |
+| crypto-js 4.1.1 (来自 npm)    | 8.99 MB/s             | 65.17 MB/s       |
+| jsSHA 3.3.1 (来自 npm)        | 25.64 MB/s            | 57.98 MB/s       |
+| node-forge 1.3.1 (来自 npm)   | 13.93 MB/s            | 28.19 MB/s       |
+
+#
+
+| SHA3-512                      | 吞吐量 (32字节) | 吞吐量 (1MB) |
+| ----------------------------- | --------------------- | ---------------- |
+| **hash-wasm 4.10.0**          | **38.06 MB/s**        | **234.40 MB/s**  |
+| sha3-wasm 1.0.0 (来自 npm)    | 15.44 MB/s            | 101.51 MB/s      |
+| noble-hashes 1.3.2 (来自 npm) | 5.74 MB/s             | 14.19 MB/s       |
+| sha3 2.1.4 (来自 npm)         | 3.80 MB/s             | 10.73 MB/s       |
+| jsSHA 3.2.0 (来自 npm)        | 2.08 MB/s             | 3.82 MB/s        |
+
+#
+
+| XXHash64                     | 吞吐量 (32字节) | 吞吐量 (1MB)   |
+| ---------------------------- | --------------------- | ------------------ |
+| **hash-wasm 4.10.0**         | **101.66 MB/s**       | **15989 MB/s** |
+| xxhash-wasm 1.0.2 (来自 npm) | 47.58 MB/s            | 15929 MB/s     |
+| xxhashjs 0.2.2 (来自 npm)    | 0.92 MB/s             | 42.26 MB/s         |
+
+#
+
+| PBKDF2-SHA512 - 1000次迭代 | 每秒操作数 (16字节) |
+| ------------------------------- | -------------------------------- |
+| **hash-wasm 4.10.0**            | **588 ops**                      |
+| noble-hashes 1.3.2 (来自 npm)   | 395 ops                          |
+| pbkdf2 3.1.2 (来自 npm)         | 83 ops                           |
+| crypto-js 4.1.1 (来自 npm)      | 29 ops                           |
+
+#
+
+| Argon2id (m=512, t=8, p=1)       | 每秒操作数 (16字节) |
+| -------------------------------- | -------------------------------- |
+| **hash-wasm 4.10.0**             | **438 ops**                      |
+| argon2-browser 1.18.0 (来自 npm) | 213 ops                          |
+| argon2-wasm-pro 1.1.0 (来自 npm) | 203 ops                          |
+| argon2-wasm 0.9.0 (来自 npm)     | 195 ops                          |
+
+
+可以发现，`hash-wasm` 库的性能表现非常出色，在各种哈希算法中都有不俗的表现，而非 WebAssembly 实现的 JavaScript 实现则相对较差。

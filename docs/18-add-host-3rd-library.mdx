@@ -1,0 +1,17 @@
+# 给 Host 端添加第三方库
+
+你可以使用 `// @include './lib/example.js'` 的方式来导入 JavaScript 第三方库，`bolt-cep` 默认自带了 `json2` 库（位于 `/src/jsx/lib/json2.js`，@include 编写于 `/src/jsx/index.ts`），所以你不需要再额外导入。
+
+`bolt-cep` 也默认自带了 `json2` 的类型定义，位于 `global.d.ts` 文件中。
+
+```ts
+//@ts-ignore
+declare var JSON: {
+  stringify(object: object): string;
+  parse(string: string): object;
+};
+```
+
+如果你想自行添加 JavaScript 第三方库的话，需要自己编写类型定义。
+
+添加完后，编译后的 ExtendScript 文件会自动包含这些库。

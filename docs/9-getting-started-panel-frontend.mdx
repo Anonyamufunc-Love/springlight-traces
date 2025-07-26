@@ -1,0 +1,460 @@
+# 渐入面板前端
+
+在前几章中，我们探讨了 CEP 端与 Host 端的交互方式，以及如何构建 TypeScript 文档。现在，让我们将目光转向前端领域，深入了解面板的构建与运作。
+
+本章的前端框架使用 React，如要使用 Vue，请自行研究。
+
+## 面板结构
+
+`bolt-cep` 扩展允许你创建多个面板，每个面板都可以承载独立的功能。在 `cep.config.ts` 文件中，我们可以详细配置每个面板的相关信息，例如其内部名称、主页面路径、在宿主应用中显示的名称、初始宽度和高度等。
+
+```typescript
+  panels: [ // 面板配置 (可以有多个面板)
+    {
+      mainPath: "./main/index.html", // 面板的主页面 HTML 文件路径
+      name: "main", // 面板的内部名称 (决定 yarn dev 中的访问路径)
+      panelDisplayName: "Demo Panel", // 面板在宿主应用中显示的名称
+      autoVisible: true, // 面板是否在加载后自动显示
+      width: 600, // 此特定面板的宽度
+      height: 650, // 此特定面板的高度
+    },
+  ],
+```
+
+对于单个面板，其文件结构通常可以按如下方式组织：
+
+### index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolt CEP</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    
+
+    
+    <script type="module" src="./index-react.tsx"></script>
+    
+  </body>
+</html>
+```
+
+在此示例中，我们假设你选用 React 作为前端框架。因此，`index-react.tsx` 文件便作为 React 组件的入口点。
+
+当然，你也可以在 `index.html` 中通过 `<script>` 标签引入其他 JavaScript 文件。例如，若要使用 `pixi-live2d-display` 这样的库，可能就需要引入特定版本的 Live2D SDK 以确保其正常工作。
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
+
+<!-- if only Cubism 2.1 -->
+<script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+
+<!-- if only Cubism 4 -->
+<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+```
+
+### index-react.tsx / index.tsx
+
+正如 `index.html` 文件中所示，如果选择 React 作为前端框架，`index-react.tsx` 将作为 React 组件的入口。你也可以根据实际情况，将 `index.html` 中的 `src` 属性指向 `index.tsx` 或其他入口文件。
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { initBolt } from "../lib/utils/bolt";
+import "../index.scss";
+import { App } from "./main";
+
+initBolt();
+
+ReactDOM.createRoot(document.getElementById("app") as HTMLElement).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);  
+```
+代码中引入了 `initBolt` 方法，该方法用于初始化 Bolt-CEP 扩展并加载其基础配置。
+
+此外，还引入了 `index.scss` 文件，用于定义面板的全局样式。
+最后，代码渲染了 `App` 组件，这是面板的核心功能组件，你可以在其中编写主要的业务逻辑。
+
+### main.tsx
+
+
+<details>
+<summary>main.tsx</summary>
+```tsx
+import { useEffect, useState } from "react";
+import { os, path } from "../lib/cep/node";
+import {
+  csi,
+  evalES,
+  openLinkInBrowser,
+  subscribeBackgroundColor,
+  evalTS,
+} from "../lib/utils/bolt";
+import "./main.scss";
+
+import reactLogo from "../assets/react.svg";
+import viteLogo from "../assets/vite.svg";
+import tsLogo from "../assets/typescript.svg";
+import sassLogo from "../assets/sass.svg";
+import nodeJs from "../assets/node-js.svg";
+import adobe from "../assets/adobe.svg";
+import bolt from "../assets/bolt-cep.svg";
+
+export const App = () => {
+  const [bgColor, setBgColor] = useState("#282c34");
+  const [count, setCount] = useState(0);
+
+  //* Demonstration of Traditional string eval-based ExtendScript Interaction
+  const jsxTest = () => {
+    console.log(evalES(`helloWorld("${csi.getApplicationID()}")`));
+  };
+
+  //* Demonstration of End-to-End Type-safe ExtendScript Interaction
+  const jsxTestTS = () => {
+    evalTS("helloStr", "test").then((res) => {
+      console.log(res);
+    });
+    evalTS("helloNum", 1000).then((res) => {
+      console.log(typeof res, res);
+    });
+    evalTS("helloArrayStr", ["ddddd", "aaaaaa", "zzzzzzz"]).then((res) => {
+      console.log(typeof res, res);
+    });
+    evalTS("helloObj", { height: 90, width: 100 }).then((res) => {
+      console.log(typeof res, res);
+      console.log(res.x);
+      console.log(res.y);
+    });
+    evalTS("helloVoid").then(() => {
+      console.log("function returning void complete");
+    });
+    evalTS("helloError", "test").catch((e) => {
+      console.log("there was an error", e);
+    });
+  };
+
+  const nodeTest = () => {
+    alert(
+      `Node.js ${process.version}\nPlatform: ${
+        os.platform
+      }\nFolder: ${path.basename(window.cep_node.global.__dirname)}`
+    );
+  };
+
+  useEffect(() => {
+    if (window.cep) {
+      subscribeBackgroundColor(setBgColor);
+    }
+  }, []);
+
+  return (
+    <div className="app" style={{ backgroundColor: bgColor }}>
+      <header className="app-header">
+        <img src={bolt} className="icon" />
+        <div className="stack-icons">
+          <div>
+            <img src={viteLogo} />
+            Vite
+          </div>
+          +
+          <div>
+            <img src={reactLogo} />
+            React
+          </div>
+          +
+          <div>
+            <img src={tsLogo} />
+            TypeScript
+          </div>
+          +
+          <div>
+            <img src={sassLogo} />
+            Sass
+          </div>
+        </div>
+        <div className="button-group">
+          <button onClick={() => setCount((count) => count + 1)}>
+            Count is: {count}
+          </button>
+          <button onClick={nodeTest}>
+            <img className="icon-button" src={nodeJs} />
+          </button>
+          <button onClick={jsxTest}>
+            <img className="icon-button" src={adobe} />
+          </button>
+          <button onClick={jsxTestTS}>Ts</button>
+        </div>
+        <p>
+          Edit <code>main.tsx</code> and save to test HMR updates.
+        </p>
+        <p>
+          <button
+            className="app-link"
+            onClick={() =>
+              openLinkInBrowser("https://github.com/hyperbrew/bolt-cep")
+            }
+          >
+            Bolt Docs
+          </button>
+          {" | "}
+          <button
+            className="app-link"
+            onClick={() => openLinkInBrowser("https://reactjs.org")}
+          >
+            React Docs
+          </button>
+          {" | "}
+          <button
+            className="app-link"
+            onClick={() =>
+              openLinkInBrowser("https://vitejs.dev/guide/features.html")
+            }
+          >
+            Vite Docs
+          </button>
+        </p>
+      </header>
+    </div>
+  );
+};
+```
+</details>
+
+以上是 Bolt-CEP 提供的 \<App> 组件的示例代码，你可以根据项目的具体需求进行调整和扩展。
+
+此示例中也包含了我们之前讨论过的 `evalTS` 方法，用于实现与 ExtendScript 的类型安全交互。
+
+## 使用 Node.js 模块
+
+值得注意的是，在 Bolt-CEP 面板中引入 Node.js 内置模块的方式与标准 Node.js 环境有所区别。`bolt-cep` 对此进行了封装，提供了一个 `src\js\lib\cep\node.ts` (或类似路径) 文件，专门用于处理 Node.js 相关模块的导入和使用。
+
+```typescript
+// Abstracted built-in Node.js Modules
+
+//@ts-ignore
+export const crypto = (
+  typeof window.cep !== "undefined" ? require("crypto") : {}
+) as typeof import("crypto");
+export const assert = (
+  typeof window.cep !== "undefined" ? require("assert") : {}
+) as typeof import("assert");
+// ...
+export const zlib = (
+  typeof window.cep !== "undefined" ? require("zlib") : {}
+) as typeof import("zlib");
+```
+
+这意味着，你可以像这样通过 `import { os, path } from "../lib/cep/node";` (路径可能因项目配置而异) 来引入所需的 Node.js 模块。
+
+## 导入库
+
+理论上，在面板前端开发中，你可以导入任何所需的第三方 JavaScript 库。虽然偶尔可能会遇到兼容性问题，但相比于在 `ExtendScript` 环境中直接使用外部库（甚至不能使用），面板环境通常提供了更好的兼容性和更广泛的选择。
+
+你可以使用 npm、yarn、pnpm 等常见的包管理工具来安装这些依赖。安装完成后，便可以通过标准的 `import` 语句在你的代码中导入并使用它们。
+
+### 示例
+
+```bash
+npm install pixi.js
+```
+
+```typescript
+import * as PIXI from "pixi.js";
+```
+
+不过，有些库是 Node 模块，这意味着你需要使用 `require` 语句来导入它们。
+
+```typescript
+const module = require("your_module");
+```
+
+## 面板调试
+
+在面板开发中，你可能需要调试面板的 JavaScript 代码。你有以下两种选择
+
+:::warning
+如果你使用了 `path` 等浏览器并不支持的 Node.js 内置模块，或是来自/依赖 CSInterface 的方法，例如 `listenTS`。那么第一种方式可能无法正常工作，你可以选择先注释掉相关代码，或者使用第二种方式进行调试。
+:::
+1. 使用 `yarn dev` 命令启动面板开发环境，并在浏览器中访问 `http://localhost:3000` 进行调试。
+2. 遵循标准 CEP 开发中的调试方式，浏览器访问 `http://localhost:8860/`，使用远程调试工具进行调试。
+
+关于调试端口，可以前往 `cep.config.ts` 文件进行配置。
+
+```typescript
+startingDebugPort: 8860,
+```
+
+## `yarn dev` 和 `yarn build` 的环境差异
+
+`yarn dev` 和 `yarn build` 命令在前端项目的开发和部署流程中扮演着截然不同的角色，它们不仅运行环境有别，最终构建出的 `index.html` 文件也存在显著差异。你可以直接查看以下折叠部分中展示的、由这两个命令分别构建的 `index.html` 文件内容，以便更直观地理解这些差异。
+
+<details>
+<summary>yarn dev 构建的 index.html</summary>
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>UI Playground</title>
+    <script>"use strict";
+        window.require = typeof require === "function" ? function (require, document) {
+            var tmp = document.querySelector("script[data-main]"); if (tmp) {
+                require(tmp.dataset.main);
+            } return require;
+        }(require, document) : function (document) {
+            var COMMA_DELIMITER = /,[ ]*/gim; var SLASH_DELIMITER = /[\/]+/gim; function loadPrerequisites() {
+                var head = document.head; var tmpScripts = document.querySelector("script[data-scripts]"); var tmpStyles = document.querySelector("script[data-styles]"); var styles = tmpStyles ? tmpStyles.dataset.styles : ""; var scripts = tmpScripts ? tmpScripts.dataset.scripts : ""; var tmpBaseDir = document.querySelector("script[data-base_dir]"); var tag; var baseDir = tmpBaseDir && tmpBaseDir.dataset.base_dir; baseDir = baseDir && typeof baseDir === "string" ? baseDir : "./"; baseDir = new URL(baseDir, location.href).href; if (baseDir) {
+                    tag = document.createElement("base");
+                    tag.setAttribute("href", baseDir);
+                    head.append(tag);
+                } if (typeof styles === "string") {
+                    styles.trim().replace(COMMA_DELIMITER, ",").split(",").forEach(function (url) { tag = document.createElement("link"); tag.setAttribute("rel", "stylesheet"); tag.setAttribute("type", "text/css"); tag.setAttribute("href", url.trim()); head.append(tag); });
+                } if (typeof scripts === "string") {
+                    scripts.trim().replace(COMMA_DELIMITER, ",").split(",").forEach(function (url) { tag = document.createElement("script"); tag.setAttribute("type", "text/javascript"); tag.setAttribute("src", url.trim()); head.append(tag); });
+                } return baseDir;
+            } function getSynchXHR(url) { var xhr = new XMLHttpRequest; xhr.open("GET", url, false); xhr.send(); return xhr; } function getFileName(filePath) {
+                filePath = typeof filePath === "string" ? filePath : ""; if (filePath.indexOf(".") < 0) {
+                    var xhr = getSynchXHR("".concat(filePath, "/package.json"));
+                    if (xhr.status === 200) {
+                        var pack = JSON.parse(xhr.responseText);
+                        filePath = filePath + "/" + pack.main;
+                    }
+                } return filePath;
+            } return function () {
+                var modules = {}; var baseDir = loadPrerequisites(); var tmpMain = document.querySelector("script[data-main]"); var mainStr = tmpMain ? tmpMain.dataset.main : null; function require(dirname, file) {
+                    file = typeof file === "string" ? file.trim() : ""; var uri = new URL(file, dirname); uri.pathname = getFileName(uri.pathname); dirname = uri.href.substr(0, uri.href.lastIndexOf("/") + 1); var filename = uri.pathname.substr(uri.pathname.lastIndexOf("/") + 1); if (modules.hasOwnProperty(uri.href)) {
+                        return modules[uri.href];
+                    }
+                    else {
+                        var xhr = getSynchXHR(uri.href);
+                        if (xhr.status === 200) {
+                            var module = {};
+                            if (/(.json)$/gi.test(filename)) {
+                                module.exports = JSON.parse(xhr.responseText);
+                            }
+                            else {
+                                module.exports = {};
+                                new Function("exports", "require", "module", "__filename", "__dirname", "\n              ".concat(xhr.responseText, "\n              //# sourceURL=").concat(uri.href, "\n            ")).call(this, module.exports, require.bind(this, dirname), module, filename, dirname);
+                                modules[uri.href] = module.exports;
+                            }
+                            return module.exports;
+                        }
+                    } return;
+                } Object.defineProperty(require, "modules", { set: Function.prototype, get: function get() { return modules; } }); var req = require.bind(this, baseDir); if (mainStr) {
+                    window.addEventListener("load", req.bind(this, new URL(mainStr, baseDir).href));
+                } return req;
+            }();
+        }(document);
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        window.location.href = 'http://localhost:3000/main/index.html';
+    </script>
+</body>
+
+</html>
+```
+</details>
+
+
+<details>
+<summary>yarn build 构建的 index.html</summary>
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>"use strict";
+        window.require = typeof require === "function" ? function (require, document) {
+            var tmp = document.querySelector("script[data-main]"); if (tmp) {
+                require(tmp.dataset.main);
+            } return require;
+        }(require, document) : function (document) {
+            var COMMA_DELIMITER = /,[ ]*/gim; var SLASH_DELIMITER = /[\/]+/gim; function loadPrerequisites() {
+                var head = document.head; var tmpScripts = document.querySelector("script[data-scripts]"); var tmpStyles = document.querySelector("script[data-styles]"); var styles = tmpStyles ? tmpStyles.dataset.styles : ""; var scripts = tmpScripts ? tmpScripts.dataset.scripts : ""; var tmpBaseDir = document.querySelector("script[data-base_dir]"); var tag; var baseDir = tmpBaseDir && tmpBaseDir.dataset.base_dir; baseDir = baseDir && typeof baseDir === "string" ? baseDir : "./"; baseDir = new URL(baseDir, location.href).href; if (baseDir) {
+                    tag = document.createElement("base");
+                    tag.setAttribute("href", baseDir);
+                    head.append(tag);
+                } if (typeof styles === "string") {
+                    styles.trim().replace(COMMA_DELIMITER, ",").split(",").forEach(function (url) { tag = document.createElement("link"); tag.setAttribute("rel", "stylesheet"); tag.setAttribute("type", "text/css"); tag.setAttribute("href", url.trim()); head.append(tag); });
+                } if (typeof scripts === "string") {
+                    scripts.trim().replace(COMMA_DELIMITER, ",").split(",").forEach(function (url) { tag = document.createElement("script"); tag.setAttribute("type", "text/javascript"); tag.setAttribute("src", url.trim()); head.append(tag); });
+                } return baseDir;
+            } function getSynchXHR(url) { var xhr = new XMLHttpRequest; xhr.open("GET", url, false); xhr.send(); return xhr; } function getFileName(filePath) {
+                filePath = typeof filePath === "string" ? filePath : ""; if (filePath.indexOf(".") < 0) {
+                    var xhr = getSynchXHR("".concat(filePath, "/package.json"));
+                    if (xhr.status === 200) {
+                        var pack = JSON.parse(xhr.responseText);
+                        filePath = filePath + "/" + pack.main;
+                    }
+                } return filePath;
+            } return function () {
+                var modules = {}; var baseDir = loadPrerequisites(); var tmpMain = document.querySelector("script[data-main]"); var mainStr = tmpMain ? tmpMain.dataset.main : null; function require(dirname, file) {
+                    file = typeof file === "string" ? file.trim() : ""; var uri = new URL(file, dirname); uri.pathname = getFileName(uri.pathname); dirname = uri.href.substr(0, uri.href.lastIndexOf("/") + 1); var filename = uri.pathname.substr(uri.pathname.lastIndexOf("/") + 1); if (modules.hasOwnProperty(uri.href)) {
+                        return modules[uri.href];
+                    }
+                    else {
+                        var xhr = getSynchXHR(uri.href);
+                        if (xhr.status === 200) {
+                            var module = {};
+                            if (/(.json)$/gi.test(filename)) {
+                                module.exports = JSON.parse(xhr.responseText);
+                            }
+                            else {
+                                module.exports = {};
+                                new Function("exports", "require", "module", "__filename", "__dirname", "\n              ".concat(xhr.responseText, "\n              //# sourceURL=").concat(uri.href, "\n            ")).call(this, module.exports, require.bind(this, dirname), module, filename, dirname);
+                                modules[uri.href] = module.exports;
+                            }
+                            return module.exports;
+                        }
+                    } return;
+                } Object.defineProperty(require, "modules", { set: Function.prototype, get: function get() { return modules; } }); var req = require.bind(this, baseDir); if (mainStr) {
+                    window.addEventListener("load", req.bind(this, new URL(mainStr, baseDir).href));
+                } return req;
+            }();
+        }(document);
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolt CEP</title>
+
+    <link rel="stylesheet" crossorigin href="../assets/main-DsSeQjeN.css">
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+
+
+
+    <script src="../assets/main-VjrfSJSQ.js"></script>
+</body>
+
+</html>
+```
+</details>
+
+`yarn dev` 命令主要用于开发阶段。它会启动一个本地开发服务器（通常在 `http://localhost:3000`），并将项目根目录下的 `index.html` 文件作为入口。这种方式使得开发者可以方便地编写和即时调试面板的前端代码，但其运行环境与最终的面板实际运行环境有所区别。
+
+相比之下，`yarn build` 命令则是为生产环境准备的。它会在 `dist` 目录下生成经过优化和打包的 `index.html` 文件及其相关资源，这个版本才是最终用于发布和部署的文件。
+
+一个需要特别注意的关键点是，`yarn dev` 和 `yarn build` 在依赖加载方式上可能存在差异。这种差异有时会导致在开发模式（`yarn dev`）下运行正常的代码，在构建后（`yarn build`）却无法按预期工作，反之亦然。例如，在使用 `pixi-live2d-display` 这样的库时，就可能遇到此类不一致的情况。
+
+此外，开发调试时所用的系统浏览器环境与 Adobe 产品内置的 CEF (Chromium Embedded Framework) 环境之间也可能存在显著差异，主要是由于 CEF 版本不同。这可能导致在系统浏览器中一切正常的代码和界面，在 Adobe 的 CEP 环境中却无法正确渲染或运行。因此，**强烈建议在开发过程中，应尽早并频繁地在目标 CEP 环境中进行测试**，以避免在 `yarn dev` 环境下完成大量编码后，才发现代码在实际面板中无法运行的窘境。笔者在集成 `@monaco-editor/react` 组件时就曾遇到过这类问题。
+
+最后，还需要留意的是，无论是 `yarn dev` 还是 `yarn build` 生成的入口 JavaScript 文件（通常内嵌于 `index.html` 或作为单独的 `index.js` 文件引用），都会包含一些内联脚本，并且会自定义 `window.require` 函数。虽然这种做法在特定场景下有其目的，但也可能无意中与其他第三方库或目标环境中的现有脚本逻辑产生冲突，从而引发难以预料的兼容性问题。

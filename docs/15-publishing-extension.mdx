@@ -1,0 +1,35 @@
+# 分发扩展
+
+当你的扩展开发接近完成，准备好将其发布并分发给用户时，你可以考虑以下几种方式：
+
+1.  **手动打包与部署**:
+    运行 `yarn build` 命令。这将生成一个 `dist` 文件夹，其中包含了你的扩展文件（通常位于 `dist/cep/` 目录下）。你可以将此 `cep` 文件夹打包成压缩文件，并附带一个用于在用户计算机上启用 `PlayerDebugMode` 的注册表文件（或相关说明）。用户收到后，需要手动将扩展文件夹复制到其操作系统的 CEP 扩展目录中，并导入注册表文件（如果需要调试未签名扩展）。
+
+2.  **生成 ZXP 安装包**:
+    运行 `yarn zxp` 命令。此命令会构建、签名你的扩展，并最终生成一个 `.zxp` 安装包文件。这是一种更规范和用户友好的分发方式，因为用户可以使用 ZXP 安装器来便捷地安装扩展。不过，这也意味着用户需要事先安装或拥有相应的 ZXP 安装工具，对部分用户而言可能稍显繁琐。
+
+无论是选择哪种分发方式，相关的构建和打包行为都可以在 `cep.config.ts` 文件中进行配置。以下是一个配置示例片段，关于 `cep.config.ts` 文件各选项的详细说明，你可以回顾 `熟悉项目文件` 章节的内容。
+
+```typescript
+const config: CEP_Config = {
+  // 省略
+  build: {
+    jsxBin: "off", // 是否将 JSX 文件编译为 JSXBin: off (不处理) | copy (复制) | replace (替换)
+    sourceMap: true, // 是否为 JS/TS 生成 sourceMap
+  },
+  zxp: { // ZXP 打包配置
+    country: "US", // 国家代码
+    province: "CA", // 省份/州代码
+    org: "MyCompany", // 组织名称
+    password: "mypassword", // 证书密码
+    tsa: [ // 时间戳服务器 (用于签名)
+      "http://timestamp.digicert.com/", // Windows 常用
+      "http://timestamp.apple.com/ts01", // macOS 常用
+    ],
+    allowSkipTSA: false, // 是否允许在时间戳服务器不可用时跳过 TSA 认证
+    sourceMap: false, // 打包到 ZXP 时是否包含 JS/TS 的 sourceMap
+    jsxBin: "off", // 打包到 ZXP 时 JSXBin 的处理方式: off | copy | replace
+  },
+  // 省略
+};
+```
