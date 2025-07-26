@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/shared/ScriptUI/classes/Window" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">类: Window | 春日影踪</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://anonyamufunc-love.github.io/springlight-traces/api/shared/ScriptUI/classes/Window"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="类: Window | 春日影踪"><meta data-rh="true" name="description" content="定义于145"><meta data-rh="true" property="og:description" content="定义于145"><link data-rh="true" rel="icon" href="/springlight-traces/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://anonyamufunc-love.github.io/springlight-traces/api/shared/ScriptUI/classes/Window"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/shared/ScriptUI/classes/Window" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/shared/ScriptUI/classes/Window" hreflang="x-default"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/springlight-traces/assets/css/styles.fc374fa2.css">
+<script src="/springlight-traces/assets/js/runtime~main.95a92010.js" defer="defer"></script>
+<script src="/springlight-traces/assets/js/main.626f80bc.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/springlight-traces/"><b class="navbar__title text--truncate">春日影踪</b></a></div><div class="navbar__items navbar__items--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/springlight-traces/">春日影踪 - bolt-cep</a><a href="https://github.com/Anonyamufunc-Love/springlight-traces" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/">春日影踪</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/preparations">准备工作</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/install-bolt-cep">安装 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-bolt-cep">编译 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-with-project-files">熟悉 bolt-cep 项目结构</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/eval-ts-and-eval-es">EvalTS 与 EvalES</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/listen-ts-and-dispatch-ts">ListenTS 和 DispatchTS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-typescript-docs-tutorial">自构建 TypeScript API 文档</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-panel-frontend">渐入面板前端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-component-library">安装并使用组件库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/data-stroage">数据存储</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-backend">扩展后端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-web-assembly">使用 WebAssembly</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/custom-compilation">定制化编译行为</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/publishing-extension">分发扩展</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-jest-unit-test">使用 Jest 进行单元测试</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-eslint">使用 ESLint</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/add-host-3rd-library">给 Host 端添加第三方库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/ext_join-bolt-cep-community">加入 bolt-cep 社区</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/extend-script/getting-started-with-extendscript">就算迷茫也要写下去！—— 入门ExtendScript</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/vscode-plugin-extendscript-debugger">ExtendScript 调试器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/writeln">日志 —— $.writeln</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/app-project">项目 —— app.project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/comp-item">合成 —— CompItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/layer">图层 —— Layer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/property">属性 —— Property</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/av-layer">音视觉图层 —— AVLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/camera-layer">摄像机图层 —— CameraLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/light-layer">灯光图层 —— LightLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/footage-item">素材 —— FootageItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/file">文件 —— File</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_bolt-cep-donts">别再“無路矢”！—— 部分编码约定</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_sources">参考文献</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/springlight-traces/api">接口文档</a><button aria-label="折叠侧边栏分类 &#x27;接口文档&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">items</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">AfterEffects</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/shared/global">shared</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/global">global</a><button aria-label="展开侧边栏分类 &#x27;global&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/JavaScript">JavaScript</a><button aria-label="展开侧边栏分类 &#x27;JavaScript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/PlugPlugExternalObject">PlugPlugExternalObject</a><button aria-label="展开侧边栏分类 &#x27;PlugPlugExternalObject&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/springlight-traces/api/shared/ScriptUI">ScriptUI</a><button aria-label="折叠侧边栏分类 &#x27;ScriptUI&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/enumerations/Alignment">枚举</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Control">类</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Control">_Control</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/AutoLayoutManager">AutoLayoutManager</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Bounds">Bounds</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Button">Button</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Checkbox">Checkbox</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Dimension">Dimension</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/DrawState">DrawState</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/DropDownList">DropDownList</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/EditText">EditText</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Environment">Environment</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Event">Event</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Events">Events</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/FlashPlayer">FlashPlayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Group">Group</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/IconButton">IconButton</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Image">Image</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/KeyboardEvent">KeyboardEvent</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/KeyboardState">KeyboardState</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ListBox">ListBox</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ListItem">ListItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Margins">Margins</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Panel">Panel</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Point">Point</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Progressbar">Progressbar</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/RadioButton">RadioButton</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUI">ScriptUI</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIBrush">ScriptUIBrush</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIFont">ScriptUIFont</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIGraphics">ScriptUIGraphics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIImage">ScriptUIImage</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIPath">ScriptUIPath</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIPen">ScriptUIPen</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Scrollbar">Scrollbar</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Slider">Slider</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/StaticText">StaticText</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Tab">Tab</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/TabbedPanel">TabbedPanel</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/TreeView">TreeView</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/UIEvent">UIEvent</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/classes/Window">Window</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/interfaces/AddControl">接口</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/ScriptUI/type-aliases/AlignmentProperty">类型别名</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/XMPScript">XMPScript</a><button aria-label="展开侧边栏分类 &#x27;XMPScript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li></ul></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/springlight-traces/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api"><span itemprop="name">接口文档</span></a><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">items</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">shared</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api/shared/ScriptUI"><span itemprop="name">ScriptUI</span></a><meta itemprop="position" content="4"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">类</span><meta itemprop="position" content="5"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Window</span><meta itemprop="position" content="6"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>类: Window</h1></header>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:145</p>
+<p>The instance represents a top-level window or dialog box, which contains user-interface elements.
+The globally available Window object provides access to predefined and script-defined windows.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="继承">继承<a href="#继承" class="hash-link" aria-label="继承的直接链接" title="继承的直接链接">​</a></h2>
+<ul>
+<li><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="构造函数">构造函数<a href="#构造函数" class="hash-link" aria-label="构造函数的直接链接" title="构造函数的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="构造函数-1">构造函数<a href="#构造函数-1" class="hash-link" aria-label="构造函数的直接链接" title="构造函数的直接链接">​</a></h3>
+<blockquote>
+<p><strong>new Window</strong>(<code>type</code>, <code>title?</code>, <code>bounds?</code>, <code>properties?</code>): <code>Window</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:279</p>
+<p>Creates a new window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数">参数<a href="#参数" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="type">type<a href="#type" class="hash-link" aria-label="type的直接链接" title="type的直接链接">​</a></h5>
+<p>The window type. One of: window: Creates a simple window that can be used as a main window for an application. (Not supported by Photoshop CS3.) palette: Creates a modeless dialog, also called a floating palette. (Not supported by Photoshop CS3.) dialog: Creates a modal dialog. This argument can also be a ScriptUI resource specification; in that case, all other arguments are ignored.</p>
+<p><code>&quot;dialog&quot;</code> | <code>&quot;palette&quot;</code> | <code>&quot;window&quot;</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="title">title?<a href="#title" class="hash-link" aria-label="title?的直接链接" title="title?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The window title, a localizable string.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="bounds">bounds?<a href="#bounds" class="hash-link" aria-label="bounds?的直接链接" title="bounds?的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Bounds"><code>Bounds</code></a></p>
+<p>The window&#x27;s position and size.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="properties">properties?<a href="#properties" class="hash-link" aria-label="properties?的直接链接" title="properties?的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/ScriptUI/interfaces/AddControlPropertiesWindow"><code>_AddControlPropertiesWindow</code></a></p>
+<p>An object containing creation-only properties.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回">返回<a href="#返回" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>Window</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="重写了">重写了<a href="#重写了" class="hash-link" aria-label="重写了的直接链接" title="重写了的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#constructor"><code>constructor</code></a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="属性">属性<a href="#属性" class="hash-link" aria-label="属性的直接链接" title="属性的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="active">active<a href="#active" class="hash-link" aria-label="active的直接链接" title="active的直接链接">​</a></h3>
+<blockquote>
+<p><strong>active</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:152</p>
+<p>Set to true to make this window active.
+A modal dialog that is visible is by definition the active dialog.
+An active palette is the front-most window.
+An active control is the one with focus—that is, the one that accepts keystrokes, or in the case of a Button, be selected when the user typesReturn or Enter.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="add">add<a href="#add" class="hash-link" aria-label="add的直接链接" title="add的直接链接">​</a></h3>
+<blockquote>
+<p><strong>add</strong>: <a href="/springlight-traces/api/shared/ScriptUI/interfaces/AddControl"><code>_AddControl</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:293</p>
+<p>Creates and returns a new control or container object and adds it to the children of this window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-1">参数<a href="#参数-1" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<p>The type of the child element, as specified for the type property. Control types are listed in the JavaScript Tools Guide.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-2">参数<a href="#参数-2" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<p>A bounds specification that describes the size and position of the new control or container, relative to its parent. If supplied, this value creates a new Bounds object which is assigned to the new object’s bounds property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-3">参数<a href="#参数-3" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<p>The text or label, a localizable string. Initial text to be displayed in the control as the title, label, or contents, depending on the control type. If supplied, this value is assigned to the new object’s text property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-4">参数<a href="#参数-4" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<p>An object that contains one or more creation properties of the new child (properties used only when the element is created). The creation properties depend on the element type. See properties property of each control type.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alignchildren">alignChildren<a href="#alignchildren" class="hash-link" aria-label="alignChildren的直接链接" title="alignChildren的直接链接">​</a></h3>
+<blockquote>
+<p><strong>alignChildren</strong>: <a href="/springlight-traces/api/shared/ScriptUI/type-aliases/AlignmentProperty"><code>_AlignmentProperty</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:158</p>
+<p>Tells the layout manager how unlike-sized children of this container should be aligned within a column or row.
+Order of creation determines which children are at the top of a column or the left of a row; the earlier a child is created, the closer it is to the top or left of its column or row. If defined, alignment for a child element overrides the alignChildren setting for the parent container. See alignment property for values.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alignment">alignment<a href="#alignment" class="hash-link" aria-label="alignment的直接链接" title="alignment的直接链接">​</a></h3>
+<blockquote>
+<p><strong>alignment</strong>: <a href="/springlight-traces/api/shared/ScriptUI/type-aliases/AlignmentProperty"><code>_AlignmentProperty</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2606</p>
+<p>The alignment style for child elements of a container. If defined, this value overrides the alignChildren setting for the parent container.
+This can be a single string, which indicates the alignment for the orientation specified in the parent container, or an array of two strings, indicating both the horizontal and vertical alignment (in that order). Allowed values depend on the orientation value of the parent container. They are not case sensitive.
+For orientation = row: top, bottom, fill
+For orientation = column: left, right, fill
+For orientation = stack: top, bottom, left, right, fill</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自">继承自<a href="#继承自" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#alignment"><code>alignment</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bounds-1">bounds<a href="#bounds-1" class="hash-link" aria-label="bounds的直接链接" title="bounds的直接链接">​</a></h3>
+<blockquote>
+<p><strong>bounds</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Bounds"><code>Bounds</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2612</p>
+<p>The boundaries of the element, in parent-relative coordinates.
+Setting an element&#x27;s size or location changes its bounds property, and vice-versa.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-1">继承自<a href="#继承自-1" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#bounds"><code>bounds</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cancelelement">cancelElement<a href="#cancelelement" class="hash-link" aria-label="cancelElement的直接链接" title="cancelElement的直接链接">​</a></h3>
+<blockquote>
+<p><strong>cancelElement</strong>: <code>object</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:164</p>
+<p>For windows of type dialog, the UI element to notify when the user presses a cancellation key combination.
+The cancellation key is the Esc key. By default, looks for a button whose name or text is &quot;cancel&quot; (case disregarded).</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="characters">characters<a href="#characters" class="hash-link" aria-label="characters的直接链接" title="characters的直接链接">​</a></h3>
+<blockquote>
+<p><strong>characters</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:169</p>
+<p>A number of characters for which to reserve space when calculating the preferred size of the window.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="children">children<a href="#children" class="hash-link" aria-label="children的直接链接" title="children的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>children</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:175</p>
+<p>The collection of UI elements that have been added to this container.
+An array indexed by number or by a string containing an element&#x27;s name. The length property of this array is the number of child elements for container elements, and is zero for controls.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="defaultelement">defaultElement<a href="#defaultelement" class="hash-link" aria-label="defaultElement的直接链接" title="defaultElement的直接链接">​</a></h3>
+<blockquote>
+<p><strong>defaultElement</strong>: <code>object</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:181</p>
+<p>For windows of type dialog, the UI element to notify when the user presses a Enter key.
+By default, looks for a button whose name or text is &quot;ok&quot; (case disregarded).</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="enabled">enabled<a href="#enabled" class="hash-link" aria-label="enabled的直接链接" title="enabled的直接链接">​</a></h3>
+<blockquote>
+<p><strong>enabled</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2618</p>
+<p>True if this element is enabled.
+An enabled element can accept input, according to its type. When false, control elements do not accept input, and all types of elements have a dimmed appearance.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-2">继承自<a href="#继承自-2" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#enabled"><code>enabled</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="framebounds">frameBounds<a href="#framebounds" class="hash-link" aria-label="frameBounds的直接链接" title="frameBounds的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>frameBounds</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Bounds"><code>Bounds</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:187</p>
+<p>The bounds of the window frame in screen coordinates.
+The frame consists of the title bar and borders that enclose the content region of a window, depending on the windowing system.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="framelocation">frameLocation<a href="#framelocation" class="hash-link" aria-label="frameLocation的直接链接" title="frameLocation的直接链接">​</a></h3>
+<blockquote>
+<p><strong>frameLocation</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Point"><code>Point</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:193</p>
+<p>The top left corner of the window frame in screen coordinates.
+The same as [frameBounds.x, frameBounds.y]. Set this value to move the window frame to the specified location on the screen. The frameBounds value changes accordingly.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="framesize">frameSize<a href="#framesize" class="hash-link" aria-label="frameSize的直接链接" title="frameSize的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>frameSize</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Dimension"><code>Dimension</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:198</p>
+<p>The size and location of the window&#x27;s frame in screen coordinates.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="graphics">graphics<a href="#graphics" class="hash-link" aria-label="graphics的直接链接" title="graphics的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>graphics</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/ScriptUIGraphics"><code>ScriptUIGraphics</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:208</p>
+<p>The graphics object that can be used to customize the window’s appearance, in response to the onDraw event.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="helptip">helpTip<a href="#helptip" class="hash-link" aria-label="helpTip的直接链接" title="helpTip的直接链接">​</a></h3>
+<blockquote>
+<p><strong>helpTip</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2623</p>
+<p>The help text that is displayed when the mouse hovers over the element.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-3">继承自<a href="#继承自-3" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#helptip"><code>helpTip</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="indent">indent<a href="#indent" class="hash-link" aria-label="indent的直接链接" title="indent的直接链接">​</a></h3>
+<blockquote>
+<p><strong>indent</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2629</p>
+<p>The number of pixels to indent the element during automatic layout.
+Applies for column orientation and left alignment, or row orientation and top alignment.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-4">继承自<a href="#继承自-4" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#indent"><code>indent</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="justify">justify<a href="#justify" class="hash-link" aria-label="justify的直接链接" title="justify的直接链接">​</a></h3>
+<blockquote>
+<p><strong>justify</strong>: <a href="/springlight-traces/api/shared/ScriptUI/type-aliases/Justify"><code>_Justify</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:214</p>
+<p>The default text justification style for child text elements.
+One of left, center, or right. Justification only works if this value is set on creation of the element.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="layout">layout<a href="#layout" class="hash-link" aria-label="layout的直接链接" title="layout的直接链接">​</a></h3>
+<blockquote>
+<p><strong>layout</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/AutoLayoutManager"><code>AutoLayoutManager</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:220</p>
+<p>The layout manager for this container.
+The first time a container object is made visible, ScriptUI invokes this layout manager by calling its layout() function. Default is an instance of the LayoutManager class that is automatically created when the container element is created.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="location">location<a href="#location" class="hash-link" aria-label="location的直接链接" title="location的直接链接">​</a></h3>
+<blockquote>
+<p><strong>location</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Point"><code>Point</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2635</p>
+<p>The upper left corner of this element relative to its parent.
+The location is defined as [bounds.x, bounds.y]. Setting an element&#x27;s location changes its bounds property, and vice-versa.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-5">继承自<a href="#继承自-5" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#location"><code>location</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="margins">margins<a href="#margins" class="hash-link" aria-label="margins的直接链接" title="margins的直接链接">​</a></h3>
+<blockquote>
+<p><strong>margins</strong>: <a href="/springlight-traces/api/shared/ScriptUI/type-aliases/Margins"><code>_Margins</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:226</p>
+<p>The number of pixels between the edges of a container and the outermost child elements.
+You can specify different margins for each edge of the container. The default value is based on the type of container, and is chosen to match the standard Adobe UI guidelines.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="maximized">maximized<a href="#maximized" class="hash-link" aria-label="maximized的直接链接" title="maximized的直接链接">​</a></h3>
+<blockquote>
+<p><strong>maximized</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:231</p>
+<p>True if the window is expanded.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="maximumsize">maximumSize<a href="#maximumsize" class="hash-link" aria-label="maximumSize的直接链接" title="maximumSize的直接链接">​</a></h3>
+<blockquote>
+<p><strong>maximumSize</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Dimension"><code>Dimension</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2640</p>
+<p>The maximum height and width to which the element can be resized.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-6">继承自<a href="#继承自-6" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#maximumsize"><code>maximumSize</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="minimized">minimized<a href="#minimized" class="hash-link" aria-label="minimized的直接链接" title="minimized的直接链接">​</a></h3>
+<blockquote>
+<p><strong>minimized</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:236</p>
+<p>True if the window is minimized or iconified.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="minimumsize">minimumSize<a href="#minimumsize" class="hash-link" aria-label="minimumSize的直接链接" title="minimumSize的直接链接">​</a></h3>
+<blockquote>
+<p><strong>minimumSize</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Dimension"><code>Dimension</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2645</p>
+<p>The minimum height and width to which the element can be resized.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-7">继承自<a href="#继承自-7" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#minimumsize"><code>minimumSize</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="opacity">opacity<a href="#opacity" class="hash-link" aria-label="opacity的直接链接" title="opacity的直接链接">​</a></h3>
+<blockquote>
+<p><strong>opacity</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:242</p>
+<p>The opacity of the window, in the range [0..1].
+A value of 1.0 (the default) makes the window completely opaque, a value of 0 makes it completely transparent. Intermediate values make it partially transparent to any degree.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="orientation">orientation<a href="#orientation" class="hash-link" aria-label="orientation的直接链接" title="orientation的直接链接">​</a></h3>
+<blockquote>
+<p><strong>orientation</strong>: <a href="/springlight-traces/api/shared/ScriptUI/type-aliases/Orientation"><code>_Orientation</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:248</p>
+<p>The layout orientation of children in a container.
+Interpreted by the layout manager for the container. The default LayoutManager  Object accepts the (case-insensitive) values row, column, or stack.For window and panel, the default is column, and for group the default is row. The allowed values for the container’s alignChildren and its children’s alignment properties depend on the orientation.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="parent">parent<a href="#parent" class="hash-link" aria-label="parent的直接链接" title="parent的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>parent</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2650</p>
+<p>The parent element.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-8">继承自<a href="#继承自-8" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#parent"><code>parent</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="preferredsize">preferredSize<a href="#preferredsize" class="hash-link" aria-label="preferredSize的直接链接" title="preferredSize的直接链接">​</a></h3>
+<blockquote>
+<p><strong>preferredSize</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Dimension"><code>Dimension</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2657</p>
+<p>The preferred size, used by layout managers to determine the best size for each element.
+If not explicitly set by a script, value is established by the UI framework in which ScriptUI is employed, and is based on such attributes of the element as its text, font, font size, icon size, and other UI framework-specific attributes. A script can explicitly set this value before the layout manager is invoked in order to establish an element size other than the default.
+To set a specific value for only one dimension, specify the other dimension as -1.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-9">继承自<a href="#继承自-9" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#preferredsize"><code>preferredSize</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shortcutkey">shortcutKey<a href="#shortcutkey" class="hash-link" aria-label="shortcutKey的直接链接" title="shortcutKey的直接链接">​</a></h3>
+<blockquote>
+<p><strong>shortcutKey</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:253</p>
+<p>The keypress combination that invokes this element&#x27;s onShortcutKey() callback.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="size">size<a href="#size" class="hash-link" aria-label="size的直接链接" title="size的直接链接">​</a></h3>
+<blockquote>
+<p><strong>size</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Dimension"><code>Dimension</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2663</p>
+<p>The current dimensions of this element.
+Initially undefined, and unless explicitly set by a script, it is defined by a LayoutManager . A script can explicitly set size before the layout manager is invoked to establish an element size other than the preferredSize or the default size, but this is not recommended. Defined as [bounds.width, bounds.height]. Setting an element&#x27;s size changes its bounds property, and vice-versa.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-10">继承自<a href="#继承自-10" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#size"><code>size</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="spacing">spacing<a href="#spacing" class="hash-link" aria-label="spacing的直接链接" title="spacing的直接链接">​</a></h3>
+<blockquote>
+<p><strong>spacing</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:259</p>
+<p>The number of pixels separating one child element from its adjacent sibling element.
+Because each container holds only a single row or column of children, only a single spacing value is needed for a container. The default value is based on the type of container, and is chosen to match standard Adobe UI guidelines.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="text">text<a href="#text" class="hash-link" aria-label="text的直接链接" title="text的直接链接">​</a></h3>
+<blockquote>
+<p><strong>text</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:265</p>
+<p>The title, label, or displayed text, a localizable string.
+Does not apply to containers of type group.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="type-1">type<a href="#type-1" class="hash-link" aria-label="type的直接链接" title="type的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>type</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2668</p>
+<p>The element type.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-11">继承自<a href="#继承自-11" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#type"><code>type</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="visible">visible<a href="#visible" class="hash-link" aria-label="visible的直接链接" title="visible的直接链接">​</a></h3>
+<blockquote>
+<p><strong>visible</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2674</p>
+<p>True if this element is shown, false if it is hidden.
+When a container is hidden, its children are also hidden, but they retain their own visibility values, and are shown or hidden accordingly when the parent is next shown.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-12">继承自<a href="#继承自-12" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#visible"><code>visible</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="window">window<a href="#window" class="hash-link" aria-label="window的直接链接" title="window的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>window</strong>: <code>Window</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2679</p>
+<p>The window that this element belongs to.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-13">继承自<a href="#继承自-13" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#window"><code>window</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="windowbounds">windowBounds<a href="#windowbounds" class="hash-link" aria-label="windowBounds的直接链接" title="windowBounds的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>windowBounds</strong>: <a href="/springlight-traces/api/shared/ScriptUI/classes/Bounds"><code>Bounds</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2684</p>
+<p>The bounds of this element relative to the top-level parent window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-14">继承自<a href="#继承自-14" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#windowbounds"><code>windowBounds</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="frameworkname">frameworkName<a href="#frameworkname" class="hash-link" aria-label="frameworkName的直接链接" title="frameworkName的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <code>static</code> <strong>frameworkName</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:203</p>
+<p>Deprecated. Use ScriptUI.frameworkName instead.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="version">version<a href="#version" class="hash-link" aria-label="version的直接链接" title="version的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <code>static</code> <strong>version</strong>: <code>any</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:270</p>
+<p>Deprecated. Use ScriptUI.version instead.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="方法">方法<a href="#方法" class="hash-link" aria-label="方法的直接链接" title="方法的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="addeventlistener">addEventListener()<a href="#addeventlistener" class="hash-link" aria-label="addEventListener()的直接链接" title="addEventListener()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>addEventListener</strong>(<code>eventName</code>, <code>handler</code>, <code>capturePhase?</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2692</p>
+<p>Registers an event handler for a particular type of event occurring in this element.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-5">参数<a href="#参数-5" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="eventname">eventName<a href="#eventname" class="hash-link" aria-label="eventName的直接链接" title="eventName的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The name of the event. Event names are listed in the JavaScript Tools Guide.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="handler">handler<a href="#handler" class="hash-link" aria-label="handler的直接链接" title="handler的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/JavaScript/interfaces/Function"><code>Function</code></a></p>
+<p>The function that handles the event. This can be the name of a function defined in the extension, or a locally defined handler function to be executed when the event occurs. A handler function takes one argument, the UIEvent object.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="capturephase">capturePhase?<a href="#capturephase" class="hash-link" aria-label="capturePhase?的直接链接" title="capturePhase?的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<p>When true, the handler is called only in the capturing phase of the event propagation. Default is false, meaning that the handler is called in the bubbling phase if this object is an ancestor of the target, or in the at-target phase if this object is itself the target.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-1">返回<a href="#返回-1" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-15">继承自<a href="#继承自-15" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#addeventlistener"><code>addEventListener</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="center">center()<a href="#center" class="hash-link" aria-label="center()的直接链接" title="center()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>center</strong>(<code>window?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:307</p>
+<p>Centers this window on screen or with respect to another window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-6">参数<a href="#参数-6" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="window-1">window?<a href="#window-1" class="hash-link" aria-label="window?的直接链接" title="window?的直接链接">​</a></h5>
+<p><code>Window</code></p>
+<p>The relative window. If not specified, centers on the screen.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-2">返回<a href="#返回-2" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="close">close()<a href="#close" class="hash-link" aria-label="close()的直接链接" title="close()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>close</strong>(<code>return_?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:314</p>
+<p>Closes this window.
+. If an onClose() callback is defined for the window, calls that function before closing the window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-7">参数<a href="#参数-7" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="return_">return_?<a href="#return_" class="hash-link" aria-label="return_?的直接链接" title="return_?的直接链接">​</a></h5>
+<p><code>any</code></p>
+<p>A number to be returned from the show() method that invoked this window as a modal dialog.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-3">返回<a href="#返回-3" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dispatchevent">dispatchEvent()<a href="#dispatchevent" class="hash-link" aria-label="dispatchEvent()的直接链接" title="dispatchEvent()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>dispatchEvent</strong>(): <a href="/springlight-traces/api/shared/ScriptUI/classes/Event"><code>Event</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2698</p>
+<p>Simulates the occurrence of an event in this target.
+A script can create a UIEvent object for a specific event and pass it to this method to start the event propagation for the event.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-4">返回<a href="#返回-4" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Event"><code>Event</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-16">继承自<a href="#继承自-16" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#dispatchevent"><code>dispatchEvent</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hide">hide()<a href="#hide" class="hash-link" aria-label="hide()的直接链接" title="hide()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>hide</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2703</p>
+<p>Hides this element.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-5">返回<a href="#返回-5" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-17">继承自<a href="#继承自-17" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#hide"><code>hide</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="notify">notify()<a href="#notify" class="hash-link" aria-label="notify()的直接链接" title="notify()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>notify</strong>(<code>eventName?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:337</p>
+<p>Sends a notification message to all listeners, simulating the specified user interaction event.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-8">参数<a href="#参数-8" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="eventname-1">eventName?<a href="#eventname-1" class="hash-link" aria-label="eventName?的直接链接" title="eventName?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The event name; if omitted, the default event is sent. One of: onClose, onMove, onMoving, onResize, onResizing, onShow</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-6">返回<a href="#返回-6" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onactivate">onActivate()<a href="#onactivate" class="hash-link" aria-label="onActivate()的直接链接" title="onActivate()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onActivate</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:343</p>
+<p>An event-handler callback function, called when the window acquires the keyboard focus.
+Called when the user gives the window the keyboard focus by clicking it or otherwise making it the active window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-7">返回<a href="#返回-7" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onclose">onClose()<a href="#onclose" class="hash-link" aria-label="onClose()的直接链接" title="onClose()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onClose</strong>(): <code>boolean</code> | <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:349</p>
+<p>An event-handler callback function, called when the window is about to be closed.
+Called when a request is made to close the window, either by an explicit call to the close() function or by a user action (clicking the OS-specific close icon in the title bar). The function is called before the window actually closes; it can return false to cancel the close operation.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-8">返回<a href="#返回-8" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code> | <code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ondeactivate">onDeactivate()<a href="#ondeactivate" class="hash-link" aria-label="onDeactivate()的直接链接" title="onDeactivate()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onDeactivate</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:355</p>
+<p>An event-handler callback function, called when the window loses the keyboard focus.
+Called when the user moves the keyboard focus from the previously active window to another window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-9">返回<a href="#返回-9" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onmove">onMove()<a href="#onmove" class="hash-link" aria-label="onMove()的直接链接" title="onMove()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onMove</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:360</p>
+<p>An event-handler callback function, called when the window has been moved</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-10">返回<a href="#返回-10" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onmoving">onMoving()<a href="#onmoving" class="hash-link" aria-label="onMoving()的直接链接" title="onMoving()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onMoving</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:366</p>
+<p>An event-handler callback function, called when the window is being moved
+Called while a window in being moved, each time the position changes. A handler can monitor the move operation.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-11">返回<a href="#返回-11" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onresize">onResize()<a href="#onresize" class="hash-link" aria-label="onResize()的直接链接" title="onResize()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onResize</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:371</p>
+<p>An event-handler callback function, called after the window has been resized</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-12">返回<a href="#返回-12" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onresizing">onResizing()<a href="#onresizing" class="hash-link" aria-label="onResizing()的直接链接" title="onResizing()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onResizing</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:377</p>
+<p>An event-handler callback function, called while a window is being resized
+Called while a window is being resized, each time the height or width changes. A handler can monitor the resize operation.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-13">返回<a href="#返回-13" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onshortcutkey">onShortcutKey()<a href="#onshortcutkey" class="hash-link" aria-label="onShortcutKey()的直接链接" title="onShortcutKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onShortcutKey</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:382</p>
+<p>In Windows only, an event-handler callback function, called a shortcut-key sequence is typed that matches the shortcutKey value for this window.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-14">返回<a href="#返回-14" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onshow">onShow()<a href="#onshow" class="hash-link" aria-label="onShow()的直接链接" title="onShow()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>onShow</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:388</p>
+<p>An event-handler callback function, called just before the window is displayed
+Called when a request is made to open the window using the show() method, before the window is made visible, but after automatic layout is complete. A handler can modify the results of the automatic layout.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-15">返回<a href="#返回-15" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="remove">remove()<a href="#remove" class="hash-link" aria-label="remove()的直接链接" title="remove()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>remove</strong>(<code>what</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:404</p>
+<p>Removes the specified child control from this window’s children array.
+No error results if the child does not exist.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-9">参数<a href="#参数-9" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="what">what<a href="#what" class="hash-link" aria-label="what的直接链接" title="what的直接链接">​</a></h5>
+<p><code>any</code></p>
+<p>The child control to remove, specified by 0-based index, text property value, or as a control object.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-16">返回<a href="#返回-16" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeeventlistener">removeEventListener()<a href="#removeeventlistener" class="hash-link" aria-label="removeEventListener()的直接链接" title="removeEventListener()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>removeEventListener</strong>(<code>eventName</code>, <code>handler</code>, <code>capturePhase?</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2712</p>
+<p>Unregisters an event handler for a particular type of event occurring in this element.
+All arguments must be identical to those that were used to register the event handler.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-10">参数<a href="#参数-10" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="eventname-2">eventName<a href="#eventname-2" class="hash-link" aria-label="eventName的直接链接" title="eventName的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The name of the event.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="handler-1">handler<a href="#handler-1" class="hash-link" aria-label="handler的直接链接" title="handler的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/JavaScript/interfaces/Function"><code>Function</code></a></p>
+<p>The function that handles the event.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="capturephase-1">capturePhase?<a href="#capturephase-1" class="hash-link" aria-label="capturePhase?的直接链接" title="capturePhase?的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<p>Whether to call the handler only in the capturing phase of the event propagation.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-17">返回<a href="#返回-17" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-18">继承自<a href="#继承自-18" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#removeeventlistener"><code>removeEventListener</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="show">show()<a href="#show" class="hash-link" aria-label="show()的直接链接" title="show()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>show</strong>(): <code>undefined</code> | <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:2719</p>
+<p>Shows this element.
+When a window or container is hidden, its children are also hidden, but when it is shown again, the children retain their own visibility states.
+If an onShow() callback is defined for a window, calls that function before showing the window.When a window or container is hidden, its children are also hidden, but when it is shown again, the children retain their own visibility states. For a modal dialog, opens the dialog and does not return until the dialog is dismissed. If it is dismissed via the close() method, this method returns any result value passed to that method. Otherwise, returns 0.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-18">返回<a href="#返回-18" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>undefined</code> | <code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-19">继承自<a href="#继承自-19" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/shared/ScriptUI/classes/Control"><code>_Control</code></a>.<a href="/springlight-traces/api/shared/ScriptUI/classes/Control#show"><code>show</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alert">alert()<a href="#alert" class="hash-link" aria-label="alert()的直接链接" title="alert()的直接链接">​</a></h3>
+<blockquote>
+<p><code>static</code> <strong>alert</strong>(<code>message</code>, <code>title?</code>, <code>errorIcon?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:301</p>
+<p>Displays a platform-standard dialog containing a short message and an OK button.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-11">参数<a href="#参数-11" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="message">message<a href="#message" class="hash-link" aria-label="message的直接链接" title="message的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>TThe string for the displayed message.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="title-1">title?<a href="#title-1" class="hash-link" aria-label="title?的直接链接" title="title?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string to appear as the title of the dialog, if the platform supports a title. Ignored in Mac OS, which does not support titles for alert dialogs. The default title string is &quot;Script Alert&quot;.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="erroricon">errorIcon?<a href="#erroricon" class="hash-link" aria-label="errorIcon?的直接链接" title="errorIcon?的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<p>When true, the platform-standard alert icon is replaced by the platform-standard error icon in the dialog. Ignored in Mac OS, which does not support icons for alert dialogs.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-19">返回<a href="#返回-19" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="confirm">confirm()<a href="#confirm" class="hash-link" aria-label="confirm()的直接链接" title="confirm()的直接链接">​</a></h3>
+<blockquote>
+<p><code>static</code> <strong>confirm</strong>(<code>message</code>, <code>noAsDefault</code>, <code>title?</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:323</p>
+<p>Displays a platform-standard dialog containing a short message and two buttons labeled Yes and No.
+Returns true if the user clicked Yes, false if the user clicked No.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-12">参数<a href="#参数-12" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="message-1">message<a href="#message-1" class="hash-link" aria-label="message的直接链接" title="message的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The string for the displayed message.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="noasdefault">noAsDefault<a href="#noasdefault" class="hash-link" aria-label="noAsDefault的直接链接" title="noAsDefault的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<p>When true, the No button is the default choice, selected when the user types Enter. Default is false, meaning that Yes is the default choice.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="title-2">title?<a href="#title-2" class="hash-link" aria-label="title?的直接链接" title="title?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string to appear as the title of the dialog, if the platform supports a title. Ignored in Mac OS, which does not support titles for alert dialogs. The default title string is &quot;Script Alert&quot;.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-20">返回<a href="#返回-20" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="find">find()<a href="#find" class="hash-link" aria-label="find()的直接链接" title="find()的直接链接">​</a></h3>
+<blockquote>
+<p><code>static</code> <strong>find</strong>(<code>type</code>, <code>title</code>): <code>Window</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:331</p>
+<p>Use this method to find an existing window.
+This includes windows defined by ScriptUI resource strings, windows already created by a script, and windows created by the application (if the application supports this case). This function is not supported by all applications. Returns a Window object found or generated from the resource, or null if no such window or resource exists.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-13">参数<a href="#参数-13" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="type-2">type<a href="#type-2" class="hash-link" aria-label="type的直接链接" title="type的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The name of a predefined resource available to JavaScript in the current application; or the window type. If a title is specified, the type is used if more than one window with that title is found. Can be null or the empty string.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="title-3">title<a href="#title-3" class="hash-link" aria-label="title的直接链接" title="title的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The window title.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-21">返回<a href="#返回-21" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>Window</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="prompt">prompt()<a href="#prompt" class="hash-link" aria-label="prompt()的直接链接" title="prompt()的直接链接">​</a></h3>
+<blockquote>
+<p><code>static</code> <strong>prompt</strong>(<code>prompt</code>, <code>default_?</code>, <code>title?</code>): <code>null</code> | <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/ScriptUI.d.ts:397</p>
+<p>Displays a modal dialog that returns the user’s text input.
+Returns the value of the text edit field if the user clicked OK, null if the user clicked Cancel.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-14">参数<a href="#参数-14" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="prompt-1">prompt<a href="#prompt-1" class="hash-link" aria-label="prompt的直接链接" title="prompt的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The string for the displayed message.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="default_">default_?<a href="#default_" class="hash-link" aria-label="default_?的直接链接" title="default_?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The initial value to be displayed in the text edit field.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="title-4">title?<a href="#title-4" class="hash-link" aria-label="title?的直接链接" title="title?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string to appear as the title of the dialog. In Windows, this appears in the window’s frame; in Mac OS it appears above the message. The default title string is &quot;Script Prompt&quot;.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-22">返回<a href="#返回-22" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>null</code> | <code>string</code></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/springlight-traces/api/shared/ScriptUI/classes/UIEvent"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">UIEvent</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/springlight-traces/api/shared/ScriptUI/interfaces/AddControl"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">_AddControl</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#继承" class="table-of-contents__link toc-highlight">继承</a></li><li><a href="#构造函数" class="table-of-contents__link toc-highlight">构造函数</a><ul><li><a href="#构造函数-1" class="table-of-contents__link toc-highlight">构造函数</a></li></ul></li><li><a href="#属性" class="table-of-contents__link toc-highlight">属性</a><ul><li><a href="#active" class="table-of-contents__link toc-highlight">active</a></li><li><a href="#add" class="table-of-contents__link toc-highlight">add</a></li><li><a href="#alignchildren" class="table-of-contents__link toc-highlight">alignChildren</a></li><li><a href="#alignment" class="table-of-contents__link toc-highlight">alignment</a></li><li><a href="#bounds-1" class="table-of-contents__link toc-highlight">bounds</a></li><li><a href="#cancelelement" class="table-of-contents__link toc-highlight">cancelElement</a></li><li><a href="#characters" class="table-of-contents__link toc-highlight">characters</a></li><li><a href="#children" class="table-of-contents__link toc-highlight">children</a></li><li><a href="#defaultelement" class="table-of-contents__link toc-highlight">defaultElement</a></li><li><a href="#enabled" class="table-of-contents__link toc-highlight">enabled</a></li><li><a href="#framebounds" class="table-of-contents__link toc-highlight">frameBounds</a></li><li><a href="#framelocation" class="table-of-contents__link toc-highlight">frameLocation</a></li><li><a href="#framesize" class="table-of-contents__link toc-highlight">frameSize</a></li><li><a href="#graphics" class="table-of-contents__link toc-highlight">graphics</a></li><li><a href="#helptip" class="table-of-contents__link toc-highlight">helpTip</a></li><li><a href="#indent" class="table-of-contents__link toc-highlight">indent</a></li><li><a href="#justify" class="table-of-contents__link toc-highlight">justify</a></li><li><a href="#layout" class="table-of-contents__link toc-highlight">layout</a></li><li><a href="#location" class="table-of-contents__link toc-highlight">location</a></li><li><a href="#margins" class="table-of-contents__link toc-highlight">margins</a></li><li><a href="#maximized" class="table-of-contents__link toc-highlight">maximized</a></li><li><a href="#maximumsize" class="table-of-contents__link toc-highlight">maximumSize</a></li><li><a href="#minimized" class="table-of-contents__link toc-highlight">minimized</a></li><li><a href="#minimumsize" class="table-of-contents__link toc-highlight">minimumSize</a></li><li><a href="#opacity" class="table-of-contents__link toc-highlight">opacity</a></li><li><a href="#orientation" class="table-of-contents__link toc-highlight">orientation</a></li><li><a href="#parent" class="table-of-contents__link toc-highlight">parent</a></li><li><a href="#preferredsize" class="table-of-contents__link toc-highlight">preferredSize</a></li><li><a href="#shortcutkey" class="table-of-contents__link toc-highlight">shortcutKey</a></li><li><a href="#size" class="table-of-contents__link toc-highlight">size</a></li><li><a href="#spacing" class="table-of-contents__link toc-highlight">spacing</a></li><li><a href="#text" class="table-of-contents__link toc-highlight">text</a></li><li><a href="#type-1" class="table-of-contents__link toc-highlight">type</a></li><li><a href="#visible" class="table-of-contents__link toc-highlight">visible</a></li><li><a href="#window" class="table-of-contents__link toc-highlight">window</a></li><li><a href="#windowbounds" class="table-of-contents__link toc-highlight">windowBounds</a></li><li><a href="#frameworkname" class="table-of-contents__link toc-highlight">frameworkName</a></li><li><a href="#version" class="table-of-contents__link toc-highlight">version</a></li></ul></li><li><a href="#方法" class="table-of-contents__link toc-highlight">方法</a><ul><li><a href="#addeventlistener" class="table-of-contents__link toc-highlight">addEventListener()</a></li><li><a href="#center" class="table-of-contents__link toc-highlight">center()</a></li><li><a href="#close" class="table-of-contents__link toc-highlight">close()</a></li><li><a href="#dispatchevent" class="table-of-contents__link toc-highlight">dispatchEvent()</a></li><li><a href="#hide" class="table-of-contents__link toc-highlight">hide()</a></li><li><a href="#notify" class="table-of-contents__link toc-highlight">notify()</a></li><li><a href="#onactivate" class="table-of-contents__link toc-highlight">onActivate()</a></li><li><a href="#onclose" class="table-of-contents__link toc-highlight">onClose()</a></li><li><a href="#ondeactivate" class="table-of-contents__link toc-highlight">onDeactivate()</a></li><li><a href="#onmove" class="table-of-contents__link toc-highlight">onMove()</a></li><li><a href="#onmoving" class="table-of-contents__link toc-highlight">onMoving()</a></li><li><a href="#onresize" class="table-of-contents__link toc-highlight">onResize()</a></li><li><a href="#onresizing" class="table-of-contents__link toc-highlight">onResizing()</a></li><li><a href="#onshortcutkey" class="table-of-contents__link toc-highlight">onShortcutKey()</a></li><li><a href="#onshow" class="table-of-contents__link toc-highlight">onShow()</a></li><li><a href="#remove" class="table-of-contents__link toc-highlight">remove()</a></li><li><a href="#removeeventlistener" class="table-of-contents__link toc-highlight">removeEventListener()</a></li><li><a href="#show" class="table-of-contents__link toc-highlight">show()</a></li><li><a href="#alert" class="table-of-contents__link toc-highlight">alert()</a></li><li><a href="#confirm" class="table-of-contents__link toc-highlight">confirm()</a></li><li><a href="#find" class="table-of-contents__link toc-highlight">find()</a></li><li><a href="#prompt" class="table-of-contents__link toc-highlight">prompt()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 春日影踪编写组, 基于 Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

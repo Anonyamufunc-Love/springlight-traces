@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/AfterEffects/22.0/interfaces/MarkerValueType" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">接口: MarkerValueType | 春日影踪</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/interfaces/MarkerValueType"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="接口: MarkerValueType | 春日影踪"><meta data-rh="true" name="description" content="定义于1938"><meta data-rh="true" property="og:description" content="定义于1938"><link data-rh="true" rel="icon" href="/springlight-traces/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/interfaces/MarkerValueType"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/interfaces/MarkerValueType" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/interfaces/MarkerValueType" hreflang="x-default"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/springlight-traces/assets/css/styles.fc374fa2.css">
+<script src="/springlight-traces/assets/js/runtime~main.95a92010.js" defer="defer"></script>
+<script src="/springlight-traces/assets/js/main.626f80bc.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/springlight-traces/"><b class="navbar__title text--truncate">春日影踪</b></a></div><div class="navbar__items navbar__items--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/springlight-traces/">春日影踪 - bolt-cep</a><a href="https://github.com/Anonyamufunc-Love/springlight-traces" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/">春日影踪</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/preparations">准备工作</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/install-bolt-cep">安装 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-bolt-cep">编译 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-with-project-files">熟悉 bolt-cep 项目结构</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/eval-ts-and-eval-es">EvalTS 与 EvalES</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/listen-ts-and-dispatch-ts">ListenTS 和 DispatchTS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-typescript-docs-tutorial">自构建 TypeScript API 文档</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-panel-frontend">渐入面板前端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-component-library">安装并使用组件库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/data-stroage">数据存储</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-backend">扩展后端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-web-assembly">使用 WebAssembly</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/custom-compilation">定制化编译行为</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/publishing-extension">分发扩展</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-jest-unit-test">使用 Jest 进行单元测试</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-eslint">使用 ESLint</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/add-host-3rd-library">给 Host 端添加第三方库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/ext_join-bolt-cep-community">加入 bolt-cep 社区</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/extend-script/getting-started-with-extendscript">就算迷茫也要写下去！—— 入门ExtendScript</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/vscode-plugin-extendscript-debugger">ExtendScript 调试器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/writeln">日志 —— $.writeln</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/app-project">项目 —— app.project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/comp-item">合成 —— CompItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/layer">图层 —— Layer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/property">属性 —— Property</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/av-layer">音视觉图层 —— AVLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/camera-layer">摄像机图层 —— CameraLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/light-layer">灯光图层 —— LightLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/footage-item">素材 —— FootageItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/file">文件 —— File</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_bolt-cep-donts">别再“無路矢”！—— 部分编码约定</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_sources">参考文献</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/springlight-traces/api">接口文档</a><button aria-label="折叠侧边栏分类 &#x27;接口文档&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">items</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">AfterEffects</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">22.0</a><button aria-label="折叠侧边栏分类 &#x27;22.0&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/enumerations/CommandID">枚举</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Application">类</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/AdvBlendGroup">接口</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/AdvBlendGroup">_AdvBlendGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/AppVersion">_AppVersion</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/AudioGroup">_AudioGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/BevelAndEmboss">_BevelAndEmboss</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/BlendOptionsGroup">_BlendOptionsGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/CameraOptionsGroup">_CameraOptionsGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/ColorOverlay">_ColorOverlay</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/DropShadow">_DropShadow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/GeometryOptionsGroup">_GeometryOptionsGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/GradientOverlay">_GradientOverlay</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/InnerGlow">_InnerGlow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/InnerShadow">_InnerShadow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/LayerStyles">_LayerStyles</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/LightOptionsGroup">_LightOptionsGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/MaterialOptionsGroup">_MaterialOptionsGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/OuterGlow">_OuterGlow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/Satin">_Satin</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/Stroke">_Stroke</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/Swatch">_Swatch</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/SwatchValue">_SwatchValue</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TextMoreOptions">_TextMoreOptions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TextPathOptions">_TextPathOptions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TextProperties">_TextProperties</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TransformGroup">_TransformGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/BooleanType">BooleanType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/ColorType">ColorType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/MarkerValueType">MarkerValueType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/NoValueType">NoValueType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/OneDType">OneDType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/ShapePropertyType">ShapePropertyType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TextDocumentType">TextDocumentType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/ThreeDType">ThreeDType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TwoDSpatialType">TwoDSpatialType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/TwoDType">TwoDType</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/UnknownPropertyType">UnknownPropertyType</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses">类型别名</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/variables/clearOutput">变量</a></div></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/global">shared</a></div></li></ul></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/springlight-traces/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api"><span itemprop="name">接口文档</span></a><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">items</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AfterEffects</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api/AfterEffects/22.0"><span itemprop="name">22.0</span></a><meta itemprop="position" content="4"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">接口</span><meta itemprop="position" content="5"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">MarkerValueType</span><meta itemprop="position" content="6"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>接口: MarkerValueType</h1></header>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1938</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="继承">继承<a href="#继承" class="hash-link" aria-label="继承的直接链接" title="继承的直接链接">​</a></h2>
+<ul>
+<li><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClassMembers"><code>PropertyClassMembers</code></a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="属性">属性<a href="#属性" class="hash-link" aria-label="属性的直接链接" title="属性的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="active">active<a href="#active" class="hash-link" aria-label="active的直接链接" title="active的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>active</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2222</p>
+<p>When true, this property is active.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自">继承自<a href="#继承自" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.active</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alternatesource">alternateSource<a href="#alternatesource" class="hash-link" aria-label="alternateSource的直接链接" title="alternateSource的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>alternateSource</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/classes/AVItem"><code>AVItem</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2032</p>
+<p>The alternate render source for Media Replacement</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-1">继承自<a href="#继承自-1" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.alternateSource</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cansetalternatesource">canSetAlternateSource<a href="#cansetalternatesource" class="hash-link" aria-label="canSetAlternateSource的直接链接" title="canSetAlternateSource的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>canSetAlternateSource</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2035</p>
+<p>True if the property allows Media Replacement</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-2">继承自<a href="#继承自-2" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.canSetAlternateSource</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cansetenabled">canSetEnabled<a href="#cansetenabled" class="hash-link" aria-label="canSetEnabled的直接链接" title="canSetEnabled的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>canSetEnabled</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2219</p>
+<p>When true, the user interface displays an eyeball icon for this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-3">继承自<a href="#继承自-3" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.canSetEnabled</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cansetexpression">canSetExpression<a href="#cansetexpression" class="hash-link" aria-label="canSetExpression的直接链接" title="canSetExpression的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>canSetExpression</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1996</p>
+<p>When true, the expression can be set by a script.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-4">继承自<a href="#继承自-4" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.canSetExpression</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="canvaryovertime">canVaryOverTime<a href="#canvaryovertime" class="hash-link" aria-label="canVaryOverTime的直接链接" title="canVaryOverTime的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>canVaryOverTime</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1993</p>
+<p>When true, the property can be keyframed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-5">继承自<a href="#继承自-5" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.canVaryOverTime</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dimensionsseparated">dimensionsSeparated<a href="#dimensionsseparated" class="hash-link" aria-label="dimensionsSeparated的直接链接" title="dimensionsSeparated的直接链接">​</a></h3>
+<blockquote>
+<p><strong>dimensionsSeparated</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2049</p>
+<p>When true, the property’s dimensions are represented as separate properties.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-6">继承自<a href="#继承自-6" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.dimensionsSeparated</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="elided">elided<a href="#elided" class="hash-link" aria-label="elided的直接链接" title="elided的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>elided</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2225</p>
+<p>When true, this property is not displayed in the user interface.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-7">继承自<a href="#继承自-7" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.elided</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="enabled">enabled<a href="#enabled" class="hash-link" aria-label="enabled的直接链接" title="enabled的直接链接">​</a></h3>
+<blockquote>
+<p><strong>enabled</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2237</p>
+<p>When true, this property is enabled.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-8">继承自<a href="#继承自-8" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.enabled</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="essentialpropertysource">essentialPropertySource<a href="#essentialpropertysource" class="hash-link" aria-label="essentialPropertySource的直接链接" title="essentialPropertySource的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>essentialPropertySource</strong>: <code>null</code> | <a href="/springlight-traces/api/AfterEffects/22.0/classes/AVLayer"><code>AVLayer</code></a> | <a href="/springlight-traces/api/AfterEffects/22.0/classes/Property"><code>Property</code></a>&lt;<a href="/springlight-traces/api/AfterEffects/22.0/interfaces/UnknownPropertyType"><code>UnknownPropertyType</code></a>&gt;</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2040</p>
+<p>Instance property on an Essential Property object which returns the original source Property which was used to create the Essential Property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-9">继承自<a href="#继承自-9" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.essentialPropertySource</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="expression">expression<a href="#expression" class="hash-link" aria-label="expression的直接链接" title="expression的直接链接">​</a></h3>
+<blockquote>
+<p><strong>expression</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2043</p>
+<p>The expression string for this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-10">继承自<a href="#继承自-10" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.expression</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="expressionenabled">expressionEnabled<a href="#expressionenabled" class="hash-link" aria-label="expressionEnabled的直接链接" title="expressionEnabled的直接链接">​</a></h3>
+<blockquote>
+<p><strong>expressionEnabled</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2046</p>
+<p>When true, the expression is used to generate values for the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-11">继承自<a href="#继承自-11" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.expressionEnabled</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="expressionerror">expressionError<a href="#expressionerror" class="hash-link" aria-label="expressionError的直接链接" title="expressionError的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>expressionError</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2008</p>
+<p>The error, if any, that occurred when the last expression was evaluated.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-12">继承自<a href="#继承自-12" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.expressionError</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hasmax">hasMax<a href="#hasmax" class="hash-link" aria-label="hasMax的直接链接" title="hasMax的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>hasMax</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1981</p>
+<p>When true, there is a maximum permitted value.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-13">继承自<a href="#继承自-13" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.hasMax</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hasmin">hasMin<a href="#hasmin" class="hash-link" aria-label="hasMin的直接链接" title="hasMin的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>hasMin</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1978</p>
+<p>When true, there is a minimum permitted value.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-14">继承自<a href="#继承自-14" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.hasMin</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isdropdowneffect">isDropdownEffect<a href="#isdropdowneffect" class="hash-link" aria-label="isDropdownEffect的直接链接" title="isDropdownEffect的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isDropdownEffect</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2029</p>
+<p>When true, the property is the Menu property of a Dropdown Menu Control effect.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-15">继承自<a href="#继承自-15" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isDropdownEffect</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="iseffect">isEffect<a href="#iseffect" class="hash-link" aria-label="isEffect的直接链接" title="isEffect的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isEffect</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2228</p>
+<p>When true, this property is an effect.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-16">继承自<a href="#继承自-16" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isEffect</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ismask">isMask<a href="#ismask" class="hash-link" aria-label="isMask的直接链接" title="isMask的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isMask</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2231</p>
+<p>When true, this property is a mask.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-17">继承自<a href="#继承自-17" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isMask</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ismodified">isModified<a href="#ismodified" class="hash-link" aria-label="isModified的直接链接" title="isModified的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isModified</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2216</p>
+<p>When true, the property has been changed since its creation.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-18">继承自<a href="#继承自-18" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isModified</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isseparationfollower">isSeparationFollower<a href="#isseparationfollower" class="hash-link" aria-label="isSeparationFollower的直接链接" title="isSeparationFollower的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isSeparationFollower</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2017</p>
+<p>When true, the property represents one of the separated dimensions for a multidimensional property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-19">继承自<a href="#继承自-19" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isSeparationFollower</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isseparationleader">isSeparationLeader<a href="#isseparationleader" class="hash-link" aria-label="isSeparationLeader的直接链接" title="isSeparationLeader的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isSeparationLeader</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2020</p>
+<p>When true, the property is multidimensional and can be separated.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-20">继承自<a href="#继承自-20" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isSeparationLeader</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isspatial">isSpatial<a href="#isspatial" class="hash-link" aria-label="isSpatial的直接链接" title="isSpatial的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isSpatial</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1990</p>
+<p>When true, the property defines a spatial value.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-21">继承自<a href="#继承自-21" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isSpatial</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="istimevarying">isTimeVarying<a href="#istimevarying" class="hash-link" aria-label="isTimeVarying的直接链接" title="isTimeVarying的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>isTimeVarying</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1999</p>
+<p>When true, the property has keyframes or an expression enabled that can vary its values.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-22">继承自<a href="#继承自-22" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isTimeVarying</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="matchname">matchName<a href="#matchname" class="hash-link" aria-label="matchName的直接链接" title="matchName的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>matchName</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2201</p>
+<p>A special name for the property used to build unique naming paths.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-23">继承自<a href="#继承自-23" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.matchName</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="maxvalue">maxValue<a href="#maxvalue" class="hash-link" aria-label="maxValue的直接链接" title="maxValue的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>maxValue</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1987</p>
+<p>The maximum permitted value.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-24">继承自<a href="#继承自-24" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.maxValue</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="minvalue">minValue<a href="#minvalue" class="hash-link" aria-label="minValue的直接链接" title="minValue的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>minValue</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1984</p>
+<p>The minimum permitted value.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-25">继承自<a href="#继承自-25" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.minValue</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="name">name<a href="#name" class="hash-link" aria-label="name的直接链接" title="name的直接链接">​</a></h3>
+<blockquote>
+<p><strong>name</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2234</p>
+<p>Name of the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-26">继承自<a href="#继承自-26" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.name</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="numkeys">numKeys<a href="#numkeys" class="hash-link" aria-label="numKeys的直接链接" title="numKeys的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>numKeys</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2002</p>
+<p>The number of keyframes on this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-27">继承自<a href="#继承自-27" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.numKeys</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="parentproperty">parentProperty<a href="#parentproperty" class="hash-link" aria-label="parentProperty的直接链接" title="parentProperty的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>parentProperty</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/classes/PropertyGroup"><code>PropertyGroup</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2213</p>
+<p>The immediate parent group of this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-28">继承自<a href="#继承自-28" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.parentProperty</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="propertydepth">propertyDepth<a href="#propertydepth" class="hash-link" aria-label="propertyDepth的直接链接" title="propertyDepth的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>propertyDepth</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2207</p>
+<p>The number of levels of parent groups between this property and the containing layer.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-29">继承自<a href="#继承自-29" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.propertyDepth</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="propertyindex">propertyIndex<a href="#propertyindex" class="hash-link" aria-label="propertyIndex的直接链接" title="propertyIndex的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>propertyIndex</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2014</p>
+<p>The position index of this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-30">继承自<a href="#继承自-30" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.propertyIndex</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="propertytype">propertyType<a href="#propertytype" class="hash-link" aria-label="propertyType的直接链接" title="propertyType的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>propertyType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/PropertyType"><code>PropertyType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2210</p>
+<p>The property type.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-31">继承自<a href="#继承自-31" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.propertyType</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="propertyvaluetype">propertyValueType<a href="#propertyvaluetype" class="hash-link" aria-label="propertyValueType的直接链接" title="propertyValueType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>propertyValueType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/PropertyValueType#marker"><code>MARKER</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1939</p>
+<p>Type of value stored in this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="重写了">重写了<a href="#重写了" class="hash-link" aria-label="重写了的直接链接" title="重写了的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.propertyValueType</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="selected">selected<a href="#selected" class="hash-link" aria-label="selected的直接链接" title="selected的直接链接">​</a></h3>
+<blockquote>
+<p><strong>selected</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2240</p>
+<p>When true, this property is selected.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-32">继承自<a href="#继承自-32" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.selected</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="selectedkeys">selectedKeys<a href="#selectedkeys" class="hash-link" aria-label="selectedKeys的直接链接" title="selectedKeys的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>selectedKeys</strong>: <code>number</code>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2011</p>
+<p>All selected keyframes of the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-33">继承自<a href="#继承自-33" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.selectedKeys</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="separationdimension">separationDimension<a href="#separationdimension" class="hash-link" aria-label="separationDimension的直接链接" title="separationDimension的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>separationDimension</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2023</p>
+<p>For a separated follower, the dimension it represents in the multidimensional leader.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-34">继承自<a href="#继承自-34" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.separationDimension</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="separationleader">separationLeader<a href="#separationleader" class="hash-link" aria-label="separationLeader的直接链接" title="separationLeader的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>separationLeader</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/TwoDOrThreeDProperty"><code>TwoDOrThreeDProperty</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2026</p>
+<p>The original multidimensional property for this separated follower.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-35">继承自<a href="#继承自-35" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.separationLeader</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="unitstext">unitsText<a href="#unitstext" class="hash-link" aria-label="unitsText的直接链接" title="unitsText的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>unitsText</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2005</p>
+<p>A text description of the units in which the value is expressed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-36">继承自<a href="#继承自-36" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.unitsText</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="value">value<a href="#value" class="hash-link" aria-label="value的直接链接" title="value的直接链接">​</a></h3>
+<blockquote>
+<p><strong>value</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/classes/MarkerValue"><code>MarkerValue</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1940</p>
+<p>Current value of the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="重写了-1">重写了<a href="#重写了-1" class="hash-link" aria-label="重写了的直接链接" title="重写了的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.value</code></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="方法">方法<a href="#方法" class="hash-link" aria-label="方法的直接链接" title="方法的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="addkey">addKey()<a href="#addkey" class="hash-link" aria-label="addKey()的直接链接" title="addKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>addKey</strong>(<code>time</code>): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2078</p>
+<p>Adds a new keyframe to the property at a given time.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数">参数<a href="#参数" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="time">time<a href="#time" class="hash-link" aria-label="time的直接链接" title="time的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回">返回<a href="#返回" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-37">继承自<a href="#继承自-37" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.addKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="addtomotiongraphicstemplate">addToMotionGraphicsTemplate()<a href="#addtomotiongraphicstemplate" class="hash-link" aria-label="addToMotionGraphicsTemplate()的直接链接" title="addToMotionGraphicsTemplate()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>addToMotionGraphicsTemplate</strong>(<code>comp</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2184</p>
+<p>Adds the property to the Essential Graphics panel for the specified composition.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-1">参数<a href="#参数-1" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="comp">comp<a href="#comp" class="hash-link" aria-label="comp的直接链接" title="comp的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/CompItem"><code>CompItem</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-1">返回<a href="#返回-1" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-38">继承自<a href="#继承自-38" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.addToMotionGraphicsTemplate</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="addtomotiongraphicstemplateas">addToMotionGraphicsTemplateAs()<a href="#addtomotiongraphicstemplateas" class="hash-link" aria-label="addToMotionGraphicsTemplateAs()的直接链接" title="addToMotionGraphicsTemplateAs()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>addToMotionGraphicsTemplateAs</strong>(<code>comp</code>, <code>name</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2187</p>
+<p>Adds the property to the Essential Graphics panel for the specified composition, providing a name.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-2">参数<a href="#参数-2" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="comp-1">comp<a href="#comp-1" class="hash-link" aria-label="comp的直接链接" title="comp的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/CompItem"><code>CompItem</code></a></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="name-1">name<a href="#name-1" class="hash-link" aria-label="name的直接链接" title="name的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-2">返回<a href="#返回-2" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-39">继承自<a href="#继承自-39" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.addToMotionGraphicsTemplateAs</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="canaddtomotiongraphicstemplate">canAddToMotionGraphicsTemplate()<a href="#canaddtomotiongraphicstemplate" class="hash-link" aria-label="canAddToMotionGraphicsTemplate()的直接链接" title="canAddToMotionGraphicsTemplate()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>canAddToMotionGraphicsTemplate</strong>(<code>comp</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2190</p>
+<p>Test whether or not the property can be added to the Essential Graphics panel for the specified composition.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-3">参数<a href="#参数-3" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="comp-2">comp<a href="#comp-2" class="hash-link" aria-label="comp的直接链接" title="comp的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/CompItem"><code>CompItem</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-3">返回<a href="#返回-3" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-40">继承自<a href="#继承自-40" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.canAddToMotionGraphicsTemplate</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="duplicate">duplicate()<a href="#duplicate" class="hash-link" aria-label="duplicate()的直接链接" title="duplicate()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>duplicate</strong>(): <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClasses"><code>_PropertyClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2252</p>
+<p>Duplicates this property object.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-4">返回<a href="#返回-4" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClasses"><code>_PropertyClasses</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-41">继承自<a href="#继承自-41" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.duplicate</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="getseparationfollower">getSeparationFollower()<a href="#getseparationfollower" class="hash-link" aria-label="getSeparationFollower()的直接链接" title="getSeparationFollower()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>getSeparationFollower</strong>(<code>dim</code>): <a href="/springlight-traces/api/AfterEffects/22.0/classes/Property"><code>Property</code></a>&lt;<a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/OneDProperty"><code>OneDProperty</code></a>&gt;</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2181</p>
+<p>For a separated, multidimensional property, retrieves a specific follower property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-4">参数<a href="#参数-4" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="dim">dim<a href="#dim" class="hash-link" aria-label="dim的直接链接" title="dim的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-5">返回<a href="#返回-5" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/Property"><code>Property</code></a>&lt;<a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/OneDProperty"><code>OneDProperty</code></a>&gt;</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-42">继承自<a href="#继承自-42" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.getSeparationFollower</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isinterpolationtypevalid">isInterpolationTypeValid()<a href="#isinterpolationtypevalid" class="hash-link" aria-label="isInterpolationTypeValid()的直接链接" title="isInterpolationTypeValid()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isInterpolationTypeValid</strong>(<code>type</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2084</p>
+<p>When true, this property can be interpolated.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-5">参数<a href="#参数-5" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="type">type<a href="#type" class="hash-link" aria-label="type的直接链接" title="type的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-6">返回<a href="#返回-6" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-43">继承自<a href="#继承自-43" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.isInterpolationTypeValid</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyininterpolationtype">keyInInterpolationType()<a href="#keyininterpolationtype" class="hash-link" aria-label="keyInInterpolationType()的直接链接" title="keyInInterpolationType()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyInInterpolationType</strong>(<code>keyIndex</code>): <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2094</p>
+<p>Gets the &#x27;in&#x27; interpolation type for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-6">参数<a href="#参数-6" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex">keyIndex<a href="#keyindex" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-7">返回<a href="#返回-7" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-44">继承自<a href="#继承自-44" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyInInterpolationType</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyinspatialtangent">keyInSpatialTangent()<a href="#keyinspatialtangent" class="hash-link" aria-label="keyInSpatialTangent()的直接链接" title="keyInSpatialTangent()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyInSpatialTangent</strong>(<code>keyIndex</code>): [<code>number</code>, <code>number</code>, <code>number</code>] | [<code>number</code>, <code>number</code>]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2112</p>
+<p>Gets the “in” spatial tangent for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-7">参数<a href="#参数-7" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-1">keyIndex<a href="#keyindex-1" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-8">返回<a href="#返回-8" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p>[<code>number</code>, <code>number</code>, <code>number</code>] | [<code>number</code>, <code>number</code>]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-45">继承自<a href="#继承自-45" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyInSpatialTangent</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyintemporalease">keyInTemporalEase()<a href="#keyintemporalease" class="hash-link" aria-label="keyInTemporalEase()的直接链接" title="keyInTemporalEase()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyInTemporalEase</strong>(<code>keyIndex</code>): [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2135</p>
+<p>Gets the “in” temporal ease for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-8">参数<a href="#参数-8" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-2">keyIndex<a href="#keyindex-2" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-9">返回<a href="#返回-9" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-46">继承自<a href="#继承自-46" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyInTemporalEase</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyoutinterpolationtype">keyOutInterpolationType()<a href="#keyoutinterpolationtype" class="hash-link" aria-label="keyOutInterpolationType()的直接链接" title="keyOutInterpolationType()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyOutInterpolationType</strong>(<code>keyIndex</code>): <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2097</p>
+<p>Gets the &#x27;out&#x27; interpolation type for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-9">参数<a href="#参数-9" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-3">keyIndex<a href="#keyindex-3" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-10">返回<a href="#返回-10" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-47">继承自<a href="#继承自-47" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyOutInterpolationType</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyoutspatialtangent">keyOutSpatialTangent()<a href="#keyoutspatialtangent" class="hash-link" aria-label="keyOutSpatialTangent()的直接链接" title="keyOutSpatialTangent()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyOutSpatialTangent</strong>(<code>keyIndex</code>): [<code>number</code>, <code>number</code>, <code>number</code>] | [<code>number</code>, <code>number</code>]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2115</p>
+<p>Gets the “out” spatial tangent for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-10">参数<a href="#参数-10" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-4">keyIndex<a href="#keyindex-4" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-11">返回<a href="#返回-11" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p>[<code>number</code>, <code>number</code>, <code>number</code>] | [<code>number</code>, <code>number</code>]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-48">继承自<a href="#继承自-48" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyOutSpatialTangent</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyouttemporalease">keyOutTemporalEase()<a href="#keyouttemporalease" class="hash-link" aria-label="keyOutTemporalEase()的直接链接" title="keyOutTemporalEase()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyOutTemporalEase</strong>(<code>keyIndex</code>): [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2140</p>
+<p>Gets the “out” temporal ease for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-11">参数<a href="#参数-11" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-5">keyIndex<a href="#keyindex-5" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-12">返回<a href="#返回-12" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>] | [<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-49">继承自<a href="#继承自-49" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyOutTemporalEase</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyroving">keyRoving()<a href="#keyroving" class="hash-link" aria-label="keyRoving()的直接链接" title="keyRoving()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyRoving</strong>(<code>keyIndex</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2172</p>
+<p>Reports whether a keyframe is roving.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-12">参数<a href="#参数-12" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-6">keyIndex<a href="#keyindex-6" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-13">返回<a href="#返回-13" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-50">继承自<a href="#继承自-50" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyRoving</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyselected">keySelected()<a href="#keyselected" class="hash-link" aria-label="keySelected()的直接链接" title="keySelected()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keySelected</strong>(<code>keyIndex</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2178</p>
+<p>Reports whether a keyframe is selected.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-13">参数<a href="#参数-13" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-7">keyIndex<a href="#keyindex-7" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-14">返回<a href="#返回-14" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-51">继承自<a href="#继承自-51" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keySelected</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyspatialautobezier">keySpatialAutoBezier()<a href="#keyspatialautobezier" class="hash-link" aria-label="keySpatialAutoBezier()的直接链接" title="keySpatialAutoBezier()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keySpatialAutoBezier</strong>(<code>keyIndex</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2166</p>
+<p>Reports whether a keyframe has spatial auto-Bezier.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-14">参数<a href="#参数-14" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-8">keyIndex<a href="#keyindex-8" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-15">返回<a href="#返回-15" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-52">继承自<a href="#继承自-52" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keySpatialAutoBezier</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyspatialcontinuous">keySpatialContinuous()<a href="#keyspatialcontinuous" class="hash-link" aria-label="keySpatialContinuous()的直接链接" title="keySpatialContinuous()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keySpatialContinuous</strong>(<code>keyIndex</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2160</p>
+<p>Reports whether a keyframe has spatial continuity.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-15">参数<a href="#参数-15" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-9">keyIndex<a href="#keyindex-9" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-16">返回<a href="#返回-16" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-53">继承自<a href="#继承自-53" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keySpatialContinuous</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keytemporalautobezier">keyTemporalAutoBezier()<a href="#keytemporalautobezier" class="hash-link" aria-label="keyTemporalAutoBezier()的直接链接" title="keyTemporalAutoBezier()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyTemporalAutoBezier</strong>(<code>keyIndex</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2154</p>
+<p>Reports whether a keyframe has temporal auto-Bezier.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-16">参数<a href="#参数-16" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-10">keyIndex<a href="#keyindex-10" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-17">返回<a href="#返回-17" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-54">继承自<a href="#继承自-54" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyTemporalAutoBezier</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keytemporalcontinuous">keyTemporalContinuous()<a href="#keytemporalcontinuous" class="hash-link" aria-label="keyTemporalContinuous()的直接链接" title="keyTemporalContinuous()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>keyTemporalContinuous</strong>(<code>keyIndex</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2148</p>
+<p>Reports whether a keyframe has temporal continuity.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-17">参数<a href="#参数-17" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-11">keyIndex<a href="#keyindex-11" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-18">返回<a href="#返回-18" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-55">继承自<a href="#继承自-55" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.keyTemporalContinuous</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keytime">keyTime()<a href="#keytime" class="hash-link" aria-label="keyTime()的直接链接" title="keyTime()的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名">调用签名<a href="#调用签名" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>keyTime</strong>(<code>keyIndex</code>): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2070</p>
+<p>Gets the time at which a condition occurs.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-18">参数<a href="#参数-18" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-12">keyIndex<a href="#keyindex-12" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-19">返回<a href="#返回-19" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-56">继承自<a href="#继承自-56" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.keyTime</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-1">调用签名<a href="#调用签名-1" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>keyTime</strong>(<code>markerComment</code>): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2071</p>
+<p>Gets the time at which a condition occurs.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-19">参数<a href="#参数-19" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="markercomment">markerComment<a href="#markercomment" class="hash-link" aria-label="markerComment的直接链接" title="markerComment的直接链接">​</a></h6>
+<p><code>string</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-20">返回<a href="#返回-20" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-57">继承自<a href="#继承自-57" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.keyTime</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="keyvalue">keyValue()<a href="#keyvalue" class="hash-link" aria-label="keyValue()的直接链接" title="keyValue()的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-2">调用签名<a href="#调用签名-2" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>keyValue</strong>(<code>keyIndex</code>): <code>any</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2074</p>
+<p>Gets the value of a keyframe at the time at which a condition occurs.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-20">参数<a href="#参数-20" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-13">keyIndex<a href="#keyindex-13" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-21">返回<a href="#返回-21" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>any</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-58">继承自<a href="#继承自-58" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.keyValue</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-3">调用签名<a href="#调用签名-3" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>keyValue</strong>(<code>markerComment</code>): <a href="/springlight-traces/api/AfterEffects/22.0/classes/MarkerValue"><code>MarkerValue</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2075</p>
+<p>Gets the value of a keyframe at the time at which a condition occurs.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-21">参数<a href="#参数-21" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="markercomment-1">markerComment<a href="#markercomment-1" class="hash-link" aria-label="markerComment的直接链接" title="markerComment的直接链接">​</a></h6>
+<p><code>string</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-22">返回<a href="#返回-22" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/MarkerValue"><code>MarkerValue</code></a></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-59">继承自<a href="#继承自-59" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.keyValue</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="moveto">moveTo()<a href="#moveto" class="hash-link" aria-label="moveTo()的直接链接" title="moveTo()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>moveTo</strong>(<code>newIndex</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2249</p>
+<p>Moves this property to a new position in its parent group.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-22">参数<a href="#参数-22" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newindex">newIndex<a href="#newindex" class="hash-link" aria-label="newIndex的直接链接" title="newIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-23">返回<a href="#返回-23" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-60">继承自<a href="#继承自-60" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.moveTo</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="nearestkeyindex">nearestKeyIndex()<a href="#nearestkeyindex" class="hash-link" aria-label="nearestKeyIndex()的直接链接" title="nearestKeyIndex()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>nearestKeyIndex</strong>(<code>time</code>): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2067</p>
+<p>Gets the keyframe nearest to a specified time.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-23">参数<a href="#参数-23" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="time-1">time<a href="#time-1" class="hash-link" aria-label="time的直接链接" title="time的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-24">返回<a href="#返回-24" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-61">继承自<a href="#继承自-61" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.nearestKeyIndex</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="property">property()<a href="#property" class="hash-link" aria-label="property()的直接链接" title="property()的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-4">调用签名<a href="#调用签名-4" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>property</strong>(<code>index</code>): <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClasses"><code>_PropertyClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2255</p>
+<p>Gets a member property or group. Strictly, this should be PropertyGroup method.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-24">参数<a href="#参数-24" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="index">index<a href="#index" class="hash-link" aria-label="index的直接链接" title="index的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-25">返回<a href="#返回-25" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClasses"><code>_PropertyClasses</code></a></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-62">继承自<a href="#继承自-62" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.property</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-5">调用签名<a href="#调用签名-5" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>property</strong>(<code>name</code>): <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClasses"><code>_PropertyClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2256</p>
+<p>Gets a member property or group. Strictly, this should be PropertyGroup method.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-25">参数<a href="#参数-25" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="name-2">name<a href="#name-2" class="hash-link" aria-label="name的直接链接" title="name的直接链接">​</a></h6>
+<p><code>string</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-26">返回<a href="#返回-26" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/PropertyClasses"><code>_PropertyClasses</code></a></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-63">继承自<a href="#继承自-63" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.property</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="propertygroup">propertyGroup()<a href="#propertygroup" class="hash-link" aria-label="propertyGroup()的直接链接" title="propertyGroup()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>propertyGroup</strong>(<code>countUp?</code>): <a href="/springlight-traces/api/AfterEffects/22.0/classes/PropertyGroup"><code>PropertyGroup</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2243</p>
+<p>Gets the parent group for this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-26">参数<a href="#参数-26" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="countup">countUp?<a href="#countup" class="hash-link" aria-label="countUp?的直接链接" title="countUp?的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-27">返回<a href="#返回-27" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/PropertyGroup"><code>PropertyGroup</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-64">继承自<a href="#继承自-64" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.propertyGroup</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="remove">remove()<a href="#remove" class="hash-link" aria-label="remove()的直接链接" title="remove()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>remove</strong>(): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2246</p>
+<p>Removes this from the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-28">返回<a href="#返回-28" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-65">继承自<a href="#继承自-65" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.remove</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="removekey">removeKey()<a href="#removekey" class="hash-link" aria-label="removeKey()的直接链接" title="removeKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>removeKey</strong>(<code>keyIndex</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2081</p>
+<p>Removes a keyframe from the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-27">参数<a href="#参数-27" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-14">keyIndex<a href="#keyindex-14" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-29">返回<a href="#返回-29" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-66">继承自<a href="#继承自-66" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.removeKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setalternatesource">setAlternateSource()<a href="#setalternatesource" class="hash-link" aria-label="setAlternateSource()的直接链接" title="setAlternateSource()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setAlternateSource</strong>(<code>newSource</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2196</p>
+<p>Set the alternate source for this property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-28">参数<a href="#参数-28" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newsource">newSource<a href="#newsource" class="hash-link" aria-label="newSource的直接链接" title="newSource的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/AVItem"><code>AVItem</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-30">返回<a href="#返回-30" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-67">继承自<a href="#继承自-67" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setAlternateSource</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setinterpolationtypeatkey">setInterpolationTypeAtKey()<a href="#setinterpolationtypeatkey" class="hash-link" aria-label="setInterpolationTypeAtKey()的直接链接" title="setInterpolationTypeAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setInterpolationTypeAtKey</strong>(<code>keyIndex</code>, <code>inType</code>, <code>outType?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2087</p>
+<p>Sets the interpolation type for a key.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-29">参数<a href="#参数-29" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-15">keyIndex<a href="#keyindex-15" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="intype">inType<a href="#intype" class="hash-link" aria-label="inType的直接链接" title="inType的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="outtype">outType?<a href="#outtype" class="hash-link" aria-label="outType?的直接链接" title="outType?的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/KeyframeInterpolationType"><code>KeyframeInterpolationType</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-31">返回<a href="#返回-31" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-68">继承自<a href="#继承自-68" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setInterpolationTypeAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setpropertyparameters">setPropertyParameters()<a href="#setpropertyparameters" class="hash-link" aria-label="setPropertyParameters()的直接链接" title="setPropertyParameters()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setPropertyParameters</strong>(<code>items</code>): <a href="/springlight-traces/api/AfterEffects/22.0/classes/Property"><code>Property</code></a>&lt;<a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/OneDProperty"><code>OneDProperty</code></a>&gt;</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2193</p>
+<p>Sets parameters for a Dropdown Menu Control’s Menu Property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-30">参数<a href="#参数-30" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="items">items<a href="#items" class="hash-link" aria-label="items的直接链接" title="items的直接链接">​</a></h5>
+<p><code>string</code>[]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-32">返回<a href="#返回-32" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/Property"><code>Property</code></a>&lt;<a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/OneDProperty"><code>OneDProperty</code></a>&gt;</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-69">继承自<a href="#继承自-69" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setPropertyParameters</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setrovingatkey">setRovingAtKey()<a href="#setrovingatkey" class="hash-link" aria-label="setRovingAtKey()的直接链接" title="setRovingAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setRovingAtKey</strong>(<code>keyIndex</code>, <code>newVal</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2169</p>
+<p>Sets whether a keyframe is roving.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-31">参数<a href="#参数-31" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-16">keyIndex<a href="#keyindex-16" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newval">newVal<a href="#newval" class="hash-link" aria-label="newVal的直接链接" title="newVal的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-33">返回<a href="#返回-33" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-70">继承自<a href="#继承自-70" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setRovingAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setselectedatkey">setSelectedAtKey()<a href="#setselectedatkey" class="hash-link" aria-label="setSelectedAtKey()的直接链接" title="setSelectedAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setSelectedAtKey</strong>(<code>keyIndex</code>, <code>onOff</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2175</p>
+<p>Sets whether a keyframe is selected.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-32">参数<a href="#参数-32" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-17">keyIndex<a href="#keyindex-17" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="onoff">onOff<a href="#onoff" class="hash-link" aria-label="onOff的直接链接" title="onOff的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-34">返回<a href="#返回-34" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-71">继承自<a href="#继承自-71" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setSelectedAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setspatialautobezieratkey">setSpatialAutoBezierAtKey()<a href="#setspatialautobezieratkey" class="hash-link" aria-label="setSpatialAutoBezierAtKey()的直接链接" title="setSpatialAutoBezierAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setSpatialAutoBezierAtKey</strong>(<code>keyIndex</code>, <code>newVal</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2163</p>
+<p>Sets whether a keyframe has spatial auto-Bezier.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-33">参数<a href="#参数-33" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-18">keyIndex<a href="#keyindex-18" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newval-1">newVal<a href="#newval-1" class="hash-link" aria-label="newVal的直接链接" title="newVal的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-35">返回<a href="#返回-35" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-72">继承自<a href="#继承自-72" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setSpatialAutoBezierAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setspatialcontinuousatkey">setSpatialContinuousAtKey()<a href="#setspatialcontinuousatkey" class="hash-link" aria-label="setSpatialContinuousAtKey()的直接链接" title="setSpatialContinuousAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setSpatialContinuousAtKey</strong>(<code>keyIndex</code>, <code>newVal</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2157</p>
+<p>Sets whether a keyframe has spatial continuity.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-34">参数<a href="#参数-34" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-19">keyIndex<a href="#keyindex-19" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newval-2">newVal<a href="#newval-2" class="hash-link" aria-label="newVal的直接链接" title="newVal的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-36">返回<a href="#返回-36" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-73">继承自<a href="#继承自-73" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setSpatialContinuousAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setspatialtangentsatkey">setSpatialTangentsAtKey()<a href="#setspatialtangentsatkey" class="hash-link" aria-label="setSpatialTangentsAtKey()的直接链接" title="setSpatialTangentsAtKey()的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-6">调用签名<a href="#调用签名-6" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>setSpatialTangentsAtKey</strong>(<code>keyIndex</code>, <code>inTangent</code>, <code>outTangent</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2100</p>
+<p>Sets the “in” and “out” tangent vectors for a key.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-35">参数<a href="#参数-35" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-20">keyIndex<a href="#keyindex-20" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="intangent">inTangent<a href="#intangent" class="hash-link" aria-label="inTangent的直接链接" title="inTangent的直接链接">​</a></h6>
+<p>[<code>number</code>, <code>number</code>]</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="outtangent">outTangent<a href="#outtangent" class="hash-link" aria-label="outTangent的直接链接" title="outTangent的直接链接">​</a></h6>
+<p>[<code>number</code>, <code>number</code>]</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-37">返回<a href="#返回-37" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>void</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-74">继承自<a href="#继承自-74" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.setSpatialTangentsAtKey</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-7">调用签名<a href="#调用签名-7" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>setSpatialTangentsAtKey</strong>(<code>keyIndex</code>, <code>inTangent</code>, <code>outTangent</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2105</p>
+<p>Sets the “in” and “out” tangent vectors for a key.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-36">参数<a href="#参数-36" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-21">keyIndex<a href="#keyindex-21" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="intangent-1">inTangent<a href="#intangent-1" class="hash-link" aria-label="inTangent的直接链接" title="inTangent的直接链接">​</a></h6>
+<p>[<code>number</code>, <code>number</code>, <code>number</code>]</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="outtangent-1">outTangent<a href="#outtangent-1" class="hash-link" aria-label="outTangent的直接链接" title="outTangent的直接链接">​</a></h6>
+<p>[<code>number</code>, <code>number</code>, <code>number</code>]</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-38">返回<a href="#返回-38" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>void</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-75">继承自<a href="#继承自-75" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.setSpatialTangentsAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="settemporalautobezieratkey">setTemporalAutoBezierAtKey()<a href="#settemporalautobezieratkey" class="hash-link" aria-label="setTemporalAutoBezierAtKey()的直接链接" title="setTemporalAutoBezierAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setTemporalAutoBezierAtKey</strong>(<code>keyIndex</code>, <code>newVal</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2151</p>
+<p>Sets whether a keyframe has temporal auto-Bezier.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-37">参数<a href="#参数-37" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-22">keyIndex<a href="#keyindex-22" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newval-3">newVal<a href="#newval-3" class="hash-link" aria-label="newVal的直接链接" title="newVal的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-39">返回<a href="#返回-39" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-76">继承自<a href="#继承自-76" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setTemporalAutoBezierAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="settemporalcontinuousatkey">setTemporalContinuousAtKey()<a href="#settemporalcontinuousatkey" class="hash-link" aria-label="setTemporalContinuousAtKey()的直接链接" title="setTemporalContinuousAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setTemporalContinuousAtKey</strong>(<code>keyIndex</code>, <code>newVal</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2145</p>
+<p>Sets whether a keyframe has temporal continuity.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-38">参数<a href="#参数-38" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-23">keyIndex<a href="#keyindex-23" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newval-4">newVal<a href="#newval-4" class="hash-link" aria-label="newVal的直接链接" title="newVal的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-40">返回<a href="#返回-40" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-77">继承自<a href="#继承自-77" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setTemporalContinuousAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="settemporaleaseatkey">setTemporalEaseAtKey()<a href="#settemporaleaseatkey" class="hash-link" aria-label="setTemporalEaseAtKey()的直接链接" title="setTemporalEaseAtKey()的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-8">调用签名<a href="#调用签名-8" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>setTemporalEaseAtKey</strong>(<code>keyIndex</code>, <code>inTemporalEase</code>, <code>outTemporalEase?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2118</p>
+<p>Sets the “in” and “out” temporal ease for a key.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-39">参数<a href="#参数-39" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-24">keyIndex<a href="#keyindex-24" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="intemporalease">inTemporalEase<a href="#intemporalease" class="hash-link" aria-label="inTemporalEase的直接链接" title="inTemporalEase的直接链接">​</a></h6>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="outtemporalease">outTemporalEase?<a href="#outtemporalease" class="hash-link" aria-label="outTemporalEase?的直接链接" title="outTemporalEase?的直接链接">​</a></h6>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-41">返回<a href="#返回-41" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>void</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-78">继承自<a href="#继承自-78" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.setTemporalEaseAtKey</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-9">调用签名<a href="#调用签名-9" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>setTemporalEaseAtKey</strong>(<code>keyIndex</code>, <code>inTemporalEase</code>, <code>outTemporalEase?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2123</p>
+<p>Sets the “in” and “out” temporal ease for a key.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-40">参数<a href="#参数-40" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-25">keyIndex<a href="#keyindex-25" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="intemporalease-1">inTemporalEase<a href="#intemporalease-1" class="hash-link" aria-label="inTemporalEase的直接链接" title="inTemporalEase的直接链接">​</a></h6>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="outtemporalease-1">outTemporalEase?<a href="#outtemporalease-1" class="hash-link" aria-label="outTemporalEase?的直接链接" title="outTemporalEase?的直接链接">​</a></h6>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-42">返回<a href="#返回-42" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>void</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-79">继承自<a href="#继承自-79" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.setTemporalEaseAtKey</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-10">调用签名<a href="#调用签名-10" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>setTemporalEaseAtKey</strong>(<code>keyIndex</code>, <code>inTemporalEase</code>, <code>outTemporalEase?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2128</p>
+<p>Sets the “in” and “out” temporal ease for a key.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-41">参数<a href="#参数-41" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-26">keyIndex<a href="#keyindex-26" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h6>
+<p><code>number</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="intemporalease-2">inTemporalEase<a href="#intemporalease-2" class="hash-link" aria-label="inTemporalEase的直接链接" title="inTemporalEase的直接链接">​</a></h6>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="outtemporalease-2">outTemporalEase?<a href="#outtemporalease-2" class="hash-link" aria-label="outTemporalEase?的直接链接" title="outTemporalEase?的直接链接">​</a></h6>
+<p>[<a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>, <a href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase"><code>KeyframeEase</code></a>]</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-43">返回<a href="#返回-43" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>void</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-80">继承自<a href="#继承自-80" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h5>
+<p><code>PropertyClassMembers.setTemporalEaseAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setvalue">setValue()<a href="#setvalue" class="hash-link" aria-label="setValue()的直接链接" title="setValue()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setValue</strong>(<code>newValue</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2055</p>
+<p>Sets the static value of the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-42">参数<a href="#参数-42" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newvalue">newValue<a href="#newvalue" class="hash-link" aria-label="newValue的直接链接" title="newValue的直接链接">​</a></h5>
+<p><code>any</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-44">返回<a href="#返回-44" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-81">继承自<a href="#继承自-81" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setValue</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setvalueatkey">setValueAtKey()<a href="#setvalueatkey" class="hash-link" aria-label="setValueAtKey()的直接链接" title="setValueAtKey()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setValueAtKey</strong>(<code>keyIndex</code>, <code>newValue</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2064</p>
+<p>Finds a keyframe and sets the value of the property at that keyframe.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-43">参数<a href="#参数-43" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="keyindex-27">keyIndex<a href="#keyindex-27" class="hash-link" aria-label="keyIndex的直接链接" title="keyIndex的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newvalue-1">newValue<a href="#newvalue-1" class="hash-link" aria-label="newValue的直接链接" title="newValue的直接链接">​</a></h5>
+<p><code>any</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-45">返回<a href="#返回-45" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-82">继承自<a href="#继承自-82" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setValueAtKey</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setvalueattime">setValueAtTime()<a href="#setvalueattime" class="hash-link" aria-label="setValueAtTime()的直接链接" title="setValueAtTime()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setValueAtTime</strong>(<code>time</code>, <code>newValue</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2058</p>
+<p>Creates a keyframe for the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-44">参数<a href="#参数-44" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="time-2">time<a href="#time-2" class="hash-link" aria-label="time的直接链接" title="time的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newvalue-2">newValue<a href="#newvalue-2" class="hash-link" aria-label="newValue的直接链接" title="newValue的直接链接">​</a></h5>
+<p><code>any</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-46">返回<a href="#返回-46" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-83">继承自<a href="#继承自-83" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setValueAtTime</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setvaluesattimes">setValuesAtTimes()<a href="#setvaluesattimes" class="hash-link" aria-label="setValuesAtTimes()的直接链接" title="setValuesAtTimes()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setValuesAtTimes</strong>(<code>times</code>, <code>newValues</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2061</p>
+<p>Creates a set of keyframes for the property.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-45">参数<a href="#参数-45" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="times">times<a href="#times" class="hash-link" aria-label="times的直接链接" title="times的直接链接">​</a></h5>
+<p><code>number</code>[]</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newvalues">newValues<a href="#newvalues" class="hash-link" aria-label="newValues的直接链接" title="newValues的直接链接">​</a></h5>
+<p><code>any</code>[]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-47">返回<a href="#返回-47" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-84">继承自<a href="#继承自-84" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.setValuesAtTimes</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="valueattime">valueAtTime()<a href="#valueattime" class="hash-link" aria-label="valueAtTime()的直接链接" title="valueAtTime()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>valueAtTime</strong>(<code>time</code>, <code>preExpression</code>): <code>any</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:2052</p>
+<p>Gets the value of the property evaluated at given time.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-46">参数<a href="#参数-46" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="time-3">time<a href="#time-3" class="hash-link" aria-label="time的直接链接" title="time的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="preexpression">preExpression<a href="#preexpression" class="hash-link" aria-label="preExpression的直接链接" title="preExpression的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-48">返回<a href="#返回-48" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>any</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="继承自-85">继承自<a href="#继承自-85" class="hash-link" aria-label="继承自的直接链接" title="继承自的直接链接">​</a></h4>
+<p><code>PropertyClassMembers.valueAtTime</code></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/springlight-traces/api/AfterEffects/22.0/interfaces/ColorType"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">ColorType</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/springlight-traces/api/AfterEffects/22.0/interfaces/NoValueType"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">NoValueType</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#继承" class="table-of-contents__link toc-highlight">继承</a></li><li><a href="#属性" class="table-of-contents__link toc-highlight">属性</a><ul><li><a href="#active" class="table-of-contents__link toc-highlight">active</a></li><li><a href="#alternatesource" class="table-of-contents__link toc-highlight">alternateSource</a></li><li><a href="#cansetalternatesource" class="table-of-contents__link toc-highlight">canSetAlternateSource</a></li><li><a href="#cansetenabled" class="table-of-contents__link toc-highlight">canSetEnabled</a></li><li><a href="#cansetexpression" class="table-of-contents__link toc-highlight">canSetExpression</a></li><li><a href="#canvaryovertime" class="table-of-contents__link toc-highlight">canVaryOverTime</a></li><li><a href="#dimensionsseparated" class="table-of-contents__link toc-highlight">dimensionsSeparated</a></li><li><a href="#elided" class="table-of-contents__link toc-highlight">elided</a></li><li><a href="#enabled" class="table-of-contents__link toc-highlight">enabled</a></li><li><a href="#essentialpropertysource" class="table-of-contents__link toc-highlight">essentialPropertySource</a></li><li><a href="#expression" class="table-of-contents__link toc-highlight">expression</a></li><li><a href="#expressionenabled" class="table-of-contents__link toc-highlight">expressionEnabled</a></li><li><a href="#expressionerror" class="table-of-contents__link toc-highlight">expressionError</a></li><li><a href="#hasmax" class="table-of-contents__link toc-highlight">hasMax</a></li><li><a href="#hasmin" class="table-of-contents__link toc-highlight">hasMin</a></li><li><a href="#isdropdowneffect" class="table-of-contents__link toc-highlight">isDropdownEffect</a></li><li><a href="#iseffect" class="table-of-contents__link toc-highlight">isEffect</a></li><li><a href="#ismask" class="table-of-contents__link toc-highlight">isMask</a></li><li><a href="#ismodified" class="table-of-contents__link toc-highlight">isModified</a></li><li><a href="#isseparationfollower" class="table-of-contents__link toc-highlight">isSeparationFollower</a></li><li><a href="#isseparationleader" class="table-of-contents__link toc-highlight">isSeparationLeader</a></li><li><a href="#isspatial" class="table-of-contents__link toc-highlight">isSpatial</a></li><li><a href="#istimevarying" class="table-of-contents__link toc-highlight">isTimeVarying</a></li><li><a href="#matchname" class="table-of-contents__link toc-highlight">matchName</a></li><li><a href="#maxvalue" class="table-of-contents__link toc-highlight">maxValue</a></li><li><a href="#minvalue" class="table-of-contents__link toc-highlight">minValue</a></li><li><a href="#name" class="table-of-contents__link toc-highlight">name</a></li><li><a href="#numkeys" class="table-of-contents__link toc-highlight">numKeys</a></li><li><a href="#parentproperty" class="table-of-contents__link toc-highlight">parentProperty</a></li><li><a href="#propertydepth" class="table-of-contents__link toc-highlight">propertyDepth</a></li><li><a href="#propertyindex" class="table-of-contents__link toc-highlight">propertyIndex</a></li><li><a href="#propertytype" class="table-of-contents__link toc-highlight">propertyType</a></li><li><a href="#propertyvaluetype" class="table-of-contents__link toc-highlight">propertyValueType</a></li><li><a href="#selected" class="table-of-contents__link toc-highlight">selected</a></li><li><a href="#selectedkeys" class="table-of-contents__link toc-highlight">selectedKeys</a></li><li><a href="#separationdimension" class="table-of-contents__link toc-highlight">separationDimension</a></li><li><a href="#separationleader" class="table-of-contents__link toc-highlight">separationLeader</a></li><li><a href="#unitstext" class="table-of-contents__link toc-highlight">unitsText</a></li><li><a href="#value" class="table-of-contents__link toc-highlight">value</a></li></ul></li><li><a href="#方法" class="table-of-contents__link toc-highlight">方法</a><ul><li><a href="#addkey" class="table-of-contents__link toc-highlight">addKey()</a></li><li><a href="#addtomotiongraphicstemplate" class="table-of-contents__link toc-highlight">addToMotionGraphicsTemplate()</a></li><li><a href="#addtomotiongraphicstemplateas" class="table-of-contents__link toc-highlight">addToMotionGraphicsTemplateAs()</a></li><li><a href="#canaddtomotiongraphicstemplate" class="table-of-contents__link toc-highlight">canAddToMotionGraphicsTemplate()</a></li><li><a href="#duplicate" class="table-of-contents__link toc-highlight">duplicate()</a></li><li><a href="#getseparationfollower" class="table-of-contents__link toc-highlight">getSeparationFollower()</a></li><li><a href="#isinterpolationtypevalid" class="table-of-contents__link toc-highlight">isInterpolationTypeValid()</a></li><li><a href="#keyininterpolationtype" class="table-of-contents__link toc-highlight">keyInInterpolationType()</a></li><li><a href="#keyinspatialtangent" class="table-of-contents__link toc-highlight">keyInSpatialTangent()</a></li><li><a href="#keyintemporalease" class="table-of-contents__link toc-highlight">keyInTemporalEase()</a></li><li><a href="#keyoutinterpolationtype" class="table-of-contents__link toc-highlight">keyOutInterpolationType()</a></li><li><a href="#keyoutspatialtangent" class="table-of-contents__link toc-highlight">keyOutSpatialTangent()</a></li><li><a href="#keyouttemporalease" class="table-of-contents__link toc-highlight">keyOutTemporalEase()</a></li><li><a href="#keyroving" class="table-of-contents__link toc-highlight">keyRoving()</a></li><li><a href="#keyselected" class="table-of-contents__link toc-highlight">keySelected()</a></li><li><a href="#keyspatialautobezier" class="table-of-contents__link toc-highlight">keySpatialAutoBezier()</a></li><li><a href="#keyspatialcontinuous" class="table-of-contents__link toc-highlight">keySpatialContinuous()</a></li><li><a href="#keytemporalautobezier" class="table-of-contents__link toc-highlight">keyTemporalAutoBezier()</a></li><li><a href="#keytemporalcontinuous" class="table-of-contents__link toc-highlight">keyTemporalContinuous()</a></li><li><a href="#keytime" class="table-of-contents__link toc-highlight">keyTime()</a></li><li><a href="#keyvalue" class="table-of-contents__link toc-highlight">keyValue()</a></li><li><a href="#moveto" class="table-of-contents__link toc-highlight">moveTo()</a></li><li><a href="#nearestkeyindex" class="table-of-contents__link toc-highlight">nearestKeyIndex()</a></li><li><a href="#property" class="table-of-contents__link toc-highlight">property()</a></li><li><a href="#propertygroup" class="table-of-contents__link toc-highlight">propertyGroup()</a></li><li><a href="#remove" class="table-of-contents__link toc-highlight">remove()</a></li><li><a href="#removekey" class="table-of-contents__link toc-highlight">removeKey()</a></li><li><a href="#setalternatesource" class="table-of-contents__link toc-highlight">setAlternateSource()</a></li><li><a href="#setinterpolationtypeatkey" class="table-of-contents__link toc-highlight">setInterpolationTypeAtKey()</a></li><li><a href="#setpropertyparameters" class="table-of-contents__link toc-highlight">setPropertyParameters()</a></li><li><a href="#setrovingatkey" class="table-of-contents__link toc-highlight">setRovingAtKey()</a></li><li><a href="#setselectedatkey" class="table-of-contents__link toc-highlight">setSelectedAtKey()</a></li><li><a href="#setspatialautobezieratkey" class="table-of-contents__link toc-highlight">setSpatialAutoBezierAtKey()</a></li><li><a href="#setspatialcontinuousatkey" class="table-of-contents__link toc-highlight">setSpatialContinuousAtKey()</a></li><li><a href="#setspatialtangentsatkey" class="table-of-contents__link toc-highlight">setSpatialTangentsAtKey()</a></li><li><a href="#settemporalautobezieratkey" class="table-of-contents__link toc-highlight">setTemporalAutoBezierAtKey()</a></li><li><a href="#settemporalcontinuousatkey" class="table-of-contents__link toc-highlight">setTemporalContinuousAtKey()</a></li><li><a href="#settemporaleaseatkey" class="table-of-contents__link toc-highlight">setTemporalEaseAtKey()</a></li><li><a href="#setvalue" class="table-of-contents__link toc-highlight">setValue()</a></li><li><a href="#setvalueatkey" class="table-of-contents__link toc-highlight">setValueAtKey()</a></li><li><a href="#setvalueattime" class="table-of-contents__link toc-highlight">setValueAtTime()</a></li><li><a href="#setvaluesattimes" class="table-of-contents__link toc-highlight">setValuesAtTimes()</a></li><li><a href="#valueattime" class="table-of-contents__link toc-highlight">valueAtTime()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 春日影踪编写组, 基于 Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

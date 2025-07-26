@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/AfterEffects/22.0/classes/Project" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">类: Project | 春日影踪</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/classes/Project"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="类: Project | 春日影踪"><meta data-rh="true" name="description" content="定义于1712"><meta data-rh="true" property="og:description" content="定义于1712"><link data-rh="true" rel="icon" href="/springlight-traces/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/classes/Project"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/classes/Project" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/AfterEffects/22.0/classes/Project" hreflang="x-default"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/springlight-traces/assets/css/styles.fc374fa2.css">
+<script src="/springlight-traces/assets/js/runtime~main.95a92010.js" defer="defer"></script>
+<script src="/springlight-traces/assets/js/main.626f80bc.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/springlight-traces/"><b class="navbar__title text--truncate">春日影踪</b></a></div><div class="navbar__items navbar__items--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/springlight-traces/">春日影踪 - bolt-cep</a><a href="https://github.com/Anonyamufunc-Love/springlight-traces" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/">春日影踪</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/preparations">准备工作</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/install-bolt-cep">安装 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-bolt-cep">编译 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-with-project-files">熟悉 bolt-cep 项目结构</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/eval-ts-and-eval-es">EvalTS 与 EvalES</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/listen-ts-and-dispatch-ts">ListenTS 和 DispatchTS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-typescript-docs-tutorial">自构建 TypeScript API 文档</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-panel-frontend">渐入面板前端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-component-library">安装并使用组件库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/data-stroage">数据存储</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-backend">扩展后端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-web-assembly">使用 WebAssembly</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/custom-compilation">定制化编译行为</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/publishing-extension">分发扩展</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-jest-unit-test">使用 Jest 进行单元测试</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-eslint">使用 ESLint</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/add-host-3rd-library">给 Host 端添加第三方库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/ext_join-bolt-cep-community">加入 bolt-cep 社区</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/extend-script/getting-started-with-extendscript">就算迷茫也要写下去！—— 入门ExtendScript</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/vscode-plugin-extendscript-debugger">ExtendScript 调试器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/writeln">日志 —— $.writeln</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/app-project">项目 —— app.project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/comp-item">合成 —— CompItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/layer">图层 —— Layer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/property">属性 —— Property</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/av-layer">音视觉图层 —— AVLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/camera-layer">摄像机图层 —— CameraLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/light-layer">灯光图层 —— LightLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/footage-item">素材 —— FootageItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/file">文件 —— File</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_bolt-cep-donts">别再“無路矢”！—— 部分编码约定</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_sources">参考文献</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/springlight-traces/api">接口文档</a><button aria-label="折叠侧边栏分类 &#x27;接口文档&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">items</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">AfterEffects</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">22.0</a><button aria-label="折叠侧边栏分类 &#x27;22.0&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/enumerations/CommandID">枚举</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Application">类</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Application">Application</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/AVItem">AVItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/AVLayer">AVLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/CameraLayer">CameraLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Collection">Collection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/CompItem">CompItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/FileSource">FileSource</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/FolderItem">FolderItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/FootageItem">FootageItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/FootageSource">FootageSource</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/ImportOptions">ImportOptions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Item">Item</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/ItemCollection">ItemCollection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/KeyframeEase">KeyframeEase</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Layer">Layer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/LayerCollection">LayerCollection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/LightLayer">LightLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/MarkerValue">MarkerValue</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/MaskPropertyGroup">MaskPropertyGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/OMCollection">OMCollection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/OutputModule">OutputModule</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/PlaceholderItem">PlaceholderItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/PlaceholderSource">PlaceholderSource</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Preferences">Preferences</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Project">Project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Property">Property</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/PropertyBase">PropertyBase</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/PropertyGroup">PropertyGroup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/RenderQueue">RenderQueue</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/RenderQueueItem">RenderQueueItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/RQItemCollection">RQItemCollection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Settings">Settings</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Shape">Shape</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/ShapeLayer">ShapeLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/SolidSource">SolidSource</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/System">System</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/TextDocument">TextDocument</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/TextLayer">TextLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/View">View</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/Viewer">Viewer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/classes/ViewOptions">ViewOptions</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/interfaces/AdvBlendGroup">接口</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses">类型别名</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0/variables/clearOutput">变量</a></div></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/global">shared</a></div></li></ul></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/springlight-traces/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api"><span itemprop="name">接口文档</span></a><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">items</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">AfterEffects</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api/AfterEffects/22.0"><span itemprop="name">22.0</span></a><meta itemprop="position" content="4"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">类</span><meta itemprop="position" content="5"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Project</span><meta itemprop="position" content="6"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>类: Project</h1></header>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1712</p>
+<p>The project object represents an After Effects project. Attributes provide access to specific objects within the project, such as imported files or footage and compositions, and also to project settings such as the timecode base. Methods can import footage, create solids, compositions and folders, and save changes.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="构造函数">构造函数<a href="#构造函数" class="hash-link" aria-label="构造函数的直接链接" title="构造函数的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="构造函数-1">构造函数<a href="#构造函数-1" class="hash-link" aria-label="构造函数的直接链接" title="构造函数的直接链接">​</a></h3>
+<blockquote>
+<p><strong>new Project</strong>(): <code>Project</code></p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回">返回<a href="#返回" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>Project</code></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="属性">属性<a href="#属性" class="hash-link" aria-label="属性的直接链接" title="属性的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="activeitem">activeItem<a href="#activeitem" class="hash-link" aria-label="activeItem的直接链接" title="activeItem的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>activeItem</strong>: <code>null</code> | <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1723</p>
+<p>The currently active item.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bitsperchannel">bitsPerChannel<a href="#bitsperchannel" class="hash-link" aria-label="bitsPerChannel的直接链接" title="bitsPerChannel的直接链接">​</a></h3>
+<blockquote>
+<p><strong>bitsPerChannel</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1735</p>
+<p>The color depth of the current project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compensateforscenereferredprofiles">compensateForSceneReferredProfiles<a href="#compensateforscenereferredprofiles" class="hash-link" aria-label="compensateForSceneReferredProfiles的直接链接" title="compensateForSceneReferredProfiles的直接链接">​</a></h3>
+<blockquote>
+<p><strong>compensateForSceneReferredProfiles</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1780</p>
+<p>True if Compensate for Scene-referred Profiles should be enabled for this project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="displaystartframe">displayStartFrame<a href="#displaystartframe" class="hash-link" aria-label="displayStartFrame的直接链接" title="displayStartFrame的直接链接">​</a></h3>
+<blockquote>
+<p><strong>displayStartFrame</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1741</p>
+<p>The frame at which to start numbering when displaying the project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="expressionengine">expressionEngine<a href="#expressionengine" class="hash-link" aria-label="expressionEngine的直接链接" title="expressionEngine的直接链接">​</a></h3>
+<blockquote>
+<p><strong>expressionEngine</strong>: <code>&quot;extendscript&quot;</code> | <code>&quot;javascript-1.0&quot;</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1783</p>
+<p>The Expressions Engine setting in the Project Settings dialog box.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feetframesfilmtype">feetFramesFilmType<a href="#feetframesfilmtype" class="hash-link" aria-label="feetFramesFilmType的直接链接" title="feetFramesFilmType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>feetFramesFilmType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/FeetFramesFilmType"><code>FeetFramesFilmType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1756</p>
+<p>The Use Feet + Frames menu setting in the Project Settings dialog box.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="file">file<a href="#file" class="hash-link" aria-label="file的直接链接" title="file的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>file</strong>: <code>null</code> | <a href="/springlight-traces/api/shared/JavaScript/interfaces/File"><code>File</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1714</p>
+<p>The file for the currently open project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="footagetimecodedisplaystarttype">footageTimecodeDisplayStartType<a href="#footagetimecodedisplaystarttype" class="hash-link" aria-label="footageTimecodeDisplayStartType的直接链接" title="footageTimecodeDisplayStartType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>footageTimecodeDisplayStartType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/FootageTimecodeDisplayStartType"><code>FootageTimecodeDisplayStartType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1762</p>
+<p>The Footage Start Time setting in the Project Settings dialog box, which is enabled when Timecode is selected as the time display style.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="framescounttype">framesCountType<a href="#framescounttype" class="hash-link" aria-label="framesCountType的直接链接" title="framesCountType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>framesCountType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/FramesCountType"><code>FramesCountType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1753</p>
+<p>The Frame Count menu setting in the Project Settings dialog box.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="framesusefeetframes">framesUseFeetFrames<a href="#framesusefeetframes" class="hash-link" aria-label="framesUseFeetFrames的直接链接" title="framesUseFeetFrames的直接链接">​</a></h3>
+<blockquote>
+<p><strong>framesUseFeetFrames</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1759</p>
+<p>The Use Feet + Frames setting in the Project Settings dialog box.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="gpuacceltype">gpuAccelType<a href="#gpuacceltype" class="hash-link" aria-label="gpuAccelType的直接链接" title="gpuAccelType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>gpuAccelType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/GpuAccelType"><code>GpuAccelType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1744</p>
+<p>Get or set the current projects GPU Acceleration option.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="items">items<a href="#items" class="hash-link" aria-label="items的直接链接" title="items的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>items</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/classes/ItemCollection"><code>ItemCollection</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1720</p>
+<p>All items in the project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="linearblending">linearBlending<a href="#linearblending" class="hash-link" aria-label="linearBlending的直接链接" title="linearBlending的直接链接">​</a></h3>
+<blockquote>
+<p><strong>linearBlending</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1747</p>
+<p>When true, linear blending is used for the project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="linearizeworkingspace">linearizeWorkingSpace<a href="#linearizeworkingspace" class="hash-link" aria-label="linearizeWorkingSpace的直接链接" title="linearizeWorkingSpace的直接链接">​</a></h3>
+<blockquote>
+<p><strong>linearizeWorkingSpace</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1777</p>
+<p>True if Linearize Working Space should be enabled for this project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="numitems">numItems<a href="#numitems" class="hash-link" aria-label="numItems的直接链接" title="numItems的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>numItems</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1726</p>
+<p>The total number of items contained in the project.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="renderqueue">renderQueue<a href="#renderqueue" class="hash-link" aria-label="renderQueue的直接链接" title="renderQueue的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>renderQueue</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/classes/RenderQueue"><code>RenderQueue</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1732</p>
+<p>The project’s render queue.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rootfolder">rootFolder<a href="#rootfolder" class="hash-link" aria-label="rootFolder的直接链接" title="rootFolder的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>rootFolder</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/classes/FolderItem"><code>FolderItem</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1717</p>
+<p>The folder containing all the contents of the project; the equivalent of the Project panel</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="selection">selection<a href="#selection" class="hash-link" aria-label="selection的直接链接" title="selection的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>selection</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1729</p>
+<p>All items selected in the Project panel.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="timedisplaytype">timeDisplayType<a href="#timedisplaytype" class="hash-link" aria-label="timeDisplayType的直接链接" title="timeDisplayType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>timeDisplayType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/TimeDisplayType"><code>TimeDisplayType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1765</p>
+<p>The time display style, corresponding to the Time Display Style section in the Project Settings dialog box.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tooltype">toolType<a href="#tooltype" class="hash-link" aria-label="toolType的直接链接" title="toolType的直接链接">​</a></h3>
+<blockquote>
+<p><strong>toolType</strong>: <a href="/springlight-traces/api/AfterEffects/22.0/enumerations/ToolType"><code>ToolType</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1768</p>
+<p>The active tool in the Tools panel.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="transparencygridthumbnails">transparencyGridThumbnails<a href="#transparencygridthumbnails" class="hash-link" aria-label="transparencyGridThumbnails的直接链接" title="transparencyGridThumbnails的直接链接">​</a></h3>
+<blockquote>
+<p><strong>transparencyGridThumbnails</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1738</p>
+<p>When true, thumbnail views use the transparency checkerboard pattern.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="workinggamma">workingGamma<a href="#workinggamma" class="hash-link" aria-label="workingGamma的直接链接" title="workingGamma的直接链接">​</a></h3>
+<blockquote>
+<p><strong>workingGamma</strong>: <code>2.2</code> | <code>2.4</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1771</p>
+<p>The current project’s working gamma value, either 2.2 or 2.4.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="workingspace">workingSpace<a href="#workingspace" class="hash-link" aria-label="workingSpace的直接链接" title="workingSpace的直接链接">​</a></h3>
+<blockquote>
+<p><strong>workingSpace</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1774</p>
+<p>A string which is the color profile description for the project’s color working space.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="xmppacket">xmpPacket<a href="#xmppacket" class="hash-link" aria-label="xmpPacket的直接链接" title="xmpPacket的直接链接">​</a></h3>
+<blockquote>
+<p><strong>xmpPacket</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1750</p>
+<p>The project’s XMP metadata.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="方法">方法<a href="#方法" class="hash-link" aria-label="方法的直接链接" title="方法的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="autofixexpressions">autoFixExpressions()<a href="#autofixexpressions" class="hash-link" aria-label="autoFixExpressions()的直接链接" title="autoFixExpressions()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>autoFixExpressions</strong>(<code>oldText</code>, <code>newText</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1828</p>
+<p>Automatically replaces text in all expressions.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数">参数<a href="#参数" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="oldtext">oldText<a href="#oldtext" class="hash-link" aria-label="oldText的直接链接" title="oldText的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newtext">newText<a href="#newtext" class="hash-link" aria-label="newText的直接链接" title="newText的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-1">返回<a href="#返回-1" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="close">close()<a href="#close" class="hash-link" aria-label="close()的直接链接" title="close()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>close</strong>(<code>closeOptions</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1801</p>
+<p>Closes the project with normal save options.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-1">参数<a href="#参数-1" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="closeoptions">closeOptions<a href="#closeoptions" class="hash-link" aria-label="closeOptions的直接链接" title="closeOptions的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/CloseOptions"><code>CloseOptions</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-2">返回<a href="#返回-2" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="closeteamproject">closeTeamProject()<a href="#closeteamproject" class="hash-link" aria-label="closeTeamProject()的直接链接" title="closeTeamProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>closeTeamProject</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1843</p>
+<p>Closes a currently open team project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-3">返回<a href="#返回-3" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="consolidatefootage">consolidateFootage()<a href="#consolidatefootage" class="hash-link" aria-label="consolidateFootage()的直接链接" title="consolidateFootage()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>consolidateFootage</strong>(): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1792</p>
+<p>Consolidates all footage in the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-4">返回<a href="#返回-4" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>number</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="convertteamprojecttoproject">convertTeamProjectToProject()<a href="#convertteamprojecttoproject" class="hash-link" aria-label="convertTeamProjectToProject()的直接链接" title="convertTeamProjectToProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>convertTeamProjectToProject</strong>(<code>project_file</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1846</p>
+<p>Converts a team project to an After Effects project on a local disk.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-2">参数<a href="#参数-2" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="project_file">project_file<a href="#project_file" class="hash-link" aria-label="project_file的直接链接" title="project_file的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/JavaScript/interfaces/File"><code>File</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-5">返回<a href="#返回-5" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importfile">importFile()<a href="#importfile" class="hash-link" aria-label="importFile()的直接链接" title="importFile()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>importFile</strong>(<code>importOptions</code>): <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1819</p>
+<p>Imports a file into the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-3">参数<a href="#参数-3" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="importoptions">importOptions<a href="#importoptions" class="hash-link" aria-label="importOptions的直接链接" title="importOptions的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/ImportOptions"><code>ImportOptions</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-6">返回<a href="#返回-6" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importfilewithdialog">importFileWithDialog()<a href="#importfilewithdialog" class="hash-link" aria-label="importFileWithDialog()的直接链接" title="importFileWithDialog()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>importFileWithDialog</strong>(): <code>null</code> | <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1822</p>
+<p>Displays an Import File dialog box.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-7">返回<a href="#返回-7" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>null</code> | <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a>[]</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importplaceholder">importPlaceholder()<a href="#importplaceholder" class="hash-link" aria-label="importPlaceholder()的直接链接" title="importPlaceholder()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>importPlaceholder</strong>(<code>name</code>, <code>width</code>, <code>height</code>, <code>frameRate</code>, <code>duration</code>): <a href="/springlight-traces/api/AfterEffects/22.0/classes/PlaceholderItem"><code>PlaceholderItem</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1810</p>
+<p>Imports a placeholder into the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-4">参数<a href="#参数-4" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="name">name<a href="#name" class="hash-link" aria-label="name的直接链接" title="name的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="width">width<a href="#width" class="hash-link" aria-label="width的直接链接" title="width的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="height">height<a href="#height" class="hash-link" aria-label="height的直接链接" title="height的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="framerate">frameRate<a href="#framerate" class="hash-link" aria-label="frameRate的直接链接" title="frameRate的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="duration">duration<a href="#duration" class="hash-link" aria-label="duration的直接链接" title="duration的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-8">返回<a href="#返回-8" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/classes/PlaceholderItem"><code>PlaceholderItem</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isanyteamprojectopen">isAnyTeamProjectOpen()<a href="#isanyteamprojectopen" class="hash-link" aria-label="isAnyTeamProjectOpen()的直接链接" title="isAnyTeamProjectOpen()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isAnyTeamProjectOpen</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1858</p>
+<p>Checks whether any team project is currently open.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-9">返回<a href="#返回-9" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isloggedintoteamproject">isLoggedInToTeamProject()<a href="#isloggedintoteamproject" class="hash-link" aria-label="isLoggedInToTeamProject()的直接链接" title="isLoggedInToTeamProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isLoggedInToTeamProject</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1864</p>
+<p>Checks whether or not the client (After Effects) is currently logged into the team project server.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-10">返回<a href="#返回-10" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isresolvecommandenabled">isResolveCommandEnabled()<a href="#isresolvecommandenabled" class="hash-link" aria-label="isResolveCommandEnabled()的直接链接" title="isResolveCommandEnabled()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isResolveCommandEnabled</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1873</p>
+<p>Checks whether or not the Resolve command is enabled.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-11">返回<a href="#返回-11" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="issharecommandenabled">isShareCommandEnabled()<a href="#issharecommandenabled" class="hash-link" aria-label="isShareCommandEnabled()的直接链接" title="isShareCommandEnabled()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isShareCommandEnabled</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1870</p>
+<p>Checks whether or not the Share command is enabled.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-12">返回<a href="#返回-12" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="issynccommandenabled">isSyncCommandEnabled()<a href="#issynccommandenabled" class="hash-link" aria-label="isSyncCommandEnabled()的直接链接" title="isSyncCommandEnabled()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isSyncCommandEnabled</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1867</p>
+<p>Checks whether or not the Sync command is enabled.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-13">返回<a href="#返回-13" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isteamprojectenabled">isTeamProjectEnabled()<a href="#isteamprojectenabled" class="hash-link" aria-label="isTeamProjectEnabled()的直接链接" title="isTeamProjectEnabled()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isTeamProjectEnabled</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1861</p>
+<p>Checks whether or not team projects is enabled for After Effects. (This will almost always return true.)</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-14">返回<a href="#返回-14" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="isteamprojectopen">isTeamProjectOpen()<a href="#isteamprojectopen" class="hash-link" aria-label="isTeamProjectOpen()的直接链接" title="isTeamProjectOpen()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>isTeamProjectOpen</strong>(<code>teamProjectName</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1855</p>
+<p>Checks whether specified team project is currently open.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-5">参数<a href="#参数-5" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="teamprojectname">teamProjectName<a href="#teamprojectname" class="hash-link" aria-label="teamProjectName的直接链接" title="teamProjectName的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-15">返回<a href="#返回-15" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="item">item()<a href="#item" class="hash-link" aria-label="item()的直接链接" title="item()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>item</strong>(<code>index</code>): <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1786</p>
+<p>Retrieves an item from the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-6">参数<a href="#参数-6" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="index">index<a href="#index" class="hash-link" aria-label="index的直接链接" title="index的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-16">返回<a href="#返回-16" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="itembyid">itemByID()<a href="#itembyid" class="hash-link" aria-label="itemByID()的直接链接" title="itemByID()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>itemByID</strong>(<code>id</code>): <a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1789</p>
+<p>Retrieves an item by its Item ID</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-7">参数<a href="#参数-7" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="id">id<a href="#id" class="hash-link" aria-label="id的直接链接" title="id的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-17">返回<a href="#返回-17" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="layerbyid">layerByID()<a href="#layerbyid" class="hash-link" aria-label="layerByID()的直接链接" title="layerByID()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>layerByID</strong>(<code>id</code>): <code>null</code> | <a href="/springlight-traces/api/AfterEffects/22.0/classes/Layer"><code>Layer</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1852</p>
+<p>Retrieves a layer by its Layer ID</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-8">参数<a href="#参数-8" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="id-1">id<a href="#id-1" class="hash-link" aria-label="id的直接链接" title="id的直接链接">​</a></h5>
+<p><code>number</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-18">返回<a href="#返回-18" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>null</code> | <a href="/springlight-traces/api/AfterEffects/22.0/classes/Layer"><code>Layer</code></a></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="listcolorprofiles">listColorProfiles()<a href="#listcolorprofiles" class="hash-link" aria-label="listColorProfiles()的直接链接" title="listColorProfiles()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>listColorProfiles</strong>(): <code>string</code>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1879</p>
+<p>Returns an array of color profile descriptions that can be set as the project’s color working space.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-19">返回<a href="#返回-19" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code>[]</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="listteamprojects">listTeamProjects()<a href="#listteamprojects" class="hash-link" aria-label="listTeamProjects()的直接链接" title="listTeamProjects()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>listTeamProjects</strong>(): <code>string</code>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1849</p>
+<p>Returns an array containing the name strings for all team projects available for the current user. Archived Team Projects are not included.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-20">返回<a href="#返回-20" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code>[]</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="newteamproject">newTeamProject()<a href="#newteamproject" class="hash-link" aria-label="newTeamProject()的直接链接" title="newTeamProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>newTeamProject</strong>(<code>teamProjectName</code>, <code>description</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1831</p>
+<p>Creates a new team project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-9">参数<a href="#参数-9" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="teamprojectname-1">teamProjectName<a href="#teamprojectname-1" class="hash-link" aria-label="teamProjectName的直接链接" title="teamProjectName的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="description">description<a href="#description" class="hash-link" aria-label="description的直接链接" title="description的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-21">返回<a href="#返回-21" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="openteamproject">openTeamProject()<a href="#openteamproject" class="hash-link" aria-label="openTeamProject()的直接链接" title="openTeamProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>openTeamProject</strong>(<code>teamProjectName</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1834</p>
+<p>Opens a team project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-10">参数<a href="#参数-10" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="teamprojectname-2">teamProjectName<a href="#teamprojectname-2" class="hash-link" aria-label="teamProjectName的直接链接" title="teamProjectName的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-22">返回<a href="#返回-22" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reduceproject">reduceProject()<a href="#reduceproject" class="hash-link" aria-label="reduceProject()的直接链接" title="reduceProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>reduceProject</strong>(<code>array_of_items</code>): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1798</p>
+<p>Reduces the project to a specified set of items.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-11">参数<a href="#参数-11" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="array_of_items">array_of_items<a href="#array_of_items" class="hash-link" aria-label="array_of_items的直接链接" title="array_of_items的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/type-aliases/ItemClasses"><code>_ItemClasses</code></a>[]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-23">返回<a href="#返回-23" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>number</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="removeunusedfootage">removeUnusedFootage()<a href="#removeunusedfootage" class="hash-link" aria-label="removeUnusedFootage()的直接链接" title="removeUnusedFootage()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>removeUnusedFootage</strong>(): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1795</p>
+<p>Removes unused footage from the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-24">返回<a href="#返回-24" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>number</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="resolveconflict">resolveConflict()<a href="#resolveconflict" class="hash-link" aria-label="resolveConflict()的直接链接" title="resolveConflict()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>resolveConflict</strong>(<code>ResolveType</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1876</p>
+<p>Resolves a conflict between the open team project and the version on the team projects server, using the specified resolution method.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-12">参数<a href="#参数-12" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="resolvetype">ResolveType<a href="#resolvetype" class="hash-link" aria-label="ResolveType的直接链接" title="ResolveType的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/AfterEffects/22.0/enumerations/ResolveType"><code>ResolveType</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-25">返回<a href="#返回-25" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="save">save()<a href="#save" class="hash-link" aria-label="save()的直接链接" title="save()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>save</strong>(<code>file?</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1804</p>
+<p>Saves the project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-13">参数<a href="#参数-13" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="file-1">file?<a href="#file-1" class="hash-link" aria-label="file?的直接链接" title="file?的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/JavaScript/interfaces/File"><code>File</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-26">返回<a href="#返回-26" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="savewithdialog">saveWithDialog()<a href="#savewithdialog" class="hash-link" aria-label="saveWithDialog()的直接链接" title="saveWithDialog()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>saveWithDialog</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1807</p>
+<p>Displays a Save dialog box.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-27">返回<a href="#返回-27" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setdefaultimportfolder">setDefaultImportFolder()<a href="#setdefaultimportfolder" class="hash-link" aria-label="setDefaultImportFolder()的直接链接" title="setDefaultImportFolder()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>setDefaultImportFolder</strong>(<code>folder</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1882</p>
+<p>Sets the folder that will be shown in the file import dialog.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-14">参数<a href="#参数-14" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="folder">folder<a href="#folder" class="hash-link" aria-label="folder的直接链接" title="folder的直接链接">​</a></h5>
+<p><a href="/springlight-traces/api/shared/JavaScript/interfaces/Folder"><code>Folder</code></a></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-28">返回<a href="#返回-28" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="shareteamproject">shareTeamProject()<a href="#shareteamproject" class="hash-link" aria-label="shareTeamProject()的直接链接" title="shareTeamProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>shareTeamProject</strong>(<code>comment</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1837</p>
+<p>Shares the currently open team project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-15">参数<a href="#参数-15" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="comment">comment<a href="#comment" class="hash-link" aria-label="comment的直接链接" title="comment的直接链接">​</a></h5>
+<p><code>string</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-29">返回<a href="#返回-29" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="showwindow">showWindow()<a href="#showwindow" class="hash-link" aria-label="showWindow()的直接链接" title="showWindow()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>showWindow</strong>(<code>doShow</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1825</p>
+<p>Shows or hides the Project panel.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-16">参数<a href="#参数-16" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="doshow">doShow<a href="#doshow" class="hash-link" aria-label="doShow的直接链接" title="doShow的直接链接">​</a></h5>
+<p><code>boolean</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-30">返回<a href="#返回-30" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="syncteamproject">syncTeamProject()<a href="#syncteamproject" class="hash-link" aria-label="syncTeamProject()的直接链接" title="syncTeamProject()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>syncTeamProject</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/AfterEffects/22.0/index.d.ts:1840</p>
+<p>Syncs the currently open team project.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-31">返回<a href="#返回-31" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/springlight-traces/api/AfterEffects/22.0/classes/Preferences"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Preferences</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/springlight-traces/api/AfterEffects/22.0/classes/Property"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Property</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#构造函数" class="table-of-contents__link toc-highlight">构造函数</a><ul><li><a href="#构造函数-1" class="table-of-contents__link toc-highlight">构造函数</a></li></ul></li><li><a href="#属性" class="table-of-contents__link toc-highlight">属性</a><ul><li><a href="#activeitem" class="table-of-contents__link toc-highlight">activeItem</a></li><li><a href="#bitsperchannel" class="table-of-contents__link toc-highlight">bitsPerChannel</a></li><li><a href="#compensateforscenereferredprofiles" class="table-of-contents__link toc-highlight">compensateForSceneReferredProfiles</a></li><li><a href="#displaystartframe" class="table-of-contents__link toc-highlight">displayStartFrame</a></li><li><a href="#expressionengine" class="table-of-contents__link toc-highlight">expressionEngine</a></li><li><a href="#feetframesfilmtype" class="table-of-contents__link toc-highlight">feetFramesFilmType</a></li><li><a href="#file" class="table-of-contents__link toc-highlight">file</a></li><li><a href="#footagetimecodedisplaystarttype" class="table-of-contents__link toc-highlight">footageTimecodeDisplayStartType</a></li><li><a href="#framescounttype" class="table-of-contents__link toc-highlight">framesCountType</a></li><li><a href="#framesusefeetframes" class="table-of-contents__link toc-highlight">framesUseFeetFrames</a></li><li><a href="#gpuacceltype" class="table-of-contents__link toc-highlight">gpuAccelType</a></li><li><a href="#items" class="table-of-contents__link toc-highlight">items</a></li><li><a href="#linearblending" class="table-of-contents__link toc-highlight">linearBlending</a></li><li><a href="#linearizeworkingspace" class="table-of-contents__link toc-highlight">linearizeWorkingSpace</a></li><li><a href="#numitems" class="table-of-contents__link toc-highlight">numItems</a></li><li><a href="#renderqueue" class="table-of-contents__link toc-highlight">renderQueue</a></li><li><a href="#rootfolder" class="table-of-contents__link toc-highlight">rootFolder</a></li><li><a href="#selection" class="table-of-contents__link toc-highlight">selection</a></li><li><a href="#timedisplaytype" class="table-of-contents__link toc-highlight">timeDisplayType</a></li><li><a href="#tooltype" class="table-of-contents__link toc-highlight">toolType</a></li><li><a href="#transparencygridthumbnails" class="table-of-contents__link toc-highlight">transparencyGridThumbnails</a></li><li><a href="#workinggamma" class="table-of-contents__link toc-highlight">workingGamma</a></li><li><a href="#workingspace" class="table-of-contents__link toc-highlight">workingSpace</a></li><li><a href="#xmppacket" class="table-of-contents__link toc-highlight">xmpPacket</a></li></ul></li><li><a href="#方法" class="table-of-contents__link toc-highlight">方法</a><ul><li><a href="#autofixexpressions" class="table-of-contents__link toc-highlight">autoFixExpressions()</a></li><li><a href="#close" class="table-of-contents__link toc-highlight">close()</a></li><li><a href="#closeteamproject" class="table-of-contents__link toc-highlight">closeTeamProject()</a></li><li><a href="#consolidatefootage" class="table-of-contents__link toc-highlight">consolidateFootage()</a></li><li><a href="#convertteamprojecttoproject" class="table-of-contents__link toc-highlight">convertTeamProjectToProject()</a></li><li><a href="#importfile" class="table-of-contents__link toc-highlight">importFile()</a></li><li><a href="#importfilewithdialog" class="table-of-contents__link toc-highlight">importFileWithDialog()</a></li><li><a href="#importplaceholder" class="table-of-contents__link toc-highlight">importPlaceholder()</a></li><li><a href="#isanyteamprojectopen" class="table-of-contents__link toc-highlight">isAnyTeamProjectOpen()</a></li><li><a href="#isloggedintoteamproject" class="table-of-contents__link toc-highlight">isLoggedInToTeamProject()</a></li><li><a href="#isresolvecommandenabled" class="table-of-contents__link toc-highlight">isResolveCommandEnabled()</a></li><li><a href="#issharecommandenabled" class="table-of-contents__link toc-highlight">isShareCommandEnabled()</a></li><li><a href="#issynccommandenabled" class="table-of-contents__link toc-highlight">isSyncCommandEnabled()</a></li><li><a href="#isteamprojectenabled" class="table-of-contents__link toc-highlight">isTeamProjectEnabled()</a></li><li><a href="#isteamprojectopen" class="table-of-contents__link toc-highlight">isTeamProjectOpen()</a></li><li><a href="#item" class="table-of-contents__link toc-highlight">item()</a></li><li><a href="#itembyid" class="table-of-contents__link toc-highlight">itemByID()</a></li><li><a href="#layerbyid" class="table-of-contents__link toc-highlight">layerByID()</a></li><li><a href="#listcolorprofiles" class="table-of-contents__link toc-highlight">listColorProfiles()</a></li><li><a href="#listteamprojects" class="table-of-contents__link toc-highlight">listTeamProjects()</a></li><li><a href="#newteamproject" class="table-of-contents__link toc-highlight">newTeamProject()</a></li><li><a href="#openteamproject" class="table-of-contents__link toc-highlight">openTeamProject()</a></li><li><a href="#reduceproject" class="table-of-contents__link toc-highlight">reduceProject()</a></li><li><a href="#removeunusedfootage" class="table-of-contents__link toc-highlight">removeUnusedFootage()</a></li><li><a href="#resolveconflict" class="table-of-contents__link toc-highlight">resolveConflict()</a></li><li><a href="#save" class="table-of-contents__link toc-highlight">save()</a></li><li><a href="#savewithdialog" class="table-of-contents__link toc-highlight">saveWithDialog()</a></li><li><a href="#setdefaultimportfolder" class="table-of-contents__link toc-highlight">setDefaultImportFolder()</a></li><li><a href="#shareteamproject" class="table-of-contents__link toc-highlight">shareTeamProject()</a></li><li><a href="#showwindow" class="table-of-contents__link toc-highlight">showWindow()</a></li><li><a href="#syncteamproject" class="table-of-contents__link toc-highlight">syncTeamProject()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 春日影踪编写组, 基于 Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

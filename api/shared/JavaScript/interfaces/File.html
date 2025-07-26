@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-api/shared/JavaScript/interfaces/File" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">接口: File | 春日影踪</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://anonyamufunc-love.github.io/springlight-traces/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://anonyamufunc-love.github.io/springlight-traces/api/shared/JavaScript/interfaces/File"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="接口: File | 春日影踪"><meta data-rh="true" name="description" content="定义于1520"><meta data-rh="true" property="og:description" content="定义于1520"><link data-rh="true" rel="icon" href="/springlight-traces/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://anonyamufunc-love.github.io/springlight-traces/api/shared/JavaScript/interfaces/File"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/shared/JavaScript/interfaces/File" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://anonyamufunc-love.github.io/springlight-traces/api/shared/JavaScript/interfaces/File" hreflang="x-default"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/springlight-traces/assets/css/styles.fc374fa2.css">
+<script src="/springlight-traces/assets/js/runtime~main.95a92010.js" defer="defer"></script>
+<script src="/springlight-traces/assets/js/main.626f80bc.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/springlight-traces/"><b class="navbar__title text--truncate">春日影踪</b></a></div><div class="navbar__items navbar__items--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/springlight-traces/">春日影踪 - bolt-cep</a><a href="https://github.com/Anonyamufunc-Love/springlight-traces" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/">春日影踪</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/preparations">准备工作</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/install-bolt-cep">安装 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-bolt-cep">编译 bolt-cep</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-with-project-files">熟悉 bolt-cep 项目结构</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/eval-ts-and-eval-es">EvalTS 与 EvalES</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/listen-ts-and-dispatch-ts">ListenTS 和 DispatchTS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/build-typescript-docs-tutorial">自构建 TypeScript API 文档</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/getting-started-panel-frontend">渐入面板前端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-component-library">安装并使用组件库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/data-stroage">数据存储</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-backend">扩展后端</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-web-assembly">使用 WebAssembly</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/custom-compilation">定制化编译行为</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/publishing-extension">分发扩展</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-jest-unit-test">使用 Jest 进行单元测试</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/use-eslint">使用 ESLint</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/add-host-3rd-library">给 Host 端添加第三方库</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/ext_join-bolt-cep-community">加入 bolt-cep 社区</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link" href="/springlight-traces/extend-script/getting-started-with-extendscript">就算迷茫也要写下去！—— 入门ExtendScript</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/vscode-plugin-extendscript-debugger">ExtendScript 调试器</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/writeln">日志 —— $.writeln</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/app-project">项目 —— app.project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/comp-item">合成 —— CompItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/layer">图层 —— Layer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/property">属性 —— Property</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/av-layer">音视觉图层 —— AVLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/camera-layer">摄像机图层 —— CameraLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/light-layer">灯光图层 —— LightLayer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/footage-item">素材 —— FootageItem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/extend-script/file">文件 —— File</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_bolt-cep-donts">别再“無路矢”！—— 部分编码约定</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/springlight-traces/ext_sources">参考文献</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/springlight-traces/api">接口文档</a><button aria-label="折叠侧边栏分类 &#x27;接口文档&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">items</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/AfterEffects/22.0">AfterEffects</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/shared/global">shared</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/global">global</a><button aria-label="展开侧边栏分类 &#x27;global&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/springlight-traces/api/shared/JavaScript">JavaScript</a><button aria-label="折叠侧边栏分类 &#x27;JavaScript&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/$">接口</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/$">$</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Array">Array</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/ArrayConstructor">ArrayConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Boolean">Boolean</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/BooleanConstructor">BooleanConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/CallableFunction">CallableFunction</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Date">Date</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/DateConstructor">DateConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Error">Error</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/ErrorConstructor">ErrorConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/File">File</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/FileConstructor">FileConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Folder">Folder</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/FolderConstructor">FolderConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Function">Function</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/FunctionConstructor">FunctionConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/IArguments">IArguments</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Math">Math</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Namespace">Namespace</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/NamespaceConstructor">NamespaceConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/NewableFunction">NewableFunction</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Number">Number</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/NumberConstructor">NumberConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Object">Object</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/ObjectConstructor">ObjectConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/QName">QName</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/QNameConstructor">QNameConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Reflection">Reflection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/ReflectionInfo">ReflectionInfo</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/RegExp">RegExp</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/RegExpConstructor">RegExpConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/RegExpExecArray">RegExpExecArray</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/RegExpMatchArray">RegExpMatchArray</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/Socket">Socket</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/SocketConstructor">SocketConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/String">String</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/StringConstructor">StringConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/UnitValue">UnitValue</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/UnitValueConstructor">UnitValueConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/XML">XML</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/XMLConstructor">XMLConstructor</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link" tabindex="0" href="/springlight-traces/api/shared/JavaScript/interfaces/XMLList">XMLList</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/JavaScript/type-aliases/Partial">类型别名</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/springlight-traces/api/shared/JavaScript/variables/$">变量</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/PlugPlugExternalObject">PlugPlugExternalObject</a><button aria-label="展开侧边栏分类 &#x27;PlugPlugExternalObject&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/ScriptUI">ScriptUI</a><button aria-label="展开侧边栏分类 &#x27;ScriptUI&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/springlight-traces/api/shared/XMPScript">XMPScript</a><button aria-label="展开侧边栏分类 &#x27;XMPScript&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li></ul></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/springlight-traces/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api"><span itemprop="name">接口文档</span></a><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">items</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">shared</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/springlight-traces/api/shared/JavaScript"><span itemprop="name">JavaScript</span></a><meta itemprop="position" content="4"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">接口</span><meta itemprop="position" content="5"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">File</span><meta itemprop="position" content="6"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>接口: File</h1></header>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1520</p>
+<p>Represents a file in the local file system in a platform-independent manner.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="属性">属性<a href="#属性" class="hash-link" aria-label="属性的直接链接" title="属性的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="absoluteuri">absoluteURI<a href="#absoluteuri" class="hash-link" aria-label="absoluteURI的直接链接" title="absoluteURI的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>absoluteURI</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1529</p>
+<p>The full path name for the referenced file in URI notation.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="alias">alias<a href="#alias" class="hash-link" aria-label="alias的直接链接" title="alias的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>alias</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1534</p>
+<p>If true, the object refers to a file system alias or shortcut.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="created">created<a href="#created" class="hash-link" aria-label="created的直接链接" title="created的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>created</strong>: <a href="/springlight-traces/api/shared/JavaScript/interfaces/Date"><code>Date</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1539</p>
+<p>The creation date of the referenced file, or null if the object does not refer to a file on disk.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="creator">creator<a href="#creator" class="hash-link" aria-label="creator的直接链接" title="creator的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>creator</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1544</p>
+<p>In Mac OS, the file creator as a four-character string. In Windows or UNIX, value is &quot;????&quot;.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="displayname">displayName<a href="#displayname" class="hash-link" aria-label="displayName的直接链接" title="displayName的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>displayName</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1549</p>
+<p>The localized name of the referenced file, without the path specification.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="encoding">encoding<a href="#encoding" class="hash-link" aria-label="encoding的直接链接" title="encoding的直接链接">​</a></h3>
+<blockquote>
+<p><strong>encoding</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1555</p>
+<p>Gets or sets the encoding for subsequent read/write operations.
+One of the encoding constants listed in the JavaScript Tools Guide. If the value is not recognized, uses the system default encoding.A special encoder, BINARY, is used to read binary files. It stores each byte of the file as one Unicode character regardless of any encoding. When writing, the lower byte of each Unicode character is treated as a single byte to write.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="eof">eof<a href="#eof" class="hash-link" aria-label="eof的直接链接" title="eof的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>eof</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1560</p>
+<p>When true, a read attempt caused the current position to be at the end of the file, or the file is not open.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="error">error<a href="#error" class="hash-link" aria-label="error的直接链接" title="error的直接链接">​</a></h3>
+<blockquote>
+<p><strong>error</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1566</p>
+<p>A string containing a message describing the most recent file system error.
+Typically set by the file system, but a script can set it. Setting this value clears any error message and resets the error bit for opened files. Contains the empty string if there is no error.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="exists">exists<a href="#exists" class="hash-link" aria-label="exists的直接链接" title="exists的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>exists</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1571</p>
+<p>If true, this object refers to a file or file-system alias that actually exists in the file system.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fsname">fsName<a href="#fsname" class="hash-link" aria-label="fsName的直接链接" title="fsName的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>fsName</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1576</p>
+<p>The platform-specific full path name for the referenced file.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fullname">fullName<a href="#fullname" class="hash-link" aria-label="fullName的直接链接" title="fullName的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>fullName</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1581</p>
+<p>The full path name for the referenced file in URI notation.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hidden">hidden<a href="#hidden" class="hash-link" aria-label="hidden的直接链接" title="hidden的直接链接">​</a></h3>
+<blockquote>
+<p><strong>hidden</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1587</p>
+<p>When true, the file is not shown in the platform-specific file browser.
+If the object references a file-system alias or shortcut, the flag is altered on the alias, not on the original file.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="length">length<a href="#length" class="hash-link" aria-label="length的直接链接" title="length的直接链接">​</a></h3>
+<blockquote>
+<p><strong>length</strong>: <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1593</p>
+<p>The size of the file in bytes.
+Can be set only for a file that is not open, in which case it truncates or pads the file with 0-bytes to the new length.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="linefeed">lineFeed<a href="#linefeed" class="hash-link" aria-label="lineFeed的直接链接" title="lineFeed的直接链接">​</a></h3>
+<blockquote>
+<p><strong>lineFeed</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1599</p>
+<p>How line feed characters are written in the file system.
+One of the values &quot;Windows&quot;, &quot;Macintosh&quot;, or &quot;Unix&quot;.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="modified">modified<a href="#modified" class="hash-link" aria-label="modified的直接链接" title="modified的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>modified</strong>: <a href="/springlight-traces/api/shared/JavaScript/interfaces/Date"><code>Date</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1604</p>
+<p>The date of the referenced file&#x27;s last modification, or null if the object does not refer to a file on the disk.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="name">name<a href="#name" class="hash-link" aria-label="name的直接链接" title="name的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>name</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1609</p>
+<p>The file name portion of the absolute URI for the referenced file, without the path specification.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="parent">parent<a href="#parent" class="hash-link" aria-label="parent的直接链接" title="parent的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>parent</strong>: <a href="/springlight-traces/api/shared/JavaScript/interfaces/Folder"><code>Folder</code></a></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1614</p>
+<p>The Folder object for the folder that contains this file.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="path">path<a href="#path" class="hash-link" aria-label="path的直接链接" title="path的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>path</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1619</p>
+<p>The path portion of the absolute URI for the referenced file, without the file name.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="readonly">readonly<a href="#readonly" class="hash-link" aria-label="readonly的直接链接" title="readonly的直接链接">​</a></h3>
+<blockquote>
+<p><strong>readonly</strong>: <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1625</p>
+<p>When true, prevents the file from being altered or deleted.
+If the referenced file is a file-system alias or shortcut, the flag is altered on the alias, not on the original file.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="relativeuri">relativeURI<a href="#relativeuri" class="hash-link" aria-label="relativeURI的直接链接" title="relativeURI的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>relativeURI</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1630</p>
+<p>The path name for the object in URI notation, relative to the current folder.</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="type">type<a href="#type" class="hash-link" aria-label="type的直接链接" title="type的直接链接">​</a></h3>
+<blockquote>
+<p><code>readonly</code> <strong>type</strong>: <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1637</p>
+<p>The file type as a four-character string.
+In Mac OS, the Mac OS file type.
+In Windows, &quot;appl&quot; for .EXE files, &quot;shlb&quot; for .DLL files and &quot;TEXT&quot; for any other file.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="方法">方法<a href="#方法" class="hash-link" aria-label="方法的直接链接" title="方法的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="changepath">changePath()<a href="#changepath" class="hash-link" aria-label="changePath()的直接链接" title="changePath()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>changePath</strong>(<code>path</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1643</p>
+<p>Changes the path specification of the referenced file.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数">参数<a href="#参数" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="path-1">path<a href="#path-1" class="hash-link" aria-label="path的直接链接" title="path的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string containing the new path, absolute or relative to the current folder.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回">返回<a href="#返回" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="close">close()<a href="#close" class="hash-link" aria-label="close()的直接链接" title="close()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>close</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1649</p>
+<p>Closes this open file.
+Returns true if the file was closed successfully, false if an I/O error occurred.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-1">返回<a href="#返回-1" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="copy">copy()<a href="#copy" class="hash-link" aria-label="copy()的直接链接" title="copy()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>copy</strong>(<code>target</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1657</p>
+<p>Copies this object’s referenced file to the specified target location.
+Resolves any aliases to find the source file. If a file exists at the target location, it is overwritten.
+Returns true if the copy was successful.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-1">参数<a href="#参数-1" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="target">target<a href="#target" class="hash-link" aria-label="target的直接链接" title="target的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string with the URI path to the target location, or a File object that references the target location.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-2">返回<a href="#返回-2" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="createalias">createAlias()<a href="#createalias" class="hash-link" aria-label="createAlias()的直接链接" title="createAlias()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>createAlias</strong>(<code>path</code>): <code>void</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1664</p>
+<p>Makes this file a file-system alias or shortcut to the specified file.
+The referenced file for this object must not yet exist on disk. Returns true if the operation was successful.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-2">参数<a href="#参数-2" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="path-2">path<a href="#path-2" class="hash-link" aria-label="path的直接链接" title="path的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string containing the path of the target file.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-3">返回<a href="#返回-3" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>void</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="execute">execute()<a href="#execute" class="hash-link" aria-label="execute()的直接链接" title="execute()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>execute</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1670</p>
+<p>Executes or opens this file using the appropriate application, as if it had been double-clicked in a file browser.
+You can use this method to run scripts, launch applications, and so on.Returns true immediately if the application launch was successful.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-4">返回<a href="#返回-4" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="getrelativeuri">getRelativeURI()<a href="#getrelativeuri" class="hash-link" aria-label="getRelativeURI()的直接链接" title="getRelativeURI()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>getRelativeURI</strong>(<code>basePath</code>): <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1677</p>
+<p>Retrieves and returns the path for this file, relative to the specified base path, in URI notation.
+If no base path is supplied, the URI is relative to the path of the current folder.Returns a string containing the relative URI.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-3">参数<a href="#参数-3" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="basepath">basePath<a href="#basepath" class="hash-link" aria-label="basePath的直接链接" title="basePath的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A base path in URI notation.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-5">返回<a href="#返回-5" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open">open()<a href="#open" class="hash-link" aria-label="open()的直接链接" title="open()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>open</strong>(<code>mode</code>, <code>type?</code>, <code>creator?</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1687</p>
+<p>Opens the referenced file for subsequent read/write operations. The method resolves any aliases to find the file.
+Returns true if the file was opened successfully.The method attempts to detect the encoding of the open file. It reads a few bytes at the current location and tries to detect the Byte Order Mark character 0xFFFE. If found, the current position is advanced behind the detected character and the encoding property is set to one of the strings UCS-2BE, UCS-2LE, UCS4-BE, UCS-4LE, or UTF-8. If the marker character is not found, it checks for zero bytes at the current location and makes an assumption about one of the above formats (except UTF-8). If everything fails, the encoding property is set to the system encoding.
+IMPORTANT: Be careful about opening a file more than once. The operating system usually permits you to do so, but if you start writing to the file using two different File objects, you can destroy your data.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-4">参数<a href="#参数-4" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="mode">mode<a href="#mode" class="hash-link" aria-label="mode的直接链接" title="mode的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The read-write mode, a single-character string. One of these characters: r (read) Opens for reading. If the file does not exist or cannot be found, the call fails. w (write) Opens a file for writing. If the file exists, its contents are destroyed. If the file does not exist, creates a new, empty file. e (edit) Opens an existing file for reading and writing. a (append) Opens an existing file for reading and writing, and moves the current position to the end of the file.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="type-1">type?<a href="#type-1" class="hash-link" aria-label="type?的直接链接" title="type?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>In Mac OS, the type of a newly created file, a 4-character string. Ignored in Windows and UNIX.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="creator-1">creator?<a href="#creator-1" class="hash-link" aria-label="creator?的直接链接" title="creator?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>In Mac OS, the creator of a newly created file, a 4-character string. Ignored in Windows and UNIX.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-6">返回<a href="#返回-6" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="opendlg">openDlg()<a href="#opendlg" class="hash-link" aria-label="openDlg()的直接链接" title="openDlg()的直接链接">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名">调用签名<a href="#调用签名" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>openDlg</strong>(<code>prompt?</code>, <code>filter?</code>, <code>multiSelect?</code>): <code>File</code> | <code>File</code>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1698</p>
+<p>Opens the built-in platform-specific file-browsing dialog, in which the user can select an existing file or files, and creates new File objects to represent the selected files.
+Differs from the class method openDialog() in that it presets the current folder to this File object’s parent folder and the current file to this object’s associated file.
+If the user clicks OK, returns a File or Folder object for the selected file or folder, or an array of objects.
+If the user cancels, returns null.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-5">参数<a href="#参数-5" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="prompt">prompt?<a href="#prompt" class="hash-link" aria-label="prompt?的直接链接" title="prompt?的直接链接">​</a></h6>
+<p><code>string</code></p>
+<p>A string containing the prompt text, if the dialog allows a prompt.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="filter">filter?<a href="#filter" class="hash-link" aria-label="filter?的直接链接" title="filter?的直接链接">​</a></h6>
+<p>A filter that limits the types of files displayed in the dialog. In Windows,a filter expression such as &quot;Javascript files:<em>.jsx;All files:</em>.*&quot;. In Mac OS, a filter function that takes a File instance and returns true if the file should be included in the display, false if it should not.</p>
+<p><code>string</code> | <a href="/springlight-traces/api/shared/JavaScript/interfaces/Function"><code>Function</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="multiselect">multiSelect?<a href="#multiselect" class="hash-link" aria-label="multiSelect?的直接链接" title="multiSelect?的直接链接">​</a></h6>
+<p><code>boolean</code></p>
+<p>When true, the user can select multiple files and the return value is an array.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-7">返回<a href="#返回-7" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>File</code> | <code>File</code>[]</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-1">调用签名<a href="#调用签名-1" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>openDlg</strong>(<code>prompt</code>, <code>filter</code>, <code>multiSelect</code>): <code>File</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1699</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-6">参数<a href="#参数-6" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="prompt-1">prompt<a href="#prompt-1" class="hash-link" aria-label="prompt的直接链接" title="prompt的直接链接">​</a></h6>
+<p><code>string</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="filter-1">filter<a href="#filter-1" class="hash-link" aria-label="filter的直接链接" title="filter的直接链接">​</a></h6>
+<p><code>string</code> | <a href="/springlight-traces/api/shared/JavaScript/interfaces/Function"><code>Function</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="multiselect-1">multiSelect<a href="#multiselect-1" class="hash-link" aria-label="multiSelect的直接链接" title="multiSelect的直接链接">​</a></h6>
+<p><code>false</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-8">返回<a href="#返回-8" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>File</code></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="调用签名-2">调用签名<a href="#调用签名-2" class="hash-link" aria-label="调用签名的直接链接" title="调用签名的直接链接">​</a></h4>
+<blockquote>
+<p><strong>openDlg</strong>(<code>prompt</code>, <code>filter</code>, <code>multiSelect</code>): <code>File</code>[]</p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1700</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="参数-7">参数<a href="#参数-7" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="prompt-2">prompt<a href="#prompt-2" class="hash-link" aria-label="prompt的直接链接" title="prompt的直接链接">​</a></h6>
+<p><code>string</code></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="filter-2">filter<a href="#filter-2" class="hash-link" aria-label="filter的直接链接" title="filter的直接链接">​</a></h6>
+<p><code>string</code> | <a href="/springlight-traces/api/shared/JavaScript/interfaces/Function"><code>Function</code></a></p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="multiselect-2">multiSelect<a href="#multiselect-2" class="hash-link" aria-label="multiSelect的直接链接" title="multiSelect的直接链接">​</a></h6>
+<p><code>true</code></p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="返回-9">返回<a href="#返回-9" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h5>
+<p><code>File</code>[]</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="read">read()<a href="#read" class="hash-link" aria-label="read()的直接链接" title="read()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>read</strong>(<code>chars?</code>): <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1707</p>
+<p>Reads the contents of the file, starting at the current position.
+Returns a string that contains up to the specified number of characters. If a number of characters is not supplied, reads from the current position to the end of the file. If the file is encoded, multiple bytes might be read to create single Unicode characters.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-8">参数<a href="#参数-8" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="chars">chars?<a href="#chars" class="hash-link" aria-label="chars?的直接链接" title="chars?的直接链接">​</a></h5>
+<p><code>number</code></p>
+<p>An integer specifying the number of characters to read.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-10">返回<a href="#返回-10" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="readch">readch()<a href="#readch" class="hash-link" aria-label="readch()的直接链接" title="readch()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>readch</strong>(): <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1713</p>
+<p>Reads a single text character from the file at the current position.
+Line feeds are recognized as CR, LF, CRLF or LFCR pairs.If the file is encoded, multiple bytes might be read to create a single Unicode character. Returns a string that contains the character.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-11">返回<a href="#返回-11" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="readln">readln()<a href="#readln" class="hash-link" aria-label="readln()的直接链接" title="readln()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>readln</strong>(): <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1719</p>
+<p>Reads a single line of text from the file at the current position.
+Line feeds are recognized as CR, LF, CRLF or LFCR pairs.. If the file is encoded, multiple bytes might be read to create single Unicode characters. Returns a string that contains the text.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-12">返回<a href="#返回-12" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="remove">remove()<a href="#remove" class="hash-link" aria-label="remove()的直接链接" title="remove()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>remove</strong>(): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1726</p>
+<p>Deletes the file associated with this object from disk immediately, without moving it to the system trash.
+Does not resolve aliases; instead, deletes the referenced alias or shortcut file itself. Returns true if the file was successfully removed.
+IMPORTANT: Cannot be undone. It is recommended that you prompt the user for permission before deleting.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-13">返回<a href="#返回-13" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rename">rename()<a href="#rename" class="hash-link" aria-label="rename()的直接链接" title="rename()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>rename</strong>(<code>newName</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1733</p>
+<p>Renames the associated file.
+Does not resolve aliases, but renames the referenced alias or shortcut file itself. Returns true if the file was successfully renamed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-9">参数<a href="#参数-9" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="newname">newName<a href="#newname" class="hash-link" aria-label="newName的直接链接" title="newName的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>The new file name, with no path information.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-14">返回<a href="#返回-14" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="resolve">resolve()<a href="#resolve" class="hash-link" aria-label="resolve()的直接链接" title="resolve()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>resolve</strong>(): <code>File</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1739</p>
+<p>Attempts to resolve the file-system alias or shortcut that this object refers to.
+If successful, creates and returns a new File object that points to the resolved file system element. Returns null if this object does not refer to an alias, or if the alias could not be resolved.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-15">返回<a href="#返回-15" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>File</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="savedlg">saveDlg()<a href="#savedlg" class="hash-link" aria-label="saveDlg()的直接链接" title="saveDlg()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>saveDlg</strong>(<code>prompt?</code>, <code>filter?</code>): <code>File</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1749</p>
+<p>Opens the built-in platform-specific file-browsing dialog, in which the user can select an existing file location to which to save information, and creates a new File object to represent the selected file.
+Differs from the class method saveDialog() in that it presets the current folder to this File object’s parent folder and the file to this object’s associated file.
+If the user clicks OK, returns a File object for the selected file.
+If the user cancels, returns null.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-10">参数<a href="#参数-10" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="prompt-3">prompt?<a href="#prompt-3" class="hash-link" aria-label="prompt?的直接链接" title="prompt?的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A string containing the prompt text, if the dialog allows a prompt.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="filter-3">filter?<a href="#filter-3" class="hash-link" aria-label="filter?的直接链接" title="filter?的直接链接">​</a></h5>
+<p><code>any</code></p>
+<p>In Windows only, a filter that limits the types of files displayed in the dialog. In Windows only,a filter expression such as &quot;Javascript files:<em>.jsx;All files:</em>.*&quot;. Not used In Mac OS.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-16">返回<a href="#返回-16" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>File</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="seek">seek()<a href="#seek" class="hash-link" aria-label="seek()的直接链接" title="seek()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>seek</strong>(<code>pos</code>, <code>mode?</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1757</p>
+<p>Seeks to a given position in the file.
+The new position cannot be less than 0 or greater than the current file size. Returns true if the position was changed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-11">参数<a href="#参数-11" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="pos">pos<a href="#pos" class="hash-link" aria-label="pos的直接链接" title="pos的直接链接">​</a></h5>
+<p><code>number</code></p>
+<p>The new current position in the file as an offset in bytes from the start, current position, or end, depending on the mode.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="mode-1">mode?<a href="#mode-1" class="hash-link" aria-label="mode?的直接链接" title="mode?的直接链接">​</a></h5>
+<p><code>number</code></p>
+<p>The seek mode. One of: 0: Seek to absolute position, where pos=0 is the first byte of the file. This is the default. 1: Seek relative to the current position. 2. Seek backward from the end of the file.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-17">返回<a href="#返回-17" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tell">tell()<a href="#tell" class="hash-link" aria-label="tell()的直接链接" title="tell()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>tell</strong>(): <code>number</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1763</p>
+<p>Retrieves the current position as a byte offset from the start of the file.
+Returns a number, the position index.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-18">返回<a href="#返回-18" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>number</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tosource">toSource()<a href="#tosource" class="hash-link" aria-label="toSource()的直接链接" title="toSource()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>toSource</strong>(): <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1769</p>
+<p>Creates and returns a serialized string representation of this object.
+Pass the resulting string to eval() to recreate the object.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-19">返回<a href="#返回-19" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tostring">toString()<a href="#tostring" class="hash-link" aria-label="toString()的直接链接" title="toString()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>toString</strong>(): <code>string</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1774</p>
+<p>Converts this object to a string.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-20">返回<a href="#返回-20" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>string</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="write">write()<a href="#write" class="hash-link" aria-label="write()的直接链接" title="write()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>write</strong>(<code>text</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1781</p>
+<p>Writes the specified text to the file at the current position.
+You can supply multiple text values; the strings are concatenated to form a single string.For encoded files, writing a single Unicode character may write multiple bytes. Returns true if the write was successful.IMPORTANT: Be careful not to write to a file that is open in another application or object, as this can overwrite existing data.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-12">参数<a href="#参数-12" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="text">text<a href="#text" class="hash-link" aria-label="text的直接链接" title="text的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A text string to be written.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-21">返回<a href="#返回-21" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="writeln">writeln()<a href="#writeln" class="hash-link" aria-label="writeln()的直接链接" title="writeln()的直接链接">​</a></h3>
+<blockquote>
+<p><strong>writeln</strong>(<code>text</code>): <code>boolean</code></p>
+</blockquote>
+<p>定义于: types-for-adobe/shared/JavaScript.d.ts:1788</p>
+<p>Writes a string to the file at the current position and appends a line-feed sequence.
+You can supply multiple text values. The strings are concatenated into a single string, which is written in the file followed by one line-feed sequence, of the style specified by this object&#x27;s linefeed property.For encoded files, writing a single Unicode character may write multiple bytes.Returns true if the write was successful.IMPORTANT: Be careful not to write to a file that is open in another application or object, as this can overwrite existing data.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="参数-13">参数<a href="#参数-13" class="hash-link" aria-label="参数的直接链接" title="参数的直接链接">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="text-1">text<a href="#text-1" class="hash-link" aria-label="text的直接链接" title="text的直接链接">​</a></h5>
+<p><code>string</code></p>
+<p>A text string to be written.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="返回-22">返回<a href="#返回-22" class="hash-link" aria-label="返回的直接链接" title="返回的直接链接">​</a></h4>
+<p><code>boolean</code></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/springlight-traces/api/shared/JavaScript/interfaces/ErrorConstructor"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">ErrorConstructor</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/springlight-traces/api/shared/JavaScript/interfaces/FileConstructor"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">FileConstructor</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#属性" class="table-of-contents__link toc-highlight">属性</a><ul><li><a href="#absoluteuri" class="table-of-contents__link toc-highlight">absoluteURI</a></li><li><a href="#alias" class="table-of-contents__link toc-highlight">alias</a></li><li><a href="#created" class="table-of-contents__link toc-highlight">created</a></li><li><a href="#creator" class="table-of-contents__link toc-highlight">creator</a></li><li><a href="#displayname" class="table-of-contents__link toc-highlight">displayName</a></li><li><a href="#encoding" class="table-of-contents__link toc-highlight">encoding</a></li><li><a href="#eof" class="table-of-contents__link toc-highlight">eof</a></li><li><a href="#error" class="table-of-contents__link toc-highlight">error</a></li><li><a href="#exists" class="table-of-contents__link toc-highlight">exists</a></li><li><a href="#fsname" class="table-of-contents__link toc-highlight">fsName</a></li><li><a href="#fullname" class="table-of-contents__link toc-highlight">fullName</a></li><li><a href="#hidden" class="table-of-contents__link toc-highlight">hidden</a></li><li><a href="#length" class="table-of-contents__link toc-highlight">length</a></li><li><a href="#linefeed" class="table-of-contents__link toc-highlight">lineFeed</a></li><li><a href="#modified" class="table-of-contents__link toc-highlight">modified</a></li><li><a href="#name" class="table-of-contents__link toc-highlight">name</a></li><li><a href="#parent" class="table-of-contents__link toc-highlight">parent</a></li><li><a href="#path" class="table-of-contents__link toc-highlight">path</a></li><li><a href="#readonly" class="table-of-contents__link toc-highlight">readonly</a></li><li><a href="#relativeuri" class="table-of-contents__link toc-highlight">relativeURI</a></li><li><a href="#type" class="table-of-contents__link toc-highlight">type</a></li></ul></li><li><a href="#方法" class="table-of-contents__link toc-highlight">方法</a><ul><li><a href="#changepath" class="table-of-contents__link toc-highlight">changePath()</a></li><li><a href="#close" class="table-of-contents__link toc-highlight">close()</a></li><li><a href="#copy" class="table-of-contents__link toc-highlight">copy()</a></li><li><a href="#createalias" class="table-of-contents__link toc-highlight">createAlias()</a></li><li><a href="#execute" class="table-of-contents__link toc-highlight">execute()</a></li><li><a href="#getrelativeuri" class="table-of-contents__link toc-highlight">getRelativeURI()</a></li><li><a href="#open" class="table-of-contents__link toc-highlight">open()</a></li><li><a href="#opendlg" class="table-of-contents__link toc-highlight">openDlg()</a></li><li><a href="#read" class="table-of-contents__link toc-highlight">read()</a></li><li><a href="#readch" class="table-of-contents__link toc-highlight">readch()</a></li><li><a href="#readln" class="table-of-contents__link toc-highlight">readln()</a></li><li><a href="#remove" class="table-of-contents__link toc-highlight">remove()</a></li><li><a href="#rename" class="table-of-contents__link toc-highlight">rename()</a></li><li><a href="#resolve" class="table-of-contents__link toc-highlight">resolve()</a></li><li><a href="#savedlg" class="table-of-contents__link toc-highlight">saveDlg()</a></li><li><a href="#seek" class="table-of-contents__link toc-highlight">seek()</a></li><li><a href="#tell" class="table-of-contents__link toc-highlight">tell()</a></li><li><a href="#tosource" class="table-of-contents__link toc-highlight">toSource()</a></li><li><a href="#tostring" class="table-of-contents__link toc-highlight">toString()</a></li><li><a href="#write" class="table-of-contents__link toc-highlight">write()</a></li><li><a href="#writeln" class="table-of-contents__link toc-highlight">writeln()</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 春日影踪编写组, 基于 Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
