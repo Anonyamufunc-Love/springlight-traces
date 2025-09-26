@@ -6,7 +6,7 @@ toc_max_heading_level: 5
 
 # 别再“無路矢”！—— 部分编码约定
 
-修订日期：2025-7-5
+修订日期：2025-9-26
 
 :::info
 本文旨在列举一些使用 `bolt-cep` 时常见的错误实践，并非一份详尽无遗的清单。
@@ -100,6 +100,106 @@ export const extendscriptConfig = (
 
 然而，如果你想记录，返回中文文本的话，依旧会导致 `TypeError：无法转换为` 错误，笔者认为这可能是一个文件编码问题，也许会试图去解决。
 
+2025/9/26 注：现在终于可以解决这个问题了，下面是解决方案：
+
+#### 逃离 UTF-8
+
+你可以编写自定义的 Rollup 插件来控制代码输出，也就是说，可以编写一个插件，读取代码中的所有中文，然后转成 UTF-8 文本。
+
+```ts
+function unicodeEscapePlugin() {
+  return {
+    name: 'unicode-escape',
+    transform(code: string, id: string) {
+      if (!id.includes('node_modules') && (id.endsWith('.js') || id.endsWith('.ts'))) {
+        let chars = 0;
+        const transformedCode = code.replace(/[^\x00-\x7F]/g, (char) => {
+          chars++;
+          return '\\u' + ('0000' + char.charCodeAt(0).toString(16)).slice(-4);
+        });
+        console.log(`Unicode Escaped ${chars} characters in ${id}`);
+        return {
+          code: transformedCode,
+          map: null,
+        };
+      }
+      return null;
+    },
+  };
+}
+```
+
+然后在 `vite.es.config.ts` 中引用这个插件：
+
+```ts
+export const extendscriptConfig = (
+  extendscriptEntry: string,
+  outPath: string,
+  cepConfig: CEP_Config,
+  extensions: string[],
+  isProduction: boolean,
+  isPackage: boolean,
+) => {
+  console.log(outPath);
+  const config: RollupOptions = {
+    input: extendscriptEntry,
+    treeshake: true,
+    output: {
+      file: outPath,
+      sourcemap: isPackage ? cepConfig.zxp.sourceMap : cepConfig.build?.sourceMap,
+    },
+    plugins: [
+      json(),
+      nodeResolve({
+        extensions,
+      }),
+      babel({
+        extensions,
+        exclude: /node_modules/,
+        babelrc: false,
+        babelHelpers: 'inline',
+        presets: ['@babel/preset-env', '@babel/preset-typescript'],
+        plugins: [
+          '@babel/plugin-syntax-dynamic-import',
+          '@babel/plugin-proposal-class-properties',
+          ['@babel/plugin-transform-classes', { loose: true }],
+        ],
+        // comments: false,
+      }),
+      jsxPonyfill(),
+      jsxInclude({
+        iife: true,
+        globalThis: GLOBAL_THIS,
+      }),
+      cleanup({
+        comments: 'none',
+        extensions: ['.js', '.ts'],
+      }),
+      // highlight-next-line
+      unicodeEscapePlugin(),
+      jsxBin(isPackage ? cepConfig.zxp.jsxBin : cepConfig.build?.jsxBin),
+    ],
+  };
+  // 省略
+};
+```
+
+之后，查看编译结果会发现中文变成了 Unicode 编码，如 `\u4E2D\u6587`。
+
+```ts title="aeft.ts"
+if (!comp || !(comp instanceof CompItem)) {
+  return { success: false, message: '未找到活动的合成' };
+}
+```
+
+```js title="index.js"
+if (!comp || !(comp instanceof CompItem)) {
+  return {
+    success: false,
+    message: '\u672a\u627e\u5230\u6d3b\u52a8\u7684\u5408\u6210'
+  };
+}
+```
 ### *Host 端方法避免传递过于庞大的类型*
 
 :::warning

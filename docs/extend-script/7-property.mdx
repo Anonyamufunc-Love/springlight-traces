@@ -531,6 +531,15 @@ position.setValue([100, 200, 0]);
 
 #### setValueAtTime()
 
+:::warning
+当需要连续设置多个时间点的属性值时，强烈建议将时间和对应的值包装成数组，然后使用 setValuesAtTimes() 方法进行一次性设置。
+
+这种方法的性能远高于多次调用 setValueAtTime()。例如，设置30个关键帧：
+
+- 使用 setValueAtTime()，需要独立调用30次，产生30次操作开销。
+- 使用 setValuesAtTimes()，只需将30个关键帧的数据整合到一个数组中，进行1次调用即可完成，效率显著提升。
+:::
+
 `setValueAtTime()` 方法用于设置指定时间的属性值。
 
 需要提供一个时间值（单位为秒）以及属性值。
